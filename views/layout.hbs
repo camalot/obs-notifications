@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>{{title}}</title>
+	<link rel="stylesheet" href="/stylesheets/style.css" />
+	{{{block 'head'}}}
+</head>
+
+<body>
+	{{{body}}}
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.3/webfont.js"></script>
+
+	<script>
+			function tick() {
+				$('.widget-EventList li:first').slideUp(1000, function () {
+					$(this).appendTo($('.widget-EventList')).slideDown(1000);
+				});
+			}
+			setInterval(function () {
+				tick();
+			}, 10000);
+	</script>
+</body>
+
+</html>

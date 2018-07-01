@@ -1,0 +1,110 @@
+<div class="mdl-grid">
+	<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+		<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+			<form method="post">
+				<input type="hidden" id="account_type_owner" name="account_type" value="Default" />
+				<div class="mdl-card__title mdl-card--expand mdl-color--deep-blue-400 mdl-color-text--white signup-owner-card-image signup-card-image">
+					<h2 class="mdl-card__title-text">Sign up as Data Owner</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					A <b>Data Owner</b> is a user that is looking to track their blood glucose levels. This provides access to import, upload, and enter tracking data. As a <b>Data Owner</b>, you can invite other users to join as a <b>Support User</b> to grant them
+					access to see your data.
+				</div>
+
+				<div class="mdl-card__supporting-text mdl-color-text--grey-600">
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="email_owner">
+							<i class="material-icons">email</i>
+						</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+							<input class="mdl-textfield__input" type="text" name="email" id="email_owner">
+							<label class="mdl-textfield__label" for="email_owner">Email Address</label>
+						</div>
+					</div>
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="password_owner">
+							<i class="material-icons">https</i>
+						</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="password" name="password" id="password_owner">
+							<label class="mdl-textfield__label" for="password_owner">Password</label>
+						</div>
+					</div>
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="verify_password_owner">
+							<i class="material-icons">https</i>
+					 	</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="password" name="verify_password" id="verify_password_owner">
+							<label class="mdl-textfield__label" for="verify_password_owner">Reneter Password</label>
+						</div>
+					</div>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored mdl-button-force-bottom">Sign Up</button>
+				</div>
+				{{!-- <div class="mdl-card__actions mdl-card--border">
+				</div> --}}
+			</form>
+		</div>
+	</div>
+	<div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing">
+		<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--4-col mdl-cell--4-col-tablet mdl-cell--12-col-desktop">
+			<form method="post">
+				<input type="hidden" id="account_type_support" name="account_type" value="Support" />
+				<div class="mdl-card__title mdl-card--expand mdl-color--deep-blue-400 mdl-color-text--white signup-support-card-image signup-card-image">
+					<h2 class="mdl-card__title-text">Sign up as Support User</h2>
+				</div>
+				<div class="mdl-card__supporting-text">
+					A <b>Support User</b> can be sent notifications of changes in the <b>Data Owner's</b> blood glucose levels. They can view history and reporting dashboard. A <b>Support User</b> cannot invite other people to see the data, nor can they import, upload,
+					or enter tracking data. A <b>Support User</b> must be invited by a <b>Data Owner</b>, or have the <i>Access Key</i> that the <b>Data Owner</b> creates in their account.
+				</div>
+
+				<div class="mdl-card__supporting-text mdl-color-text--grey-600">
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="email_support">
+							<i class="material-icons">email</i>
+						</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+							<input class="mdl-textfield__input" type="text" name="email" id="email_support">
+							<label class="mdl-textfield__label" for="email_support">Email Address</label>
+						</div>
+					</div>
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="password_support">
+							<i class="material-icons">https</i>
+						</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="password" name="password" id="password_support">
+							<label class="mdl-textfield__label" for="password_support">Password</label>
+						</div>
+					</div>
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="verify_password_support">
+							<i class="material-icons">https</i>
+					 	</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+							<input class="mdl-textfield__input" type="password" name="verify_password" id="verify_password_support">
+							<label class="mdl-textfield__label" for="verify_password_support">Reneter Password</label>
+						</div>
+					</div>
+					<div>
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="accesskey_support">
+							<i class="material-icons">security</i>
+					 	</label>
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label ">
+							<input class="mdl-textfield__input" type="text" name="accesskey" id="accesskey_support">
+							<label class="mdl-textfield__label" for="accesskey_support">Access Key</label>
+						</div>
+					</div>
+				</div>
+				<div class="mdl-card__supporting-text">
+					<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--colored">Sign Up</button>
+				</div>
+				{{!-- <div class="mdl-card__actions mdl-card--border">
+				</div> --}}
+			</form>
+		</div>
+	</div>
+	{{!-- <div class="mdl-cell mdl-cell--2-col mdl-cell--8-col-tablet mdl-grid mdl-grid--no-spacing"></div> --}}
+</div>
