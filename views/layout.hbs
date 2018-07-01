@@ -14,13 +14,15 @@
 
 	<script>
 			function tick() {
-				$('.widget-EventList li:first').slideUp(1000, function () {
-					$(this).appendTo($('.widget-EventList')).slideDown(1000);
+				$('.widget-EventList li:first').fadeOut(1000, function () {
+					$('.widget-EventList li').fadeOut(0);
+					$(this).appendTo($('.widget-EventList'));
+					$(".widget-EventList li:first").fadeIn(1000, function() {});
 				});
 			}
 			setInterval(function () {
 				tick();
-			}, 10000);
+			}, 5000);
 	</script>
 </body>
 

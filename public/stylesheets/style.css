@@ -5,13 +5,13 @@
 }
 
 html,
-.main-body,
-.widget-EventList li {
+body {
 		font-family: 'Star Jedi', "Roboto", "Helvetica", sans-serif !important;
 		/* -webkit-transform: rotateX(180deg) rotateY(180deg);
 		transform: rotateX(180deg) rotateY(180deg); */
-		
-			background-color: #333;
+		margin: 0;
+		padding: 0;
+		background-color: #0f0;
 }
 
 .background {
@@ -24,7 +24,9 @@ html,
 }
 
 .widget-EventList li {
+		font-family: 'Star Jedi', "Roboto", "Helvetica", sans-serif !important;
 		/* display: none; */
+		text-align: center;
 }
 
 .widget-EventList {
@@ -38,8 +40,8 @@ html,
 		
 		overflow: hidden;
 		list-style: none;
-		padding:0px;
-		margin:0px;
+		padding:0;
+		margin:-30px 0 0 0;
 		padding-top:20px;
 		height: 70px;
 		text-transform: lowercase;
@@ -48,10 +50,14 @@ html,
 }
 
 .widget-EventList li {
-		text-shadow: 0 0 1px rgba(0, 0, 0, 0.7), 0 0 2px rgba(0, 0, 0, 0.7), 0 0 3px rgba(0, 0, 0, 0.7);
+		/* text-shadow: 0 0 4px rgba(0, 0, 0, 0.7), 0 0 5px rgba(0, 0, 0, 0.7), 0 0 6px rgba(0, 0, 0, 0.7); */
+		color: white;
+		-webkit-text-fill-color: white; /* Will override color (regardless of order) */
+		-webkit-text-stroke-width: 1px;
+		-webkit-text-stroke-color: black;
 		margin-top: 1px;
 		text-overflow: ellipsis;
-		padding-left: 38px;
+		padding: 0 0 0 10px;
 		display: block;
 		overflow: hidden;
 		white-space: nowrap;
