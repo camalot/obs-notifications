@@ -2,6 +2,8 @@
 "use strict";
 
 let path = require('path');
+// let watch = require('watch');
+// let reload = require('reload');
 let fs = require('fs');
 let envFile = path.join(__dirname, '../.env');
 try {
@@ -32,6 +34,8 @@ app.set('port', port);
  */
 
 let server = http.createServer(app);
+
+
 
 /**
  * Listen on provided port, on all network interfaces.

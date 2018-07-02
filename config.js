@@ -32,6 +32,9 @@ config.custom = {
 	alltimetop: [
 		"all_time_top_donators",
 		"all_time_top_cheerers"
+	],
+	test: [
+		"current_sub_goal"
 	]
 };
 

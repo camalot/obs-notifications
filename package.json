@@ -29,11 +29,13 @@
     "passport": "^0.3.2",
     "promise": "^7.1.1",
     "quiche": "^0.2.0",
+    "reload": "^2.3.0",
     "request": "^2.79.0",
     "rss": "^1.2.2",
     "serve-favicon": "~2.3.0",
     "sha256": "^0.2.0",
     "shortid": "^2.2.6",
+    "watch": "^1.0.2",
     "zxcvbn": "^4.4.1"
   }
 }

@@ -6,12 +6,12 @@ const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
-
-
-const passport = require('passport');
+const reload = require('reload');
+const watch = require('watch');
 const flash = require('connect-flash');
 const session = require('express-session');
 
+const config = require('./config');
 const app = express();
 
 // view engine setup
@@ -19,28 +19,23 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 require('./lib/hbs/xif');
 require('./lib/hbs/sections');
-// uncomment after placing your favicon in /public
 app.use(favicon(path.join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-// app.use(require('node-sass-middleware')({
-//   src: path.join(__dirname, 'public'),
-//   dest: path.join(__dirname, 'public'),
-//   indentedSyntax: true,
-//   sourceMap: true
-// }));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'node_modules/mdi')));
 
 
 app.use(session({ secret: 'supersecretpassword'}));
-app.use(passport.initialize());
-app.use(passport.session());
 app.use(flash());
-app.use(require('./lib/middleware/user'));
-// require('./config/passport')(passport);
+
+let reloader = reload(app);
+
+watch.watchTree(config.slPath, function (f, curr, prev) {
+	reloader.reload();
+});
 
 require('./routes')(app);
 
