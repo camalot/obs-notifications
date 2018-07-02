@@ -54,6 +54,10 @@ body {
 	text-decoration: none;
 }
 
+.widget-EventList li:not(:first) {
+	display: none;
+}
+
 .widget-EventList li div {
 	display: inline-block;
 }
