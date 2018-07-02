@@ -9,7 +9,8 @@ config.siteHostName = process.env.APP_HOSTNAME || "";
 config.sitePort = process.env.APP_PORT || 3000;
 
 config.slPath = process.env.APP_STREAMLABELS_PATH || "D:\\Data\\OBS\\labels";
-config.transitionSpeed = 10 * 1000;
+config.transitionSpeed = 10000;
+config.animationSpeed = 1000;
 
 
 config.recents = [
@@ -28,7 +29,10 @@ config.goals = [
 
 
 config.custom = {
-
+	alltimetop: [
+		"all_time_top_donators",
+		"all_time_top_cheerers"
+	]
 };
 
 module.exports = config;

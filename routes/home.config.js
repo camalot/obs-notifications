@@ -5,8 +5,9 @@ const merge = require('merge');
 
 let config = {
 	home: {
-		route: '/'
+		route: ['/']
 	}
+
 };
 
 module.exports = merge(xconfig, config);

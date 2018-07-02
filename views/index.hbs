@@ -13,3 +13,22 @@
 		{{/each}}
 	{{/with}}
 </ul>
+{{#section 'scripts'}}
+	<script>
+		$(function () {
+			function tick() {
+				$('.widget-EventList li:first').fadeOut({{config.animationSpeed}}, function () {
+					$('.widget-EventList li').fadeOut(0);
+					$(this).appendTo($('.widget-EventList'));
+					$(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { });
+				});
+			}
+			setInterval(function () {
+				tick();
+			}, {{config.transitionSpeed}});
+			setTimeout(function () {
+				$(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { });
+			}, 500);
+		});
+	</script>
+{{/section}}
