@@ -5,16 +5,30 @@ let config = {};
 // loaded in /bin/www
 // or have them loaded into the environment
 
-config.siteHostName = process.env.APP_HOSTNAME || "gm.bit13.com";
+config.siteHostName = process.env.APP_HOSTNAME || "";
 config.sitePort = process.env.APP_PORT || 3000;
 
-config.slPath = "D:\\Data\\OBS\\labels";
+config.slPath = process.env.APP_STREAMLABELS_PATH || "D:\\Data\\OBS\\labels";
 config.transitionSpeed = 10 * 1000;
+
+
 config.recents = [
-	"subscriber",
-	"resubscriber",
-	"mixer_subscriber",
-	"cheerer",
-	"donator"
+	{ name: "subscriber", type: "subscriber" },
+	{ name: "resubscriber", type: "subscriber" },
+	{ name: "mixer_subscriber", type: "subscriber" },
+	{ name: "cheerer", type: "cheer" },
+	{ name: "donator", type: "donation" }
 ];
+
+config.goals = [
+	"total_subscriber_count",
+	"total_subscriber_score",
+	"donation_goal"
+];
+
+
+config.custom = {
+
+};
+
 module.exports = config;

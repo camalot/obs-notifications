@@ -1,9 +1,15 @@
 {{#section 'head'}}
 <meta http-equiv="refresh" content="120" />
 {{/section}}
-
 <ul class="widget-EventList">
-	{{#each data}}
-		<li><span class="message">{{this}}</span></li>
-	{{/each}}
+	{{#with data}}
+		{{#each items}}
+			<li class="eventItem {{../type}}">
+				<div>
+					<span class="tag">{{../type}}</span>
+					<span class="message">{{this}}</span>
+				</div>
+			</li>
+		{{/each}}
+	{{/with}}
 </ul>
