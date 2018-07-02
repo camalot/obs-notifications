@@ -25,7 +25,6 @@
     "moment-timezone": "^0.5.11",
     "morgan": "~1.7.0",
     "node-2fa": "^1.1.1",
-    "node-sass-middleware": "0.9.8",
     "node-slack": "0.0.7",
     "passport": "^0.3.2",
     "promise": "^7.1.1",
