@@ -10,7 +10,7 @@ properties ([
 ])
 
 
-node ("docker") {
+node ("node") {
 	def ProjectName = "obs-notifications"
 	def slack_notify_channel = null
 
