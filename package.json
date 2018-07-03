@@ -1,11 +1,22 @@
 {
   "name": "obs-notifications",
-  "version": "1.0.0",
+  "version": "1.0.0-snapshot",
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "exec": "nodemon ./bin/www"
+    "exec": "nodemon ./bin/www",
+    "lint": "jshint **/*.js --verbose && eslint .",
+    "cover": "$(npm bin)/istanbul cover --include-all-sources ./node_modules/mocha/bin/_mocha -- test/**/*.tests.js --recursive --reporter spec && codecov",
+    "test": "npm run lint && npm run cover"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/camalot/obs-notifications.git"
+  },
+  "bugs": {
+    "url": "https://github.com/camalot/obs-notifications/issues"
+  },
+  "homepage": "https://github.com/camalot/obs-notifications",
   "dependencies": {
     "async": "^2.1.4",
     "bcrypt-nodejs": "0.0.3",
@@ -20,13 +31,10 @@
     "grvtr": "^0.1.3",
     "hbs": "^4.0.1",
     "lodash": "^4.17.4",
-    "mdi": "^1.7.22",
     "merge": "^1.2.0",
     "moment-timezone": "^0.5.11",
     "morgan": "~1.7.0",
     "node-2fa": "^1.1.1",
-    "node-slack": "0.0.7",
-    "passport": "^0.3.2",
     "promise": "^7.1.1",
     "quiche": "^0.2.0",
     "reload": "^2.3.0",
