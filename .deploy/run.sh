@@ -79,6 +79,6 @@ docker run -d \
     -p ${HTTP_PORT_MAP} \
     -e PUID=1000 -e PGID=1000 \
     -e TZ=America_Chicago \
-		-e APP_STREAMLABELS_PATH=/data
+		-e APP_STREAMLABELS_PATH=/data \
     -v /mnt/data/obs/labels/darthminos:/data \
     -t ${DOCKER_IMAGE};
