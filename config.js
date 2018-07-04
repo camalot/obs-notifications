@@ -30,7 +30,7 @@ config.groups = {
 			"all_time_top_cheerers"
 		]
 	}
-}
+};
 
 if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {
 	throw new Error("'APP_STREAMLABELS_PATH' is not set.");
