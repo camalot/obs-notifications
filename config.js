@@ -23,14 +23,30 @@ config.groups = {
 		"total_subscriber_count",
 		"total_subscriber_score",
 		"donation_goal"
-	],
-	custom : {
-		alltimetop: [
-			"all_time_top_donators",
-			"all_time_top_cheerers"
-		]
-	}
+	]
 };
+
+
+let path = require('path');
+// let watch = require('watch');
+// let reload = require('reload');
+let fs = require('fs');
+let customFile = path.join(__dirname, 'custom.config.json');
+try {
+	fs.accessSync(customFile, fs.F_OK);
+	console.log("loading custom config file");
+	//require(customFile);
+} catch (e) {
+	// no env file
+}
+
+// ,
+// custom: {
+// 	alltimetop: [
+// 		"all_time_top_donators",
+// 		"all_time_top_cheerers"
+// 	]
+// }
 
 if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {
 	throw new Error("'APP_STREAMLABELS_PATH' is not set.");
