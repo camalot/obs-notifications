@@ -43,7 +43,7 @@ PULL_REPOSITORY="${DOCKER_REGISTRY:-"docker.artifactory.bit13.local"}";
 [[ -z "${BUILD_VERSION// }" ]] && __error "Environment variable 'CI_BUILD_VERSION' missing or is empty";
 [[ -z "${BUILD_ORG// }" ]] && __error "Environment variable 'CI_DOCKER_ORGANIZATION' missing or is empty";
 
-HTTP_PORT_MAP="49070:9000";
+HTTP_PORT_MAP="49130:3000";
 
 DOCKER_IMAGE="${BUILD_ORG}/${BUILD_PROJECT}:${BUILD_VERSION}";
 echo "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
@@ -52,7 +52,7 @@ docker pull "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
 
 
 # CHECK IF IT IS CREATED, IF IT IS, THEN DEPLOY
-DC_INFO=$(docker ps --all --format "table {{.Status}}\t{{.Names}}" | awk '/portainer$/ {print $0}');
+DC_INFO=$(docker ps --all --format "table {{.Status}}\t{{.Names}}" | awk '/obs-notifications$/ {print $0}');
 __info "DC_INFO: $DC_INFO";
 DC_STATUS=$(echo "${DC_INFO}" | awk '{print $1}');
 __info "DC_STATUS: $DC_STATUS";
@@ -79,6 +79,6 @@ docker run -d \
     -p ${HTTP_PORT_MAP} \
     -e PUID=1000 -e PGID=1000 \
     -e TZ=America_Chicago \
-    -v /var/run/docker.sock:/var/run/docker.sock \
-    -v /mnt/data/${BUILD_PROJECT}:/data \
+		-e APP_STREAMLABELS_PATH=/data
+    -v /mnt/data/obs/labels/darthminos:/data \
     -t ${DOCKER_IMAGE};

@@ -1,7 +1,7 @@
 #!groovy
 import com.bit13.jenkins.*
 
-def ProjectName = "portainer"
+def ProjectName = "obs-notifications"
 def slack_notify_channel = null
 
 def MAJOR_VERSION = 1
