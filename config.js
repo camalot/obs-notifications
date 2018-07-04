@@ -8,7 +8,7 @@ let config = {};
 config.siteHostName = process.env.APP_HOSTNAME || "";
 config.sitePort = process.env.APP_PORT || 3000;
 
-config.slPath = process.env.APP_STREAMLABELS_PATH || "D:\\Data\\OBS\\labels";
+config.slPath = process.env.APP_STREAMLABELS_PATH;
 config.transitionSpeed = 10000;
 config.animationSpeed = 1000;
 
@@ -37,5 +37,9 @@ config.custom = {
 		"current_sub_goal"
 	]
 };
+
+if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {
+	throw new Error("'APP_STREAMLABELS_PATH' is not set.");
+}
 
 module.exports = config;
