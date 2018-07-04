@@ -1,14 +1,15 @@
 'use strict';
 const express = require('express');
 const router = express.Router();
-const config = require('./home.config');
+const config = require('./bits.config');
 const utils = require('../lib/utils');
 const merge = require('merge');
 const streamlabels = utils.streamlabels;
 
-router.get("/custom/:id", (req, res, next) => {
-	streamlabels.custom(req.params.id).then((data) => {
-		res.render("index", { data: { items: data, type: "custom" }, config: config });
+
+router.get("/", (req, res, next) => {
+	streamlabels.read(`${config.slPath}/session_cheerers.txt`).then((data) => {
+		res.render("index", { data: { items: data, type: "cheer" }, config: config });
 	}).catch((err) => {
 		throw err;
 	});
