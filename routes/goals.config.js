@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	goals: {
-		route: ['/goal']
+		route: ['/goal', '/goals']
 	}
 };
 
