@@ -43,7 +43,7 @@ PULL_REPOSITORY="${DOCKER_REGISTRY:-"docker.artifactory.bit13.local"}";
 [[ -z "${BUILD_VERSION// }" ]] && __error "Environment variable 'CI_BUILD_VERSION' missing or is empty";
 [[ -z "${BUILD_ORG// }" ]] && __error "Environment variable 'CI_DOCKER_ORGANIZATION' missing or is empty";
 
-HTTP_PORT_MAP="49130:3000";
+HTTP_PORT_MAP="49140:3000";
 
 DOCKER_IMAGE="${BUILD_ORG}/${BUILD_PROJECT}:${BUILD_VERSION}";
 echo "${DOCKER_REGISTRY}/${DOCKER_IMAGE}";
