@@ -73,12 +73,13 @@ fi
 
 
 docker run -d \
-    --user 0 \
-    --restart unless-stopped \
-    --name ${BUILD_PROJECT} \
-    -p ${HTTP_PORT_MAP} \
-    -e PUID=1000 -e PGID=1000 \
-    -e TZ=America_Chicago \
-		-e APP_STREAMLABELS_PATH=/data \
-    -v /mnt/data/obs/labels/darthminos:/data \
-    -t ${DOCKER_IMAGE};
+	--user 0 \
+	--restart unless-stopped \
+	--name ${BUILD_PROJECT} \
+	-p ${HTTP_PORT_MAP} \
+	-p 9856:9856 \
+	-e PUID=1000 -e PGID=1000 \
+	-e TZ=America_Chicago \
+	-e APP_STREAMLABELS_PATH=/data \
+	-v /mnt/data/obs/labels/darthminos:/data \
+	-t ${DOCKER_IMAGE};

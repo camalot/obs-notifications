@@ -16,7 +16,7 @@
 {{#section 'scripts'}}
 	<script>
 		$(function () {
-			if($(".widget-EventList li").size > 1) {
+			if($(".widget-EventList li").length > 1) {
 				function tick() {
 					$('.widget-EventList li:first').fadeOut({{config.animationSpeed}}, function () {
 						$('.widget-EventList li').fadeOut(0);

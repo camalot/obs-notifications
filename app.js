@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({ secret: 'supersecretpassword'}));
 app.use(flash());
 
-let reloader = reload(app);
+let reloader = reload(app, { port: 9856 });
 
 watch.watchTree(config.slPath, function (f, curr, prev) {
 	reloader.reload();
