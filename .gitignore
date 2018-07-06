@@ -4,6 +4,7 @@ logs
 *.stackdump
 
 .env
+custom.config.json
 
 # Runtime data
 pids

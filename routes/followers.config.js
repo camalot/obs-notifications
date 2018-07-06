@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	followers: {
-		route: '/follower'
+		route: ['/follower', '/followers']
 	}
 };
 

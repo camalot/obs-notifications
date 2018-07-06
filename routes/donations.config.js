@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	donations: {
-		route: ['/donation']
+		route: ['/donation', '/donations']
 	}
 };
 

@@ -15,7 +15,6 @@ config.groups = {
 	recents :[
 		{ name: "subscriber", type: "subscriber" },
 		{ name: "resubscriber", type: "subscriber" },
-		{ name: "mixer_subscriber", type: "subscriber" },
 		{ name: "cheerer", type: "cheer" },
 		{ name: "donator", type: "donation" }
 	],
@@ -28,25 +27,22 @@ config.groups = {
 
 
 let path = require('path');
-// let watch = require('watch');
-// let reload = require('reload');
 let fs = require('fs');
 let customFile = path.join(__dirname, 'custom.config.json');
+config.groups.custom = {};
 try {
 	fs.accessSync(customFile, fs.F_OK);
 	console.log("loading custom config file");
-	//require(customFile);
+	fs.readFile(customFile, "utf8", (err, data) => {
+		if (!err) {
+			let obj = JSON.parse(data);
+			config.groups.custom = obj;
+		}
+	});
 } catch (e) {
 	// no env file
 }
 
-// ,
-// custom: {
-// 	alltimetop: [
-// 		"all_time_top_donators",
-// 		"all_time_top_cheerers"
-// 	]
-// }
 
 if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {
 	throw new Error("'APP_STREAMLABELS_PATH' is not set.");

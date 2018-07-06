@@ -6,6 +6,7 @@ body {
 	background: transparent none;
 	background-color: #333;
 	box-sizing: border-box;
+	overflow: hidden;
 }
 
 .background {

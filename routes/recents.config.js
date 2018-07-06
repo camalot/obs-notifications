@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	recents: {
-		route: '/recent'
+		route: ['/recent', "/recents"]
 	}
 };
 
