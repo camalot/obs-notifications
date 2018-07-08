@@ -33,7 +33,10 @@ app.use(flash());
 
 let reloader = reload(app, { port: 9856 });
 
-watch.watchTree(config.slPath, function (f, curr, prev) {
+watch.watchTree(config.slPath, {
+	interval: 60,
+	ignoreDotFiles: true
+}, function (f, curr, prev) {
 	reloader.reload();
 });
 
