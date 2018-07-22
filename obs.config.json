@@ -1,15 +1,18 @@
 {
 	"host": "192.168.2.3:4444",
 	"sources": {
-		"travolta" : "ANIMATION-CONFUSED-Raven",
-		"tidy": "ANIMATION-SNOOP-Raven",
+		"travolta-raven" : "ANIMATION-CONFUSED-Raven",
+		"tidy-raven": "ANIMATION-TIDY-Raven",
+		"tidy-redknight": "ANIMATION-TIDY-RedKnight",
 		"jubilations": "ANIMATION-JUBILATIONS-BriteBomber",
 		"reanimated": "ANIMATION-ZOMBIE-BriteBomber",
 		"orange-justice": "ANIMATION-ORANGEJUSTICE-BriteBomber",
 		"infinite-dab": "ANIMATION-INFINITEDAB-RedKnight",
 		"true-love": "ANIMATION-TRUELOVE-RedKnight",
-		"rawr": "ANIMATION-TREX-RedKnight",
+		"rawr": "ANIMATION-RWAR-RedKnight",
 		"facepalm": "ANIMATION-FACEPALM-BriteBomber",
-		"best-mates": "ANIMATION-BESTMATES-BriteBomber"
+		"best-mates": "ANIMATION-BESTMATES-BriteBomber",
+		"makeitrain": "ANIMATION-MAKEITRAIN-RedKnight",
+		"starpower-redknight": "ANIMATION-STARPOWER-RedKnight"
 	}
 }
