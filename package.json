@@ -35,7 +35,8 @@
     "moment-timezone": "^0.5.11",
     "morgan": "~1.7.0",
     "node-2fa": "^1.1.1",
-    "npm": "^6.1.0",
+    "npm": "^6.2.0",
+    "obs-websocket-js": "^1.2.0",
     "promise": "^7.1.1",
     "quiche": "^0.2.0",
     "reload": "^2.3.0",
@@ -43,7 +44,7 @@
     "rss": "^1.2.2",
     "serve-favicon": "~2.3.0",
     "sha256": "^0.2.0",
-    "shortid": "^2.2.6",
+    "shortid": "^2.2.12",
     "watch": "^1.0.2",
     "zxcvbn": "^4.4.1"
   }

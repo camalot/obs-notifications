@@ -1,4 +1,6 @@
 "use strict";
+const merge = require('merge');
+
 let config = {};
 
 // include a `.env` file in the root
@@ -42,6 +44,23 @@ try {
 } catch (e) {
 	// no env file
 }
+
+let obsFile = path.join(__dirname, 'obs.config.json');
+config.obs = merge(config.obs,{});
+config.obs.sources = {};
+try {
+	fs.accessSync(obsFile, fs.F_OK);
+	console.log("loading custom config file");
+	fs.readFile(obsFile, "utf8", (err, data) => {
+		if (!err) {
+			let obj = JSON.parse(data);
+			config.obs = merge(config.obs,obj);
+		}
+	});
+} catch (e) {
+	// no env file
+}
+
 
 
 if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {

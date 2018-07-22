@@ -1,0 +1,15 @@
+{
+	"host": "192.168.2.3:4444",
+	"sources": {
+		"travolta" : "ANIMATION-CONFUSED-Raven",
+		"tidy": "ANIMATION-SNOOP-Raven",
+		"jubilations": "ANIMATION-JUBILATIONS-BriteBomber",
+		"reanimated": "ANIMATION-ZOMBIE-BriteBomber",
+		"orange-justice": "ANIMATION-ORANGEJUSTICE-BriteBomber",
+		"infinite-dab": "ANIMATION-INFINITEDAB-RedKnight",
+		"true-love": "ANIMATION-TRUELOVE-RedKnight",
+		"rawr": "ANIMATION-TREX-RedKnight",
+		"facepalm": "ANIMATION-FACEPALM-BriteBomber",
+		"best-mates": "ANIMATION-BESTMATES-BriteBomber"
+	}
+}
