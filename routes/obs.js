@@ -31,6 +31,22 @@ router.get("/sources/aliases", (req, res, next) => {
 		});
 });
 
+router.get("/sources/aliases/keys", (req, res, next) => {
+	obs
+		.getSourceAliases()
+		.then(data => {
+			let keys = [];
+			for(let x in data) {
+				keys.push(x);
+			}
+			res.json(keys);
+		})
+		.catch(err => {
+			next();
+			throw err;
+		});
+});
+
 
 router.get("/sources/alias/:alias/name", (req, res, next) => {
 	obs
