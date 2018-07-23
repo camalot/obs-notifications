@@ -1,0 +1,98 @@
+{
+	"host": "localhost:4444",
+	"password": "$up3r$ecr3tr@nd0m73><7",
+	"scenes": {
+		"cc": {
+			"name": "INTERMISSION"
+		},
+		"main": {
+			"name": "GAME SCENE"
+		}
+	},
+	"sources": {
+		"filter": "^ANIMATION-.*$",
+		"aliases": {
+			"travolta": {
+				"name": [
+					"ANIMATION-CONFUSED-Travolta",
+					"ANIMATION-CONFUSED-RedKnight",
+					"ANIMATION-CONFUSED-Raven"
+				],
+				"advertise": true,
+				"length": 15000
+			},
+			"oj": {
+				"name": [
+					"ANIMATION-ORANGEJUSTICE-BriteBomber",
+					"ANIMATION-ORANGEJUSTICE-RedKnight"
+				],
+				"advertise": true,
+				"length": 15000
+			},
+			"tidy": {
+				"name": [
+					"ANIMATION-TIDY-RedKnight",
+					"ANIMATION-TIDY-Raven",
+					"ANIMATION-TIDY-Snoop"
+				],
+				"advertise": true,
+				"length": 15000
+			},
+			"jubilations": {
+				"name": ["ANIMATION-JUBILATIONS-BriteBomber"],
+				"advertise": true,
+				"length": 15000
+			},
+			"dab": {
+				"name": ["ANIMATION-INFINITEDAB-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"love": {
+				"name": ["ANIMATION-TRUELOVE-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"rain": {
+				"name": ["ANIMATION-MAKEITRAIN-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"cry": {
+				"name": ["ANIMATION-CRY-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"mates": {
+				"name": ["ANIMATION-BESTMATES-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"facepalm": {
+				"name": ["ANIMATION-FACEPALM-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"star": {
+				"name": ["ANIMATION-STARPOWER-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"rawr": {
+				"name": ["ANIMATION-RWAR-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"reanimated": {
+				"name": ["ANIMATION-ZOMBIE-RedKnight"],
+				"advertise": true,
+				"length": 15000
+			},
+			"bh": {
+				"name": ["ANIMATION-MAKEITRAIN-RedKnight"],
+				"advertise": false,
+				"length": 15000
+			}
+		}
+	}
+}

@@ -1,24 +1,80 @@
-'use strict';
-const express = require('express');
+"use strict";
+const express = require("express");
 const router = express.Router();
-const config = require('./obs.config');
-const utils = require('../lib/utils');
+const config = require("./obs.config");
+const utils = require("../lib/utils");
 const obs = utils.obsstudio;
 
-router.get("/", (req, res, next) => {
-	obs.getSources().then((data) => {
-		res.render("index", { data: { items: data, type: "recents" }, config: config });
-	}).catch((err) => {
-		throw err;
-	});
+router.get("/scenes", (req, res, next) => {});
+
+router.get("/sources", (req, res, next) => {
+	obs
+		.getSources("name", config.obs.sources.filter)
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			next();
+			throw err;
+		});
 });
 
-router.get("/source/:source/:render", (req, res, next) => {
+router.get("/sources/aliases", (req, res, next) => {
+	obs
+		.getSourceAliases()
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			next();
+			throw err;
+		});
+});
+
+
+router.get("/sources/alias/:alias/name", (req, res, next) => {
+	obs
+		.getSourceNameFromAlias(req.params.alias.trim().toLowerCase())
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			throw err;
+		});
+});
+
+router.get("/sources/alias/:alias/", (req, res, next) => {
+	obs
+		.getSourceFromAlias(req.params.alias.trim().toLowerCase())
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			next();
+			throw err;
+		});
+});
+
+
+router.put("/source/:source/visible/:render", (req, res, next) => {
 	let renderValue = req.params.render.trim().toLowerCase();
-	obs.setSourceRender(req.params.source, renderValue === 'true' || renderValue === '1').then((data) => {
-		console.log(data);
-		res.render("index", { data: { items: data, type: "recents" }, config: config });
-	}).catch((err) => {
+	let alias = req.params.source.trim().toLowerCase();;
+	return obs.getSourceNameFromAlias(alias).then(name => {
+		obs
+			.setSourceRender(
+				name,
+				renderValue === "true" || renderValue === "1"
+			)
+			.then(data => {
+				return res.json(data);
+			})
+			.catch(err => {
+				next();
+				throw err;
+			});
+
+	}).catch(err => {
+		next();
 		throw err;
 	});
 });

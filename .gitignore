@@ -5,6 +5,8 @@ logs
 
 .env
 custom.config.json
+obs.config.json
+streamlabels/
 
 # Runtime data
 pids
