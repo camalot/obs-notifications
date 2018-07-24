@@ -12,6 +12,11 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"popcorn": {
+				"name": [ "ANIMATION-POPCORN-RedKnight" ],
+				"advertise": true,
+				"length": 15000
+			},
 			"travolta": {
 				"name": [
 					"ANIMATION-CONFUSED-Travolta",

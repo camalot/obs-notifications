@@ -74,8 +74,9 @@ router.get("/sources/alias/:alias/", (req, res, next) => {
 
 router.put("/source/:source/visible/:render", (req, res, next) => {
 	let renderValue = req.params.render.trim().toLowerCase();
-	let alias = req.params.source.trim().toLowerCase();;
+	let alias = req.params.source.trim().toLowerCase();
 	return obs.getSourceNameFromAlias(alias).then(name => {
+		console.log(name);
 		obs
 			.setSourceRender(
 				name,
@@ -85,12 +86,11 @@ router.put("/source/:source/visible/:render", (req, res, next) => {
 				return res.json(data);
 			})
 			.catch(err => {
-				next();
+				console.log(err);
 				throw err;
 			});
 
 	}).catch(err => {
-		next();
 		throw err;
 	});
 });
