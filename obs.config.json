@@ -12,6 +12,11 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"rip": {
+				"name": [ "ANIMATION-WASTED" ],
+				"advertise": true,
+				"length": 5000
+			},
 			"popcorn": {
 				"name": [ "ANIMATION-POPCORN-RedKnight" ],
 				"advertise": true,
