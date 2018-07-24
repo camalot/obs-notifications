@@ -11,6 +11,5 @@ RUN npm install
 COPY . /usr/src/app
 
 EXPOSE 3000
-EXPOSE 9856
 
 ENTRYPOINT ["npm", "start"]

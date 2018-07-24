@@ -5,7 +5,17 @@ const config = require("./obs.config");
 const utils = require("../lib/utils");
 const obs = utils.obsstudio;
 
-router.get("/scenes", (req, res, next) => {});
+router.get("/scenes", (req, res, next) => {
+	obs
+		.getScenes()
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			console.error(err);
+			throw err;
+		});
+});
 
 router.get("/sources", (req, res, next) => {
 	obs
@@ -14,7 +24,7 @@ router.get("/sources", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
-			next();
+			console.error(err);
 			throw err;
 		});
 });
@@ -26,7 +36,7 @@ router.get("/sources/aliases", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
-			next();
+			console.error(err);
 			throw err;
 		});
 });
@@ -36,17 +46,16 @@ router.get("/sources/aliases/keys", (req, res, next) => {
 		.getSourceAliases()
 		.then(data => {
 			let keys = [];
-			for(let x in data) {
+			for (let x in data) {
 				keys.push(x);
 			}
 			res.json(keys);
 		})
 		.catch(err => {
-			next();
+			console.error(err);
 			throw err;
 		});
 });
-
 
 router.get("/sources/alias/:alias/name", (req, res, next) => {
 	obs
@@ -55,6 +64,7 @@ router.get("/sources/alias/:alias/name", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
+			console.error(err);
 			throw err;
 		});
 });
@@ -66,33 +76,31 @@ router.get("/sources/alias/:alias/", (req, res, next) => {
 			res.json(data);
 		})
 		.catch(err => {
-			next();
+			console.error(err);
 			throw err;
 		});
 });
 
-
 router.put("/source/:source/visible/:render", (req, res, next) => {
 	let renderValue = req.params.render.trim().toLowerCase();
 	let alias = req.params.source.trim().toLowerCase();
-	return obs.getSourceNameFromAlias(alias).then(name => {
-		console.log(name);
-		obs
-			.setSourceRender(
-				name,
-				renderValue === "true" || renderValue === "1"
-			)
-			.then(data => {
-				return res.json(data);
-			})
-			.catch(err => {
-				console.log(err);
-				throw err;
-			});
-
-	}).catch(err => {
-		throw err;
-	});
+	return obs
+		.getSourceNameFromAlias(alias)
+		.then(name => {
+			obs
+				.setSourceRender(name, renderValue === "true" || renderValue === "1")
+				.then(data => {
+					return res.json(data);
+				})
+				.catch(err => {
+					console.error(err);
+					throw err;
+				});
+		})
+		.catch(err => {
+			console.error(err);
+			throw err;
+		});
 });
 
 module.exports = router;

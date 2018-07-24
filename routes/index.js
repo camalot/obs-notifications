@@ -44,13 +44,11 @@ module.exports = (app, passport) => {
 		}
 		if(typeof troute === typeof []) {
 			for (var i = 0; i < troute.length; i++) {
-				console.log(troute[i]);
 				app.use(troute[i], libs[item]);
 			}
 		} else if ( typeof troute === 'function' ) {
 			troute(app, libs[item]);
 		} else {
-			console.log(troute);
 			app.use(troute, libs[item]);
 		}
 	}
