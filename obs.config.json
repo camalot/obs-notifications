@@ -13,12 +13,17 @@
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
 			"rip": {
-				"name": [ "ANIMATION-WASTED" ],
+				"name": [
+					"ANIMATION-WASTED",
+					"ANIMATION-KO"
+				],
 				"advertise": true,
-				"length": 5000
+				"length": 6000
 			},
 			"popcorn": {
-				"name": [ "ANIMATION-POPCORN-RedKnight" ],
+				"name": [
+					"ANIMATION-POPCORN-RedKnight"
+				],
 				"advertise": true,
 				"length": 15000
 			},
@@ -117,6 +122,13 @@
 				],
 				"advertise": true,
 				"length": 15000
+			},
+			"surprise": {
+				"name": [
+					"ANIMATION-SURPRISE"
+				],
+				"advertise": true,
+				"length": 3000
 			},
 			"bh": {
 				"name": [
