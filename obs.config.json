@@ -12,6 +12,11 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"achievement": {
+				"name": ["ANIMATION-ACHIEVEMENT"],
+				"advertise": true,
+				"length": 6000
+			},
 			"rip": {
 				"name": [
 					"ANIMATION-WASTED",
