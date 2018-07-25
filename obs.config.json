@@ -2,18 +2,30 @@
 	"host": "192.168.2.3:4444",
 	"password": null,
 	"scenes": {
-		"cc": {
-			"name": "INTERMISSION",
-			"level": 2
-		},
-		"main": {
-			"name": "GAME SCENE",
-			"level": 2
+		"aliases": {
+			"cc": {
+				"name": "Intermission",
+				"level": 2,
+				"advertise": false
+			},
+			"main": {
+				"name": "GAME SCENE",
+				"level": 2,
+				"advertise": false
+			}
 		}
 	},
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"roboto": {
+				"name": [
+					"ANIMATION-ROBOTO-BriteBomber"
+				],
+				"advertise": true,
+				"length": 15000,
+				"level": 7
+			},
 			"boneless": {
 				"name": [
 					"ANIMATION-BONELESS-Raven"
@@ -23,7 +35,9 @@
 				"level": 7
 			},
 			"achievement": {
-				"name": ["ANIMATION-ACHIEVEMENT"],
+				"name": [
+					"ANIMATION-ACHIEVEMENT"
+				],
 				"advertise": true,
 				"length": 6000,
 				"level": 7

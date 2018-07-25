@@ -5,6 +5,48 @@ const config = require("./obs.config");
 const utils = require("../lib/utils");
 const obs = utils.obsstudio;
 
+router.get("/commands/list", (req, res, next) => {
+	obs.getSceneAliases(true)
+		.then(data => {
+			return new Promise((resolve, reject) => {
+				let commands = [];
+				for (let x in data) {
+					if (data.hasOwnProperty(x)) {
+						commands.push({
+							name: x,
+							level: data[x].level || 2
+						});
+					}
+				}
+				console.log(commands);
+				return resolve(commands);
+			});
+		}).then(data => {
+			return new Promise((resolve, reject) => {
+				obs.getSourceAliases(true)
+				.then(newData => {
+					console.log(data);
+						let commands = [].concat(data);
+						for (let x in newData) {
+							if (newData.hasOwnProperty(x)) {
+								commands.push({
+									name: x,
+									level: newData[x].level || 2
+								});
+							}
+						}
+						return resolve(commands);
+					}).catch(err => {
+						throw err;
+					});
+			});
+		}).then(data => {
+			res.json(data);
+		}).catch(err => {
+			throw err;
+		});
+});
+
 router.get("/scenes", (req, res, next) => {
 	obs
 		.getScenes()
@@ -15,6 +57,39 @@ router.get("/scenes", (req, res, next) => {
 			console.error(err);
 			throw err;
 		});
+});
+
+router.get("/scenes/aliases", (req, res, next) => {
+	obs
+		.getSceneAliases(true)
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			console.error(err);
+			throw err;
+		});
+});
+
+router.get("/scenes/keys", (req, res, next) => {
+	obs
+		.getSceneAliasKeys()
+		.then(data => {
+			res.json(data);
+		})
+		.catch(err => {
+			console.error(err);
+			throw err;
+		});
+});
+
+router.put("/scene/current/:name", (req, res, next) => {
+	obs.setCurrentScene(req.params.name).then(data => {
+		res.json(data);
+	}).catch(err => {
+		console.error(err);
+		throw err;
+	});
 });
 
 router.get("/sources", (req, res, next) => {
