@@ -14,6 +14,14 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"boneless": {
+				"name": [
+					"ANIMATION-BONELESS-Raven"
+				],
+				"advertise": true,
+				"length": 15000,
+				"level": 7
+			},
 			"achievement": {
 				"name": ["ANIMATION-ACHIEVEMENT"],
 				"advertise": true,
@@ -107,7 +115,7 @@
 			},
 			"mates": {
 				"name": [
-					"ANIMATION-BESTMATES-RedKnight"
+					"ANIMATION-BESTMATES-BriteBomber"
 				],
 				"advertise": true,
 				"length": 15000,
@@ -115,7 +123,7 @@
 			},
 			"facepalm": {
 				"name": [
-					"ANIMATION-FACEPALM-RedKnight"
+					"ANIMATION-FACEPALM-BriteBomber"
 				],
 				"advertise": true,
 				"length": 15000,
@@ -131,7 +139,7 @@
 			},
 			"rawr": {
 				"name": [
-					"ANIMATION-RWAR-RedKnight"
+					"ANIMATION-RAWR-RedKnight"
 				],
 				"advertise": true,
 				"length": 15000,
@@ -139,7 +147,7 @@
 			},
 			"reanimated": {
 				"name": [
-					"ANIMATION-ZOMBIE-RedKnight"
+					"ANIMATION-ZOMBIE-BriteBomber"
 				],
 				"advertise": true,
 				"length": 15000,
