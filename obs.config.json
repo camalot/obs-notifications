@@ -18,6 +18,14 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"wiggle": {
+				"name": [
+					"ANIMATION-WIGGLE-BriteBomber"
+				],
+				"advertise": true,
+				"length": 10000,
+				"level": 7
+			},
 			"roboto": {
 				"name": [
 					"ANIMATION-ROBOTO-BriteBomber"
@@ -28,7 +36,8 @@
 			},
 			"boneless": {
 				"name": [
-					"ANIMATION-BONELESS-Raven"
+					"ANIMATION-BONELESS-Raven",
+					"ANIMATION-BONELESS-BriteBomber"
 				],
 				"advertise": true,
 				"length": 15000,
@@ -113,10 +122,11 @@
 			},
 			"rain": {
 				"name": [
-					"ANIMATION-MAKEITRAIN-RedKnight"
+					"ANIMATION-MAKEITRAIN-RedKnight",
+					"ANIMATION-MAKEITRAIN-BriteBomber"
 				],
 				"advertise": true,
-				"length": 15000,
+				"length": 7000,
 				"level": 7
 			},
 			"cry": {
