@@ -3,10 +3,12 @@
 	"password": null,
 	"scenes": {
 		"cc": {
-			"name": "INTERMISSION"
+			"name": "INTERMISSION",
+			"level": 2
 		},
 		"main": {
-			"name": "GAME SCENE"
+			"name": "GAME SCENE",
+			"level": 2
 		}
 	},
 	"sources": {
@@ -15,7 +17,8 @@
 			"achievement": {
 				"name": ["ANIMATION-ACHIEVEMENT"],
 				"advertise": true,
-				"length": 6000
+				"length": 6000,
+				"level": 7
 			},
 			"rip": {
 				"name": [
@@ -23,23 +26,25 @@
 					"ANIMATION-KO"
 				],
 				"advertise": true,
-				"length": 6000
+				"length": 6000,
+				"level": 7
 			},
 			"popcorn": {
 				"name": [
 					"ANIMATION-POPCORN-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"travolta": {
 				"name": [
 					"ANIMATION-CONFUSED-Travolta",
-					"ANIMATION-CONFUSED-RedKnight",
 					"ANIMATION-CONFUSED-Raven"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"oj": {
 				"name": [
@@ -47,7 +52,8 @@
 					"ANIMATION-ORANGEJUSTICE-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"tidy": {
 				"name": [
@@ -56,91 +62,104 @@
 					"ANIMATION-TIDY-Snoop"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"jubilations": {
 				"name": [
 					"ANIMATION-JUBILATIONS-BriteBomber"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"dab": {
 				"name": [
 					"ANIMATION-INFINITEDAB-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"love": {
 				"name": [
 					"ANIMATION-TRUELOVE-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"rain": {
 				"name": [
 					"ANIMATION-MAKEITRAIN-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"cry": {
 				"name": [
 					"ANIMATION-CRY-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"mates": {
 				"name": [
 					"ANIMATION-BESTMATES-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"facepalm": {
 				"name": [
 					"ANIMATION-FACEPALM-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"star": {
 				"name": [
 					"ANIMATION-STARPOWER-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"rawr": {
 				"name": [
 					"ANIMATION-RWAR-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"reanimated": {
 				"name": [
 					"ANIMATION-ZOMBIE-RedKnight"
 				],
 				"advertise": true,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			},
 			"surprise": {
 				"name": [
 					"ANIMATION-SURPRISE"
 				],
 				"advertise": true,
-				"length": 3000
+				"length": 3000,
+				"level": 7
 			},
 			"bh": {
 				"name": [
 					"ANIMATION-MAKEITRAIN-RedKnight"
 				],
 				"advertise": false,
-				"length": 15000
+				"length": 15000,
+				"level": 7
 			}
 		}
 	}

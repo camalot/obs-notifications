@@ -29,9 +29,10 @@ router.get("/sources", (req, res, next) => {
 		});
 });
 
-router.get("/sources/aliases", (req, res, next) => {
+router.get("/sources/aliases/:all?", (req, res, next) => {
+	let all = req.params.all || false;
 	obs
-		.getSourceAliases()
+		.getSourceAliases(all)
 		.then(data => {
 			res.json(data);
 		})
@@ -41,9 +42,10 @@ router.get("/sources/aliases", (req, res, next) => {
 		});
 });
 
-router.get("/sources/aliases/keys", (req, res, next) => {
+router.get("/sources/aliases/keys/:all?", (req, res, next) => {
+	let all = req.params.all || false;
 	obs
-		.getSourceAliases()
+		.getSourceAliases(all)
 		.then(data => {
 			let keys = [];
 			for (let x in data) {
