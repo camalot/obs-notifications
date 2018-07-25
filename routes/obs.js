@@ -71,9 +71,10 @@ router.get("/scenes/aliases", (req, res, next) => {
 		});
 });
 
-router.get("/scenes/keys", (req, res, next) => {
+router.get("/scenes/keys/:all?", (req, res, next) => {
+	let all = (req.params.all || "false").toLowerCase() === "true" || false;
 	obs
-		.getSceneAliasKeys()
+		.getSceneAliasKeys(all)
 		.then(data => {
 			res.json(data);
 		})
