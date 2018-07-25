@@ -18,6 +18,15 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"snoop": {
+				"name": [
+					"ANIMATION-TIDY-Snoop",
+					"ANIMATION-RISEUP-Snoop"
+				],
+				"advertise": true,
+				"length": 10000,
+				"level": 7
+			},
 			"wiggle": {
 				"name": [
 					"ANIMATION-WIGGLE-BriteBomber"
@@ -62,7 +71,8 @@
 			},
 			"popcorn": {
 				"name": [
-					"ANIMATION-POPCORN-RedKnight"
+					"ANIMATION-POPCORN-RedKnight",
+					"ANIMATION-POPCORN-BriteBomber"
 				],
 				"advertise": true,
 				"length": 15000,
@@ -75,6 +85,19 @@
 				],
 				"advertise": true,
 				"length": 15000,
+				"level": 7
+			},
+			"hype": {
+				"name": [
+					"ANIMATION-HYPE-BriteBomber",
+					"ANIMATION-FREESTYLIN-BriteBomber",
+					"ANIMATION-FRESH-BriteBomber",
+					"ANIMATION-CLAP-BriteBomber",
+					"ANIMATION-ELECTROSHUFFLE-BriteBomber",
+					"ANIMATION-SNOOP-RISEUP"
+				],
+				"advertise": true,
+				"length": 10000,
 				"level": 7
 			},
 			"oj": {
@@ -187,7 +210,10 @@
 			},
 			"bh": {
 				"name": [
-					"ANIMATION-MAKEITRAIN-RedKnight"
+					"ANIMATION-MAKEITRAIN-RedKnight",
+					"ANIMATION-MAKEITRAIN-BriteBomber",
+					"ANIMATION-MONEY",
+					"ANIMATION-SNOOP-RISEUP"
 				],
 				"advertise": false,
 				"length": 15000,
