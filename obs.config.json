@@ -19,7 +19,11 @@
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
 			"gg": {
-				"name": [ "ANIMATION-VICTORYROYALE" ],
+				"name": [
+					"ANIMATION-VICTORYROYALE",
+					"ANIMATION-ACHIEVEMENT",
+					"ANIMATION-TOASTY"
+				],
 				"level": 7,
 				"length": 10000,
 				"advertise": true
@@ -56,15 +60,6 @@
 				],
 				"advertise": true,
 				"length": 15000,
-				"level": 7
-			},
-			"achievement": {
-				"name": [
-					"ANIMATION-ACHIEVEMENT",
-					"ANIMATION-TOASTY"
-				],
-				"advertise": true,
-				"length": 6000,
 				"level": 7
 			},
 			"rip": {
