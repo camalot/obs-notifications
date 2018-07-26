@@ -21,7 +21,8 @@
 			"gg": {
 				"name": [ "ANIMATION-VICTORYROYALE" ],
 				"level": 7,
-				"length": 10000
+				"length": 10000,
+				"advertise": true
 			},
 			"snoop": {
 				"name": [
