@@ -18,6 +18,11 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"gg": {
+				"name": [ "ANIMATION-VICTORYROYALE" ],
+				"level": 7,
+				"length": 10000
+			},
 			"snoop": {
 				"name": [
 					"ANIMATION-TIDY-Snoop",
@@ -40,7 +45,7 @@
 					"ANIMATION-ROBOTO-BriteBomber"
 				],
 				"advertise": true,
-				"length": 15000,
+				"length": 10000,
 				"level": 7
 			},
 			"boneless": {
@@ -54,7 +59,8 @@
 			},
 			"achievement": {
 				"name": [
-					"ANIMATION-ACHIEVEMENT"
+					"ANIMATION-ACHIEVEMENT",
+					"ANIMATION-TOASTY"
 				],
 				"advertise": true,
 				"length": 6000,
@@ -63,6 +69,7 @@
 			"rip": {
 				"name": [
 					"ANIMATION-WASTED",
+					"ANIMATION-FATALITY",
 					"ANIMATION-KO"
 				],
 				"advertise": true,
