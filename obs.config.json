@@ -96,7 +96,7 @@
 					"ANIMATION-FREESTYLIN-BriteBomber",
 					"ANIMATION-FRESH-BriteBomber",
 					"ANIMATION-ELECTROSHUFFLE-BriteBomber",
-					"ANIMATION-SNOOP-RISEUP",
+					"ANIMATION-RISEUP-Snoop",
 					"ANIMATION-HYPE"
 				],
 				"advertise": true,
@@ -216,10 +216,10 @@
 					"ANIMATION-MAKEITRAIN-RedKnight",
 					"ANIMATION-MAKEITRAIN-BriteBomber",
 					"ANIMATION-MONEY",
-					"ANIMATION-SNOOP-RISEUP"
+					"ANIMATION-RISEUP-Snoop"
 				],
 				"advertise": false,
-				"length": 15000,
+				"length": 10000,
 				"level": 7
 			}
 		}
