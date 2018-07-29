@@ -28,7 +28,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use(express.static(path.join(__dirname, 'node_modules/mdi')));
 
 
-app.use(session({ secret: 'supersecretpassword'}));
+app.use(session({ 
+	secret: 'supersecretpassword',
+	resave: true,
+	saveUninitialized: true
+}));
 app.use(flash());
 
 let reloader = reload(app, { port: 9856 });

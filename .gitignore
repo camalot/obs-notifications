@@ -3,6 +3,8 @@ logs
 *.log
 *.stackdump
 
+data/*.sqlite
+
 .env
 custom.config.json
 # obs.config.json
