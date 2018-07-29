@@ -4,7 +4,7 @@ const xconfig = require('../config');
 const merge = require('merge');
 
 let config = {
-	obs: {
+	quotes: {
 		route: ['/quotes']
 	}
 };

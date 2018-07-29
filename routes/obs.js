@@ -37,13 +37,13 @@ router.get("/commands/list", (req, res, next) => {
 						}
 						return resolve(commands);
 					}).catch(err => {
-						throw err;
+						return next(err);
 					});
 			});
 		}).then(data => {
-			res.json(data);
+			return res.json(data);
 		}).catch(err => {
-			throw err;
+			return next(err);
 		});
 });
 
@@ -55,7 +55,7 @@ router.get("/scenes", (req, res, next) => {
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -63,11 +63,11 @@ router.get("/scenes/aliases", (req, res, next) => {
 	obs
 		.getSceneAliases(true)
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -76,20 +76,20 @@ router.get("/scenes/keys/:all?", (req, res, next) => {
 	obs
 		.getSceneAliasKeys(all)
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
 router.put("/scene/current/:name", (req, res, next) => {
 	obs.setCurrentScene(req.params.name).then(data => {
-		res.json(data);
+		return res.json(data);
 	}).catch(err => {
 		console.error(err);
-		throw err;
+		return next(err);
 	});
 });
 
@@ -97,11 +97,11 @@ router.get("/sources", (req, res, next) => {
 	obs
 		.getSources("name", config.obs.sources.filter)
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -110,11 +110,11 @@ router.get("/sources/aliases/:all?", (req, res, next) => {
 	obs
 		.getSourceAliases(all)
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -127,11 +127,11 @@ router.get("/sources/keys/:all?", (req, res, next) => {
 			for (let x in data) {
 				keys.push(x);
 			}
-			res.json(keys);
+			return res.json(keys);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -139,11 +139,11 @@ router.get("/sources/alias/:alias/name", (req, res, next) => {
 	obs
 		.getSourceNameFromAlias(req.params.alias.trim().toLowerCase())
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -151,11 +151,11 @@ router.get("/sources/alias/:alias/", (req, res, next) => {
 	obs
 		.getSourceFromAlias(req.params.alias.trim().toLowerCase())
 		.then(data => {
-			res.json(data);
+			return res.json(data);
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
@@ -172,12 +172,12 @@ router.put("/source/:source/visible/:render", (req, res, next) => {
 				})
 				.catch(err => {
 					console.error(err);
-					throw err;
+					return next(err);
 				});
 		})
 		.catch(err => {
 			console.error(err);
-			throw err;
+			return next(err);
 		});
 });
 
