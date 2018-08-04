@@ -82,4 +82,5 @@ docker run -d \
 	-e TZ=America_Chicago \
 	-e APP_STREAMLABELS_PATH=/data \
 	-v /mnt/data/obs/labels/darthminos:/data \
+	-v /mnt/data/${BUILD_PROJECT}/databases:/databases \
 	-t ${DOCKER_IMAGE};

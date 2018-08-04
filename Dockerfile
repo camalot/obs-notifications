@@ -6,9 +6,9 @@ WORKDIR /usr/src/app
 
 COPY package.json /usr/src/app/
 
-RUN mkdir -p /data && \
-	mkdir -p /usr/src/app/data && \
-	ln -s /data /usr/src/app/data
+RUN mkdir -p /databases && \
+	mkdir -p /usr/src/app/databases && \
+	ln -s /databases /usr/src/app/databases
 
 RUN npm install
 
@@ -18,5 +18,6 @@ COPY . /usr/src/app
 EXPOSE 3000
 
 VOLUME [ "/data" ]
+VOLUME [ "/databases" ]
 
 ENTRYPOINT ["npm", "start"]
