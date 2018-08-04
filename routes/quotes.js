@@ -5,10 +5,11 @@ const config = require("./quotes.config");
 const utils = require("../lib/utils");
 
 const database = require("../lib/data/quotes");
+const defaultCategory = "[DEFAULT]";
 
 router.get("/:category?", (req, res, next) => {
-	let cat = req.params.category || null;
-	cat = cat === "" || cat === "null" ? null : cat;
+	let cat = req.params.category || defaultCategory;
+	cat = cat === "" || cat === "null" ? defaultCategory : cat;
 	try {
 		return database.open()
 			.then(() => {
@@ -57,8 +58,8 @@ router.get("/get/:id", (req, res, next) => {
 
 router.get("/random/:category?", (req, res, next) => {
 
-	let cat = (req.params.category || null);
-	cat = cat === "" || cat === "null" ? null : cat;
+	let cat = (req.params.category || defaultCategory);
+	cat = cat === "" || cat === "null" ? defaultCategory : cat;
 	try {
 		return database.open()
 			.then(() => {
@@ -81,8 +82,8 @@ router.get("/random/:category?", (req, res, next) => {
 });
 
 router.post("/:category?", (req, res, next) => {
-	let cat = req.params.category || null;
-	cat = cat === "" || cat === "null" ? null : cat;
+	let cat = req.params.category || defaultCategory;
+	cat = cat === "" || cat === "null" ? defaultCategory : cat;
 	console.log(cat);
 	console.log(req.body);
 	try {
