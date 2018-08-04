@@ -140,7 +140,8 @@
 			},
 			"love": {
 				"name": [
-					"ANIMATION-TRUELOVE-RedKnight"
+					"ANIMATION-TRUELOVE-RedKnight",
+					"ANIMATION-LOVE"
 				],
 				"advertise": true,
 				"length": 15000,
