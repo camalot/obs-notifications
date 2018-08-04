@@ -7,7 +7,7 @@ const utils = require("../lib/utils");
 const database = require("../lib/data/quotes");
 const defaultCategory = "[DEFAULT]";
 
-router.get("/:category?", (req, res, next) => {
+router.get("/list/:category?", (req, res, next) => {
 	let cat = req.params.category || defaultCategory;
 	cat = cat === "" || cat === "null" ? defaultCategory : cat;
 	try {
