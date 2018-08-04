@@ -8,6 +8,7 @@ const database = require("../lib/data/quotes");
 
 router.get("/:category?", (req, res, next) => {
 	let cat = req.params.category || null;
+	cat = cat === "" || cat === "null" ? null : cat;
 	try {
 		return database.open()
 			.then(() => {
@@ -52,7 +53,9 @@ router.get("/get/:id", (req, res, next) => {
 });
 
 router.get("/random/:category?", (req, res, next) => {
-	let cat = req.params.category || null;
+
+	let cat = (req.params.category || null);
+	cat = cat === "" || cat === "null" ? null : cat;
 	try {
 		return database.open()
 			.then(() => {
@@ -71,6 +74,7 @@ router.get("/random/:category?", (req, res, next) => {
 
 router.post("/:category?", (req, res, next) => {
 	let cat = req.params.category || null;
+	cat = cat === "" || cat === "null" ? null : cat;
 	console.log(cat);
 	console.log(req.body);
 	try {
