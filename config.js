@@ -11,6 +11,8 @@ config.siteHostName = process.env.APP_HOSTNAME || "";
 config.sitePort = process.env.APP_PORT || 3000;
 
 config.slPath = process.env.APP_STREAMLABELS_PATH;
+config.databasePath = process.env.APP_DATABASE_PATH;
+
 config.transitionSpeed = 10000;
 config.animationSpeed = 1000;
 config.groups = {
@@ -61,10 +63,13 @@ try {
 	// no env file
 }
 
-
-
 if (config.slPath === "" || config.slPath === null || config.slPath === undefined) {
 	throw new Error("'APP_STREAMLABELS_PATH' is not set.");
+}
+
+
+if (config.databasePath === "" || config.databasePath === null || config.databasePath === undefined) {
+	throw new Error("'APP_DATABASE_PATH' is not set.");
 }
 
 module.exports = config;
