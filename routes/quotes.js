@@ -18,10 +18,11 @@ router.get("/:category?", (req, res, next) => {
 			}).then(() => {
 				database.close();
 			}).catch(err => {
+				console.error(err);
 				return next(err);
 			});
 	} catch (err) {
-
+		console.error(err);
 		return next(err);
 	}
 });
@@ -44,9 +45,11 @@ router.get("/get/:id", (req, res, next) => {
 				return database.close();
 			})
 			.catch(err => {
+				console.error(err);
 				return next(new Error(err));
 			});
 	} catch (err) {
+		console.error(err);
 		return next(err);
 	}
 
@@ -59,15 +62,20 @@ router.get("/random/:category?", (req, res, next) => {
 	try {
 		return database.open()
 			.then(() => {
+				console.log(`random: ${cat}`);
 				return database.random(cat);
 			}).then(data => {
+				console.log(`data: ${data}`);
 				return res.json(data);
 			}).then(() => {
+				console.log(`close`);
 				return database.close();
 			}).catch(err => {
+				console.error(err);
 				return next(err);
 			});
 	} catch (err) {
+		console.error(err);
 		return next(err);
 	}
 });
@@ -94,6 +102,7 @@ router.post("/:category?", (req, res, next) => {
 				return next(err);
 			});
 	} catch (err) {
+		console.error(err);
 		return next(err);
 	}
 });
@@ -113,9 +122,11 @@ router.delete("/:id", (req, res, next) => {
 			.then(() => {
 				return database.close();
 			}).catch(err => {
-
+				console.error(err);
+				return next(err);
 			});
 	} catch (err) {
+		console.error(err);
 		return next(err);
 	}
 });
