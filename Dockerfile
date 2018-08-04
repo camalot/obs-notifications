@@ -7,7 +7,6 @@ WORKDIR /usr/src/app
 COPY package.json /usr/src/app/
 
 RUN mkdir -p /databases && \
-	mkdir -p /usr/src/app/databases && \
 	ln -s /databases /usr/src/app/databases
 
 RUN npm install
