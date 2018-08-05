@@ -4,7 +4,8 @@ const router = express.Router();
 const config = require("./quotes.config");
 const utils = require("../lib/utils");
 
-const database = require("../lib/data/quotes");
+const Database = require("../lib/data/database");
+let database = new Database("quotes");
 const defaultCategory = "[DEFAULT]";
 
 router.get("/list/:category?", (req, res, next) => {
@@ -13,11 +14,11 @@ router.get("/list/:category?", (req, res, next) => {
 	try {
 		return database.open()
 			.then(() => {
-				return database.all(cat);
+				return database.tables.quotes.all(cat);
 			}).then(data => {
 				return res.json(data);
 			}).then(() => {
-				database.close();
+				return database.close();
 			}).catch(err => {
 				console.error(err);
 				return next(new Error(err));
@@ -36,8 +37,7 @@ router.get("/get/:id", (req, res, next) => {
 		}
 		return database.open()
 			.then(() => {
-				console.log("geting row: " + rowid);
-				return database.get(rowid);
+				return database.tables.quotes.get(rowid);
 			})
 			.then((data) => {
 				return res.json(data);
@@ -64,7 +64,7 @@ router.get("/random/:category?", (req, res, next) => {
 		return database.open()
 			.then(() => {
 				console.log(`random: ${cat}`);
-				return database.random(cat);
+				return database.tables.quotes.random(cat);
 			}).then(data => {
 				console.log(`data: ${data}`);
 				return res.json(data);
@@ -81,15 +81,32 @@ router.get("/random/:category?", (req, res, next) => {
 	}
 });
 
-router.post("/:category?", (req, res, next) => {
-	let cat = req.params.category || defaultCategory;
-	cat = cat === "" || cat === "null" ? defaultCategory : cat;
-	console.log(cat);
-	console.log(req.body);
+router.get("/categories", (req, res, next) => {
 	try {
 		return database.open()
 			.then(() => {
-				return database.add({
+				return database.tables.categories.all();
+			}).then((data) => {
+				return res.json(data);
+			}).then(() => {
+				return database.close();
+			}).catch(err => {
+				console.error(err);
+				return next(new Error(err));
+			});
+	} catch (err) {
+		console.error(err);
+		return next(err);
+	}
+});
+
+router.post("/:category?", (req, res, next) => {
+	let cat = req.params.category || defaultCategory;
+	cat = cat === "" || cat === "null" ? defaultCategory : cat;
+	try {
+		return database.open()
+			.then(() => {
+				return database.tables.quotes.add({
 					category: cat,
 					text: req.body.text,
 					user: req.body.user
@@ -116,7 +133,7 @@ router.delete("/:id", (req, res, next) => {
 		}
 		return database.open()
 			.then(() => {
-				return database.remove(rowid);
+				return database.tables.quotes.remove(rowid);
 			}).then(() => {
 				return res.json({ status: "ok" });
 			})

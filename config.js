@@ -52,7 +52,7 @@ config.obs = merge(config.obs,{});
 config.obs.sources = {};
 try {
 	fs.accessSync(obsFile, fs.F_OK);
-	console.log("loading custom config file");
+	console.log("loading obs config file");
 	fs.readFile(obsFile, "utf8", (err, data) => {
 		if (!err) {
 			let obj = JSON.parse(data);
