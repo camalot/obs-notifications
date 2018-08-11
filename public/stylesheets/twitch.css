@@ -1,0 +1,15 @@
+body, html {
+	height: 100%;
+}
+
+.twitch-embed {
+	display: inline-block;
+	height: 100vh;
+	width: 100vw;
+	min-height: 700px;
+	/* position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0; */
+}

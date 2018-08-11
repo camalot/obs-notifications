@@ -31,11 +31,11 @@ router.get("/", (req, res, next) => {
 	}
 });
 
-router.get("/:id", (req, res, next) => {
+router.get("/get/:id?", (req, res, next) => {
 	try {
 		database.open()
 			.then(() => {
-				return database.tables.history.points(req.params.id);
+				return database.tables.history.points((req.params.id || req.body.text));
 			})
 			.then(data => {
 				return res.json(data);

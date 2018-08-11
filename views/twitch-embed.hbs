@@ -1,0 +1,26 @@
+ {{#section 'head'}}
+<link rel="stylesheet" href="/stylesheets/twitch.css" />
+{{/section}}
+
+<div class="twitch-embed" id="twitch-embed"></div>
+
+{{#section 'scripts'}}
+<script src="https://embed.twitch.tv/embed/v1.js"></script>
+
+<script type="text/javascript">
+	new Twitch.Embed("twitch-embed", {
+		width: "{{data.width}}",
+		height: "{{data.height}}",
+		channel: "{{data.channel}}",
+		allowfullscreen: "{{data.allowfullscreen}}",
+		theme: "{{data.theme}}",
+		chat: "{{data.chat}}"
+	});
+</script>
+
+<script>
+	(function betterttv() {
+		var script = document.createElement('script'); script.type = 'text/javascript'; script.src = 'https://cdn.betterttv.net/betterttv.js';
+		var head = document.getElementsByTagName('head')[0]; if (!head) return; head.appendChild(script);
+	})();
+</script> {{/section}}
