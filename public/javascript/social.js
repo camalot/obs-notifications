@@ -21,7 +21,7 @@
 					$this
 						.addClass("hide-popup")
 						
-						.delay(500)
+						.delay(1000)
 						.queue(function() {
 							$(this)
 								.removeClass("hide-popup")
