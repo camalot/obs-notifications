@@ -179,7 +179,6 @@ let pattern = /^APP_SOCIAL_ACCOUNT_(.+?)$/i;
 for(let e in process.env) {
 	let m = pattern.exec(e);
 	if(m && m[1]) {
-		console.debug(m[1]);
 		let id = m[1];
 		let account_id = id.toLowerCase();
 		let bgColor = getAccountBGColor(id);
@@ -189,7 +188,7 @@ for(let e in process.env) {
 			background: bgColor,
 			background2: getAccountBGSecondaryColor(id),
 			image: getAccountImage(id)
-		}
+		};
 	}
 }
 

@@ -63,7 +63,7 @@
 
 You can create custom entries by using the following ENVIRONMENT VARIABLES:
 
-- `APP_SOCIAL_<SOCIAL_NAME>`: SOCIAL_NAME must be unique.
+- `APP_SOCIAL_ACCOUNT_<SOCIAL_NAME>`: SOCIAL_NAME must be unique.
 - `APP_SOCIAL_CUSTOM_BACKGROUND_<SOCIAL_NAME>`: The background color. If not set, it will use the default of `#000`.
 - `APP_SOCIAL_CUSTOM_BACKGROUND2_<SOCIAL_NAME>`: The secondary background color. If not set, the `APP_SOCIAL_BGADJUSTMENT` will adjust the set background color.
 - `APP_SOCIAL_CUSTOM_COLOR_<SOCIAL_NAME>`: The foreground color. If not set, it will use the default of `#fff`.
