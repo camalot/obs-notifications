@@ -81,7 +81,6 @@ docker run -d \
 	-e PUID=1000 -e PGID=1000 \
 	-e TZ=America_Chicago \
 	-e APP_STREAMLABELS_PATH=/data \
-	-e APP_DATABASE_PATH=/databases \
 	-v /mnt/data/obs/labels/darthminos:/data \
 	-v /mnt/data/${BUILD_PROJECT}/databases:/databases \
 	-t ${DOCKER_IMAGE};

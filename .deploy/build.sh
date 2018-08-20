@@ -40,14 +40,16 @@ WORKDIR="${WORKSPACE:-"$(pwd)"}";
 [[ -z "${ARTIFACTORY_USERNAME// }" ]] && __error "Environment variable 'ARTIFACTORY_USERNAME' missing or empty.";
 [[ -z "${ARTIFACTORY_PASSWORD// }" ]] && __error "Environment variable 'ARTIFACTORY_PASSWORD' missing or empty.";
 
-	tag="${BUILD_ORG}/${BUILD_PROJECT}";
-	tag_name_latest="${tag}:latest";
-	tag_name_ver="${tag}:${BUILD_VERSION}";
-	docker build ${opt_force}--pull \
-		--build-arg BUILD_VERSION="${BUILD_VERSION}" \
-		--build-arg PROJECT_NAME="${BUILD_PROJECT}" \
-		--tag "${tag_name_ver}" \
-		-f "${WORKDIR}/Dockerfile" .;
+curl "https://gist.githubusercontent.com/camalot/6b81f824b49d646752aa99ab781053d3/raw/5b99aa9cf82957744a23186e4ea4add8ec18c1a2/obs-notification.env" --silent --output "${WORKDIR}/.env";
+
+tag="${BUILD_ORG}/${BUILD_PROJECT}";
+tag_name_latest="${tag}:latest";
+tag_name_ver="${tag}:${BUILD_VERSION}";
+docker build ${opt_force}--pull \
+	--build-arg BUILD_VERSION="${BUILD_VERSION}" \
+	--build-arg PROJECT_NAME="${BUILD_PROJECT}" \
+	--tag "${tag_name_ver}" \
+	-f "${WORKDIR}/Dockerfile" .;
 
 	# This will NOT push `tag:latest` if the build version is `1.0.0-snapshot`. It will still push the `1.0.0-snapshot` build.
 	[[ ! $BUILD_VERSION =~ -snapshot$ ]] && \
