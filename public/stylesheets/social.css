@@ -4,18 +4,28 @@ body {
 
 
 #popup-container {
-  width: 470px;
+	min-width: 60px;
   height: 60px;
   position: absolute;
-  top: 0;
-  left: 0;
   overflow: hidden;
+	top: 0;
 }
+#popup-container.position-right {
+	left: auto;
+	right: 0;
+}
+
+#popup-container.position-left {
+	width: 470px;
+	left: 0;
+	right: auto;
+}
+
 .popup {
   width: 470px;
   height: 60px;
-  background: #fff;
-  display: none;
+	background: #fff;
+	display: none;
 }
 .popup .left {
   position: relative;
@@ -33,247 +43,6 @@ body {
   text-align: center;
   color: #fff;
 }
-.twitter-pop {
-	background: #4b9bd8;
-}
-.twitter-pop .username span {
-	color: #fff;
-}
-.popup .left .twitter:before {
-  background: #4b9bd8 url('../images/social/twitter.png') no-repeat 10px 10px;
-}
-
-.facebook-pop {
-	background: #3a5795;
-}
-.facebook-pop .username span {
-	color: #fff;
-}
-.popup .left .facebook:before {
-  background: #3a5795 url('../images/social/facebook.png') no-repeat 10px 10px;
-}
-
-.instagram-pop {
-	background: #44749c;
-}
-.instagram-pop .username span {
-	color: #fff;
-}
-.popup .left .instagram:before {
-  background: #44749c url('../images/social/instagram.png') no-repeat 10px 10px;
-}
-
-
-.youtube-pop {
-	background: #ec2727;
-}
-.youtube-pop .username span {
-	color: #fff;
-}
-.popup .left .youtube:before {
-  background: #ec2727 url('../images/social/youtube.png') no-repeat 10px 10px;
-}
-
-.paypal-pop {
-	background: #005082;
-}
-.paypal-pop .username span {
-	color: #fff;
-}
-.popup .left .paypal:before {
-  background: #005082 url('../images/social/paypal.png') no-repeat 10px 10px;
-}
-
-.twitch-pop {
-	background: #6542a6;
-}
-.twitch-pop .username span {
-	color: #fff;
-}
-.popup .left .twitch:before {
-  background: #6542a6 url('../images/social/twitch.png') no-repeat 10px 10px;
-}
-
-.mixer-pop {
-	background: #1c202e;
-}
-.mixer-pop .username span {
-	color: #fff;
-}
-.popup .left .mixer:before {
-  background: #1c202e url('../images/social/mixer.png') no-repeat 10px 10px;
-}
-
-.tumblr-pop {
-	background: #324f6d;
-}
-.tumblr-pop .username span {
-	color: #fff;
-}
-.popup .left .tumblr:before {
-  background: #324f6d url('../images/social/tumblr.png') no-repeat 10px 10px;
-}
-
-.patreon-pop {
-	background: #e6461a;
-}
-.patreon-pop .username span {
-	color: #fff;
-}
-.popup .left .patreon:before {
-  background: #e6461a url('../images/social/patreon.png') no-repeat 10px 10px;
-}
-
-.snapchat-pop {
-	background: #fffc00;
-}
-.snapchat-pop .username span {
-	color: #000;
-}
-.popup .left .snapchat:before {
-  background: #fffc00 url('../images/social/snapchat.png') no-repeat 10px 10px;
-}
-
-.steam-pop {
-	background: #000;
-}
-.steam-pop .username span {
-	color: #fff;
-}
-.popup .left .steam:before {
-  background: #000 url('../images/social/steam.png') no-repeat 10px 10px;
-}
-
-.xbox-pop {
-	background: #117d10;
-}
-.xbox-pop .username span {
-	color: #fff;
-}
-.popup .left .xbox:before {
-  background: #117d10 url('../images/social/xbox.png') no-repeat 10px 10px;
-}
-
-.psn-pop {
-	background: #0b266b;
-}
-.psn-pop .username span {
-	color: #fff;
-}
-.popup .left .psn:before {
-  background: #0b266b url('../images/social/psn.png') no-repeat 10px 10px;
-}
-
-.origin-pop {
-	background: #f05a22;
-}
-.origin-pop .username span {
-	color: #fff;
-}
-.popup .left .origin:before {
-  background: #f05a22 url('../images/social/origin.png') no-repeat 10px 10px;
-}
-
-.uplay-pop {
-	background: #4891cb;
-}
-.uplay-pop .username span {
-	color: #000;
-}
-.popup .left .uplay:before {
-  background: #4891cb url('../images/social/uplay.png') no-repeat 10px 10px;
-}
-
-.nintendo-pop {
-	background: #f68b33;
-}
-.nintendo-pop .username span {
-	color: #fff;
-}
-.popup .left .nintendo:before {
-  background: #f68b33 url('../images/social/nintendo.png') no-repeat 10px 10px;
-}
-
-.battlenet-pop {
-	background: #0081B4;
-}
-.battlenet-pop .username span {
-	color: #fff;
-}
-.popup .left .battlenet:before {
-  background: #0081B4 url('../images/social/battlenet.png') no-repeat 10px 10px;
-}
-
-.deviantart-pop {
-	background: #05cc47;
-}
-.deviantart-pop .username span {
-	color: #fff;
-}
-.popup .left .deviantart:before {
-  background: #05cc47 url('../images/social/deviantart.png') no-repeat 10px 10px;
-}
-
-.reddit-pop {
-	background: #fff;
-}
-.reddit-pop .username span {
-	color: #000;
-}
-.popup .left .reddit:before {
-  background: #fff url('../images/social/reddit.png') no-repeat 10px 10px;
-}
-
-.gamewisp-pop {
-	background: #f8a853;
-}
-.gamewisp-pop .username span {
-	color: #000;
-}
-.popup .left .gamewisp:before {
-  background: #f8a853 url('../images/social/gamewisp.png') no-repeat 10px 10px;
-}
-
-.playstv-pop {
-	background: #35373b;
-}
-.playstv-pop .username span {
-	color: #fff;
-}
-.popup .left .playstv:before {
-  background: #35373b url('../images/social/playstv.png') no-repeat 10px 10px;
-}
-
-.store-pop {
-	background: #ad3e27;
-}
-.store-pop .username span {
-	color: #fff;
-}
-.popup .left .store:before {
-  background: #ad3e27 url('../images/social/store.png') no-repeat 10px 10px;
-}
-
-.discord-pop {
-	background: #7289DA;
-}
-.discord-pop .username span {
-	color: #fff;
-}
-.popup .left .discord:before {
-  background: #7289DA url('../images/social/discord.png') no-repeat 10px 10px;
-}
-
-
-.github-pop {
-	background: #000;
-}
-.github-pop .username span {
-	color: #fff;
-}
-.popup .left .github:before {
-  background: #000 url('../images/social/github.png') no-repeat 10px 10px;
-}
 
 .popup .right {
   position: relative;
@@ -287,67 +56,129 @@ body {
   white-space: nowrap;
   font-family: 'Montserrat';
   animation: popup-text 2s 1 ease-out;
-  -webkit-animation: popup-text 2s 1 ease-out;
+	-webkit-animation: popup-text 2s 1 ease-out;
+	text-align: center;
 }
 .popup .right span {
   white-space: nowrap;
 }
 @keyframes popup-text {
   0% {
-		/* color: rgba(16, 16, 16, 0); */
 		opacity: 0;
     text-indent: -10px;
   }
   40% {
-    /* color: rgba(16, 16, 16, 0); */
 		opacity: 0;
     text-indent: -10px;
   }
   50% {
-    /* color: rgba(16, 16, 16, 1); */
 		opacity: .5;
     text-indent: 0px;
   }
   100% {
 		opacity: 1;
-    /* color: rgba(16, 16, 16, 1); */
     text-indent: 0px;
   }
 }
 @-webkit-keyframes popup-text {
   0% {
-    /* color: rgba(16, 16, 16, 0); */
 		opacity: 0;
     text-indent: -10px;
   }
   40% {
-    /* color: rgba(16, 16, 16, 0); */
    opacity: 0;
    text-indent: -10px;
   }
   50% {
-    /* color: rgba(22, 16, 16, 1); */
 		opacity: .5;
     text-indent: 0px;
   }
   100% {
-    /* color: rgba(16, 16, 16, 1); */
 		opacity: 1;
     text-indent: 0px;
   }
 }
+
+
 .show-popup {
   display: block;
-  animation: popup 1s 1 ease-out;
-  -webkit-animation: popup 1s 1 ease-out;
+  animation: popup-in 1s 1 ease-out;
+  -webkit-animation: popup-in 1s 1 ease-out;
 }
-@keyframes popup {
+
+.hide-popup {
+  display: block;
+  animation: popup-out 1s 1 ease-out;
+  -webkit-animation: popup-out 1s 1 ease-out;
+}
+
+@keyframes popup-out {
+  0% {
+    width: 470px;
+    margin-top: 0px;
+		opacity: 1;
+  }
+  20% {
+    width: 470px;
+		margin-top: 0px;
+		opacity: 1;
+	}
+	49% {
+		width: 60px;
+		margin-top: 0px;
+		opacity: 1;
+	}
+  50% {
+		width: 60px;
+		margin-top: 0px;
+		opacity: 1;
+  }
+  100% {
+		opacity: 0;
+		width: 0px;
+		margin-top: 0px;
+	}
+}
+@-webkit-keyframes popup-out {
+  0% {
+    width: 470px;
+    margin-top: 0px;
+		opacity: 1;
+  }
+  20% {
+    width: 470px;
+		margin-top: 0px;
+		opacity: 1;
+	}
+	49% {
+		width: 60px;
+		margin-top: 0px;
+		opacity: 1;
+	}
+  50% {
+		width: 60px;
+		margin-top: 0px;
+		opacity: 1;
+  }
+  100% {
+		opacity: 0;
+		width: 0px;
+		margin-top: 0px;
+	}
+}
+
+@keyframes popup-in {
   0% {
     width: 60px;
-    margin-top: -10px;
+    margin-top: 0px;
     opacity: 0;
   }
   20% {
+		width: 60px;
+		margin-top: 0px;
+    opacity: 1;
+	}
+	25% {
     width: 60px;
     margin-top: 0px;
     opacity: 1;
@@ -359,13 +190,18 @@ body {
     width: 470px;
   }
 }
-@-webkit-keyframes popup {
+@-webkit-keyframes popup-in {
   0% {
     width: 60px;
-    margin-top: -10px;
+    margin-top: 0px;
     opacity: 0;
   }
   20% {
+		width: 60px;
+		margin-top: 0px;
+    opacity: 1;
+	}
+	25% {
     width: 60px;
     margin-top: 0px;
     opacity: 1;

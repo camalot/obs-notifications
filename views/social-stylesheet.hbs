@@ -1,0 +1,11 @@
+{{#each config.social.accounts}}
+.{{@key}}-pop {
+	background: {{background2}};
+}
+.{{@key}}-pop .username span {
+	color: {{color}};
+}
+.popup .left .{{@key}}:before {
+  background: {{background}} url('{{image}}') no-repeat 10px 10px;
+}
+{{/each}}

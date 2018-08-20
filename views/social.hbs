@@ -1,196 +1,14 @@
-<div id="popup-container">
-	<div class="popup twitter-pop" data-box="enableTwitter">
+<div id="popup-container" class="position-{{position}}">
+	{{#each config.social.accounts}}
+	<div class="popup {{@key}}-pop animate-popup">
 		<div class="left">
-			<span class="twitter"></span>
+			<span class="{{@key}}"></span>
 		</div>
 		<div class="right username">
-			<span data-name="twitter"></span>
+			<span data-name="{{@key}}"></span>
 		</div>
 	</div>
-	<div class="popup facebook-pop" data-box="enableFacebook">
-		<div class="left">
-			<span class="facebook"></span>
-		</div>
-		<div class="right username">
-			<span data-name="facebook"></span>
-		</div>
-	</div>
-	<div class="popup instagram-pop" data-box="enableInstagram">
-		<div class="left">
-			<span class="instagram"></span>
-		</div>
-		<div class="right username">
-			<span data-name="instagram"></span>
-		</div>
-	</div>
-	<div class="popup youtube-pop" data-box="enableYoutube">
-		<div class="left">
-			<span class="youtube"></span>
-		</div>
-		<div class="right username">
-			<span data-name="youtube"></span>
-		</div>
-	</div>
-	<div class="popup tumblr-pop" data-box="enableTumblr">
-		<div class="left">
-			<span class="tumblr"></span>
-		</div>
-		<div class="right username">
-			<span data-name="tumblr"></span>
-		</div>
-	</div>
-	<div class="popup twitch-pop" data-box="enableTwitch">
-		<div class="left">
-			<span class="twitch"></span>
-		</div>
-		<div class="right username">
-			<span data-name="twitch"></span>
-		</div>
-	</div>
-	<div class="popup mixer-pop" data-box="enableMixer">
-		<div class="left">
-			<span class="mixer"></span>
-		</div>
-		<div class="right username">
-			<span data-name="mixer"></span>
-		</div>
-	</div>
-	<div class="popup paypal-pop" data-box="enablePaypal">
-		<div class="left">
-			<span class="paypal"></span>
-		</div>
-		<div class="right username">
-			<span data-name="paypal"></span>
-		</div>
-	</div>
-	<div class="popup patreon-pop" data-box="enablePatreon">
-		<div class="left">
-			<span class="patreon"></span>
-		</div>
-		<div class="right username">
-			<span data-name="patreon"></span>
-		</div>
-	</div>
-	<div class="popup snapchat-pop" data-box="enableSnapchat">
-		<div class="left">
-			<span class="snapchat"></span>
-		</div>
-		<div class="right username">
-			<span data-name="snapchat"></span>
-		</div>
-	</div>
-	<div class="popup steam-pop" data-box="enableSteam">
-		<div class="left">
-			<span class="steam"></span>
-		</div>
-		<div class="right username">
-			<span data-name="steam"></span>
-		</div>
-	</div>
-	<div class="popup xbox-pop" data-box="enableXbox">
-		<div class="left">
-			<span class="xbox"></span>
-		</div>
-		<div class="right username">
-			<span data-name="xbox"></span>
-		</div>
-	</div>
-	<div class="popup psn-pop" data-box="enablePsn">
-		<div class="left">
-			<span class="psn"></span>
-		</div>
-		<div class="right username">
-			<span data-name="psn"></span>
-		</div>
-	</div>
-	<div class="popup origin-pop" data-box="enableOrigin">
-		<div class="left">
-			<span class="origin"></span>
-		</div>
-		<div class="right username">
-			<span data-name="origin"></span>
-		</div>
-	</div>
-	<div class="popup uplay-pop" data-box="enableUplay">
-		<div class="left">
-			<span class="uplay"></span>
-		</div>
-		<div class="right username">
-			<span data-name="uplay"></span>
-		</div>
-	</div>
-	<div class="popup nintendo-pop" data-box="enableNintendo">
-		<div class="left">
-			<span class="nintendo"></span>
-		</div>
-		<div class="right username">
-			<span data-name="nintendo"></span>
-		</div>
-	</div>
-	<div class="popup battlenet-pop" data-box="enableBattleNet">
-		<div class="left">
-			<span class="battlenet"></span>
-		</div>
-		<div class="right username">
-			<span data-name="battlenet"></span>
-		</div>
-	</div>
-	<div class="popup deviantart-pop" data-box="enableDeviantArt">
-		<div class="left">
-			<span class="deviantart"></span>
-		</div>
-		<div class="right username">
-			<span data-name="deviantart"></span>
-		</div>
-	</div>
-	<div class="popup reddit-pop" data-box="enableReddit">
-		<div class="left">
-			<span class="reddit"></span>
-		</div>
-		<div class="right username">
-			<span data-name="reddit"></span>
-		</div>
-	</div>
-	<div class="popup gamewisp-pop" data-box="enableGameWisp">
-		<div class="left">
-			<span class="gamewisp"></span>
-		</div>
-		<div class="right username">
-			<span data-name="gamewisp"></span>
-		</div>
-	</div>
-	<div class="popup playstv-pop" data-box="enablePlaysTv">
-		<div class="left">
-			<span class="playstv"></span>
-		</div>
-		<div class="right username">
-			<span data-name="playstv"></span>
-		</div>
-	</div>
-	<div class="popup discord-pop" data-box="enableDiscord">
-		<div class="left">
-			<span class="discord"></span>
-		</div>
-		<div class="right username">
-			<span data-name="discord"></span>
-		</div>
-	</div>
-	<div class="popup store-pop" data-box="enableStore">
-		<div class="left">
-			<span class="store"></span>
-		</div>
-		<div class="right username">
-			<span data-name="store"></span>
-		</div>
-	</div>
-	<div class="popup github-pop" data-box="enableGithub">
-		<div class="left">
-			<span class="github"></span>
-		</div>
-		<div class="right username">
-			<span data-name="github"></span>
-		</div>
-	</div>
+	{{/each}}
 </div>
 
 {{#section 'scripts'}}
@@ -198,112 +16,31 @@
 	var settings = {
 		// Simply change the name in quotes with your name
 		social: {
-			// Twitch Name
-			twitch: "{{config.social.accounts.twitch}}",
-			// Mixer Name
-			mixer: "{{config.social.accounts.mixer}}",
-			// Twitter Name
-			twitter: "{{config.social.accounts.twitter}}",
-			// Facebook Name
-			facebook: "{{config.social.accounts.facebook}}",
-			// Instagram Name
-			instagram: "{{config.social.accounts.instagram}}",
-			// Youtube Name
-			youtube: "{{config.social.accounts.youtube}}",
-			// Tumblr Name
-			tumblr: "{{config.social.accounts.tumblr}}",
-			// Paypal Name
-			paypal: "{{config.social.accounts.paypal}}",
-			// Patreon Name
-			patreon: "{{config.social.accounts.patreon}}",
-			// Snapchat Name
-			snapchat: "{{config.social.accounts.snapchat}}",
-			// Steam Name
-			steam: "{{config.social.accounts.steam}}",
-			// Xbox Name
-			xbox: "{{config.social.accounts.xbox}}",
-			// Playstation Network Name
-			psn: "{{config.social.accounts.psn}}",
-			// Origin Network Name
-			origin: "{{config.social.accounts.origin}}",
-			// Uplay Network Name
-			uplay: "{{config.social.accounts.uplay}}",
-			// Nintendo Network Name
-			nintendo: "{{config.social.accounts.nintendo}}",
-			// Battle Net Network Name
-			battlenet: "{{config.social.accounts.battlenet}}",
-			// Deviant Art Network Name
-			deviantart: "{{config.social.accounts.deviantart}}",
-			// Reddit Network Name
-			reddit: "{{config.social.accounts.reddit}}",
-			// Game Wisp Network Name
-			gamewisp: "{{config.social.accounts.gamewisp}}",
-			// Plays.tv Network Name
-			playstv: "{{config.social.accounts.playstv}}",
-			discord: "{{config.social.accounts.discord}}",
-			store: "{{config.social.accounts.store}}",
-			github: "{{config.social.accounts.github}}"
+			{{#each config.social.accounts}}
+			{{@key}}: "{{this.text}}",
+			{{/each}}
+			NONE: ""
 		},
 
 		// Gaming Popup Options
 		popup: {
-			// This is where you enable or disable networks
-			// 1 means enabled, 0 means disabled
-			// Enable Twitter
-			enableTwitter: {{config.social.enabled.twitter}},
-			// Enable Facebook
-			enableFacebook: {{config.social.enabled.facebook}},
-			// Enable Instagram
-			enableInstagram: {{config.social.enabled.instagram}},
-			// Enable YouTube
-			enableYoutube: {{config.social.enabled.youtube}},
-			// Enable Tumblr
-			enableTumblr: {{config.social.enabled.tumblr}},
-			// Enable Twitch
-			enableTwitch: {{config.social.enabled.twitch}},
-			// Enable Mixer
-			enableMixer: {{config.social.enabled.mixer}},
-			// Enable PayPal
-			enablePaypal: {{config.social.enabled.paypal}},
-			// Enable Patreon
-			enablePatreon: {{config.social.enabled.patreon}},
-			// Enable Snapchat
-			enableSnapchat: {{config.social.enabled.snapchat}},
-			// Enable Steam
-			enableSteam: {{config.social.enabled.steam}},
-			// Enable Xbox
-			enableXbox: {{config.social.enabled.xbox}},
-			// Enable Playstation Network
-			enablePsn: {{config.social.enabled.psn}},
-			// Enable Origin Network
-			enableOrigin: {{config.social.enabled.origin}},
-			// Enable Uplay Network
-			enableUplay: {{config.social.enabled.uplay}},
-			// Enable Nintendo Network
-			enableNintendo: {{config.social.enabled.nintendo}},
-			// Enable Battle Net Network
-			enableBattleNet: {{config.social.enabled.battlenet}},
-			// Enable Deviant Art Network
-			enableDeviantArt: {{config.social.enabled.deviantart}},
-			// Enable Reddit Network
-			enableReddit: {{config.social.enabled.reddit}},
-			// Enable Game Wisp Network
-			enableGameWisp: {{config.social.enabled.gamewisp}},
-			// Enable Plays TV Network
-			enablePlaysTv: {{config.social.enabled.playstv}},
-			enableDiscord: {{config.social.enabled.discord}},
-			enableStore: {{config.social.enabled.store}},
-			enableGithub: {{config.social.enabled.github}},
 			//
-			// Times to update
+			// Time to update
 			//
 			// Time each network animation takes in seconds
-			aTime: 20,
+			delay: {{config.social.delay}},
 			// The delay for the animation cycle to restart in seconds
-			pauseTime: 0
+			pauseTime: {{config.social.pause}}
 		}
 	};
 
 </script>
 <script src="/javascript/social.js"></script>
 {{/section}}
+
+{{#section 'head'}}
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="/stylesheets/social.css" type="text/css">
+<link rel="stylesheet" href="/social/stylesheet/" type="text/css">
+{{/section}}
+
