@@ -1,4 +1,4 @@
-<div id="popup-container" class="position-{{position}}">
+<div class="popup-container position-{{position}}">
 	{{#each config.social.accounts}}
 	<div class="popup {{@key}}-pop animate-popup">
 		<div class="left">
@@ -14,7 +14,6 @@
 {{#section 'scripts'}}
 <script>
 	var settings = {
-		// Simply change the name in quotes with your name
 		social: {
 			{{#each config.social.accounts}}
 			{{@key}}: "{{this.text}}",
@@ -24,12 +23,7 @@
 
 		// Gaming Popup Options
 		popup: {
-			//
-			// Time to update
-			//
-			// Time each network animation takes in seconds
 			delay: {{config.social.delay}},
-			// The delay for the animation cycle to restart in seconds
 			pauseTime: {{config.social.pause}}
 		}
 	};

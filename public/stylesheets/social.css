@@ -3,19 +3,19 @@ body {
 }
 
 
-#popup-container {
+.popup-container {
 	min-width: 60px;
   height: 60px;
   position: absolute;
   overflow: hidden;
 	top: 0;
 }
-#popup-container.position-right {
+popup-container.position-right {
 	left: auto;
 	right: 0;
 }
 
-#popup-container.position-left {
+.popup-container.position-left {
 	width: 470px;
 	left: 0;
 	right: auto;
@@ -178,50 +178,48 @@ body {
 }
 
 @keyframes popup-in {
-  0% {
+	0% {
     width: 60px;
     margin-top: 0px;
-    opacity: 0;
+		opacity: 0;
   }
-  20% {
+  50% {
 		width: 60px;
 		margin-top: 0px;
-    opacity: 1;
+		opacity: 1;
 	}
-	25% {
-    width: 60px;
-    margin-top: 0px;
-    opacity: 1;
-  }
-  45% {
-    width: 470px;
-  }
+	80% {
+		opacity: 1;
+		width: 470px;
+		margin-top: 0px;
+	}
   100% {
-    width: 470px;
-  }
+		opacity: 1;
+		width: 470px;
+		margin-top: 0px;
+	}
 }
 @-webkit-keyframes popup-in {
   0% {
     width: 60px;
     margin-top: 0px;
-    opacity: 0;
+		opacity: 0;
   }
-  20% {
+  50% {
 		width: 60px;
 		margin-top: 0px;
-    opacity: 1;
+		opacity: 1;
 	}
-	25% {
-    width: 60px;
-    margin-top: 0px;
-    opacity: 1;
-  }
-  45% {
-    width: 470px;
-  }
+	80% {
+		opacity: 1;
+		width: 470px;
+		margin-top: 0px;
+	}
   100% {
-    width: 470px;
-  }
+		opacity: 1;
+		width: 470px;
+		margin-top: 0px;
+	}
 }
 .no-popup {
   display: none !important;
