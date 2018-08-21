@@ -67,7 +67,7 @@ let config = {
 			},
 			snapchat: {
 				background: "#fffc00",
-				color: "#fff",
+				color: "#000",
 				image: "/images/social/snapchat.png"
 			},
 			steam: {
