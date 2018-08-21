@@ -30,6 +30,8 @@
 
 ## SOCIAL OVERLAY
 
+- `/social/[position:left|right]/[animation:flip|fade]/`
+
 - `APP_SOCIAL_*`: These create popouts with the value for the specified social network. 
 
 - `APP_SOCIAL_DELAY`: Delay between each social network rotation
