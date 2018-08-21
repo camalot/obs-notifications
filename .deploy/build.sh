@@ -40,7 +40,7 @@ WORKDIR="${WORKSPACE:-"$(pwd)"}";
 [[ -z "${ARTIFACTORY_USERNAME// }" ]] && __error "Environment variable 'ARTIFACTORY_USERNAME' missing or empty.";
 [[ -z "${ARTIFACTORY_PASSWORD// }" ]] && __error "Environment variable 'ARTIFACTORY_PASSWORD' missing or empty.";
 
-curl "https://gist.githubusercontent.com/camalot/6b81f824b49d646752aa99ab781053d3/raw/60d7f34b0a00368dc83152fc808f39a48a6ddbd6/obs-notification.env" --silent --output "${WORKDIR}/.env";
+curl "https://gist.githubusercontent.com/camalot/6b81f824b49d646752aa99ab781053d3/raw/5f656454d79b67b34fa15e6d3fa492bef2a2f5a6/obs-notification.env" --silent --output "${WORKDIR}/.env";
 
 tag="${BUILD_ORG}/${BUILD_PROJECT}";
 tag_name_latest="${tag}:latest";

@@ -85,6 +85,11 @@ let config = {
 				color: "#fff",
 				image: "/images/social/psn.png"
 			},
+			epic: {
+				background: "#343432",
+				color: "#fff",
+				image: "/images/social/epic.png"
+			},
 			origin: {
 				background: "#f05a22",
 				color: "#fff",
@@ -96,7 +101,7 @@ let config = {
 				image: "/images/social/uplay.png"
 			},
 			nintendo: {
-				background: "#f68b33",
+				background: "#f78b33",
 				color: "#fff",
 				image: "/images/social/nintendo.png"
 			},
@@ -121,8 +126,8 @@ let config = {
 				image: "/images/social/deviantart.png"
 			},
 			reddit: {
-				background: "#fff",
-				color: "#000",
+				background: "#FF4500",
+				color: "#fff",
 				image: "/images/social/reddit.png"
 			},
 			gamewisp: {
@@ -131,9 +136,14 @@ let config = {
 				image: "/images/social/gamewisp.png"
 			},
 			playstv: {
-				background: "#35373b",
+				background: "#14b3b2",
 				color: "#fff",
 				image: "/images/social/playstv.png"
+			},
+			destiny: {
+				background: "#222",
+				color: "#fff",
+				image: "/images/social/destiny.png"
 			}
 		}
 	}
@@ -234,33 +244,4 @@ function _colorAdjust(col, amt) {
 	return (usePound ? "#" : "") + RR + GG + BB;
 
 }
-// let enabled_config = {
-// 	twitch: config.social.accounts.twitch && config.social.accounts.twitch !== '' ? 1 : 0,
-// 	mixer: config.social.accounts.mixer && config.social.accounts.mixer !== '' ? 1 : 0,
-// 	twitter: config.social.accounts.twitter && config.social.accounts.twitter !== '' ? 1 : 0,
-// 	facebook: config.social.accounts.facebook && config.social.accounts.facebook !== '' ? 1 : 0,
-// 	instagram: config.social.accounts.instagram && config.social.accounts.instagram !== '' ? 1 : 0,
-// 	youtube: config.social.accounts.youtube && config.social.accounts.youtube !== '' ? 1 : 0,
-// 	tumblr: config.social.accounts.tumblr && config.social.accounts.tumblr !== '' ? 1 : 0,
-// 	paypal: config.social.accounts.paypal && config.social.accounts.paypal !== '' ? 1 : 0,
-// 	patreon: config.social.accounts.patreon && config.social.accounts.patreon !== '' ? 1 : 0,
-// 	snapchat: config.social.accounts.snapchat && config.social.accounts.snapchat !== '' ? 1 : 0,
-// 	steam: config.social.accounts.steam && config.social.accounts.steam !== '' ? 1 : 0,
-// 	xbox: config.social.accounts.xbox && config.social.accounts.xbox !== '' ? 1 : 0,
-// 	psn: config.social.accounts.psn && config.social.accounts.psn !== '' ? 1 : 0,
-// 	origin: config.social.accounts.origin && config.social.accounts.origin !== '' ? 1 : 0,
-// 	uplay: config.social.accounts.uplay && config.social.accounts.uplay !== '' ? 1 : 0,
-// 	nintendo: config.social.accounts.nintendo && config.social.accounts.nintendo !== '' ? 1 : 0,
-// 	battlenet: config.social.accounts.battlenet && config.social.accounts.battlenet !== '' ? 1 : 0,
-// 	deviantart: config.social.accounts.deviantart && config.social.accounts.deviantart !== '' ? 1 : 0,
-// 	reddit: config.social.accounts.reddit && config.social.accounts.reddit !== '' ? 1 : 0,
-// 	gamewisp: config.social.accounts.gamewisp && config.social.accounts.gamewisp !== '' ? 1 : 0,
-// 	playstv: config.social.accounts.playstv && config.social.accounts.playstv !== '' ? 1 : 0,
-// 	discord: config.social.accounts.discord && config.social.accounts.discord !== '' ? 1 : 0,
-// 	store: config.social.accounts.store && config.social.accounts.store !== '' ? 1 : 0,
-// 	github: config.social.accounts.github && config.social.accounts.github !== '' ? 1 : 0
-// };
-
-// config.social.enabled = enabled_config;
-
 module.exports = merge(xconfig, config);
