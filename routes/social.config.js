@@ -2,6 +2,7 @@
 
 const xconfig = require('../config');
 const merge = require('merge');
+const color = require('../lib/utils').color;
 
 let config = {
 	social: {
@@ -153,18 +154,18 @@ let getValueOrDefault = (key, prop, defaultValue) => {
 	key = key.toUpperCase();
 	prop = prop.toLowerCase();
 	let defaultKey = config.social.defaults[key.toLowerCase()] && config.social.defaults[key.toLowerCase()][prop] ? key.toLowerCase() : "DEFAULT";
-	console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}`);
+	// console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}`);
 	let customValue = process.env[`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}`];
 	if (customValue) {
-		console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}:${customValue}`);
+		// console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}:${customValue}`);
 		return customValue;
 	} else if (config.social.defaults[defaultKey] && config.social.defaults[defaultKey][prop]) {
-		console.log(`${defaultKey}.${prop}:${config.social.defaults[defaultKey][prop]}`);
+		// console.log(`${defaultKey}.${prop}:${config.social.defaults[defaultKey][prop]}`);
 		return config.social.defaults[defaultKey][prop];
 	} else {
 		return defaultValue;
 	}
-}
+};
 
 let getAccountFGColor = (key) => {
 	return getValueOrDefault(key,'color', "#fff");
