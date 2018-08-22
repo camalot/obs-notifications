@@ -1,1 +1,102 @@
-SOCIAL
+{{#section 'title'}}Social{{/section}} {{#section 'header'}} {{!--
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+	<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Networks</a>
+	<a href="#fixed-tab-2" class="mdl-layout__tab">Accounts</a>
+</div> --}} {{/section}}
+
+<div class="page-content">
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--6-col">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 80%;">
+				<thead>
+					<tr>
+						<th style="text-transform: uppercase;" colspan="2" class="mdl-data-table__cell--non-numeric">Networks</th>
+						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">System</th>
+						<th><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+							Add Network
+						</button></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each data.networks}}
+					<form>
+						<tr style="background-color: {{background}}; color: {{color}};">
+							<td style="background-color: {{background}}; width:60px" class="mdl-data-table__cell--non-numeric"><img src="{{image}}"
+								/></td>
+							<td style="background-color: {{background2}}; text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">{{name}}</td>
+							<td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center;width: 100px;">
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="system-{{name}}-{{id}}">
+									<input type="checkbox" id="system-{{name}}-{{id}}" class="mdl-checkbox__input" {{#if system}}checked{{/if}} disabled />
+								</label>
+							</td>
+							<td  style="background-color: {{background2}}; width: 100px;">
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" type="button" alt="edit" {{#if system}}disabled{{/if}}>
+									<i class="material-icons">edit</i>
+								</button>
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" type="button" alt="delete" {{#if system}}disabled{{/if}}>
+									<i class="material-icons">delete</i>
+								</button>
+							</td>
+						</tr>
+					</form>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		<div class="mdl-cell mdl-cell--6-col">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 80%;">
+				<thead>
+					<tr>
+						<th style="text-transform: uppercase;" colspan="2" class="mdl-data-table__cell--non-numeric">Accounts</th>
+						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">Enabled</th>
+						<th><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+								Add Account
+							</button></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each data.accounts}}
+					<form>
+						<tr style="background-color: {{background}}; color: {{color}};">
+							<td style="background-color: {{background}}; width:60px" class="mdl-data-table__cell--non-numeric"><img src="{{image}}"
+								/></td>
+							<td style="background-color: {{background2}}; text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">{{name}}</td>
+							<td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center;width: 100px;">
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="system-{{name}}-{{id}}">
+									<input type="checkbox" id="system-{{name}}-{{id}}" class="mdl-checkbox__input" {{#if system}}checked{{/if}} disabled />
+								</label>
+							</td>
+							<td style="background-color: {{background2}}; width: 100px;">
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" type="button" alt="edit" {{#if system}}disabled{{/if}}>
+									<i class="material-icons">edit</i>
+								</button>
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" type="button" alt="delete" {{#if system}}disabled{{/if}}>
+									<i class="material-icons">delete</i>
+								</button>
+							</td>
+						</tr>
+					</form>
+					{{/each}}
+				</tbody>
+			</table>
+{{!-- <td style="background-color: {{background2}};" class="mdl-data-table__cell--non-numeric">
+
+	<div class="mdl-textfield mdl-js-textfield" style="margin: 0;">
+		<input class="mdl-textfield__input" type="text" id="input-{{name}}-{{id}}">
+		<label class="mdl-textfield__label" for="input-{{name}}-{{id}}" style="color: {{color}}; text-transform: capitalize;">{{name}}
+			Account Name...</label>
+	</div>
+</td> --}}
+{{!-- <td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center; width: 100px;">
+	<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enabled-{{name}}-{{id}}">
+		<input type="checkbox" id="enabled-{{name}}-{{id}}" class="mdl-switch__input" {{#if enabled}}checked{{/if}} />
+	</label>
+</td> --}}
+		</div>
+		<div class="mdl-page-fab">
+			<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+				<i class="material-icons">add</i>
+			</button>
+		</div>
+	</div>
+</div>
