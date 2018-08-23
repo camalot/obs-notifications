@@ -4,6 +4,48 @@
 	<a href="#fixed-tab-2" class="mdl-layout__tab">Accounts</a>
 </div> --}} {{/section}}
 
+<dialog class="mdl-dialog" id="dialog1">
+	<form action="/admin/social/network" method="post" enctype="application/x-www-form-urlencoded">
+		<h4 class="mdl-dialog__title">Add New Network</h4>
+		<div class="mdl-dialog__content">
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" name="name" pattern="^[a-z][a-z0-9_]*$" id="network-name" required>
+				<label class="mdl-textfield__label" for="network-name">Name</label>
+				<span class="mdl-textfield__error">Must start with a letter, and is required</span>
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" name="fgcolor" pattern="^#(:?[a-fA-F0-9]{3}){1,2}$" id="network-fgcolor" required>
+				<label class="mdl-textfield__label" for="network-fgcolor">Foreground Color</label>
+				<span class="mdl-textfield__error">This field must be a valid HTML HEX Code</span>
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" name="bgcolor" pattern="^#(:?[a-fA-F0-9]{3}){1,2}$" id="network-bgcolor" required>
+				<label class="mdl-textfield__label" for="network-bgcolor">Background Color</label>
+				<span class="mdl-textfield__error">This field must be a valid HTML HEX Code</span>
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield">
+				<input class="mdl-textfield__input" type="text" name="bgcolor2" pattern="^#(:?[a-fA-F0-9]{3}){1,2}$" id="network-bgcolor2">
+				<label class="mdl-textfield__label" for="network-bgcolor2">Secondary Background Color</label>
+				<span class="mdl-textfield__error">This field must be a valid HTML HEX Code</span>
+			</div>
+
+			<div class="mdl-textfield mdl-js-textfield">
+				{{!-- <input class="mdl-textfield__input" type="file" pattern="\.png$" id="network-image" required> --}}
+				<input class="mdl-textfield__input" type="text" name="image" id="network-image" required>
+				<label class="mdl-textfield__label" for="network-image">Image</label>
+				<span class="mdl-textfield__error">No!</span>
+			</div>
+		</div>
+		<div class="mdl-dialog__actions">
+			<button type="submit" class="mdl-button mdl-button--accent">Save</button>
+			<button type="button" class="mdl-button close">Cancel</button>
+		</div>
+	</form>
+</dialog>
+
 <div class="page-content">
 	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--6-col">
@@ -12,9 +54,9 @@
 					<tr>
 						<th style="text-transform: uppercase;" colspan="2" class="mdl-data-table__cell--non-numeric">Networks</th>
 						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">System</th>
-						<th><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-							Add Network
-						</button></th>
+						<th><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-dialog="dialog1">
+								Add Network
+							</button></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -29,7 +71,7 @@
 									<input type="checkbox" id="system-{{name}}-{{id}}" class="mdl-checkbox__input" {{#if system}}checked{{/if}} disabled />
 								</label>
 							</td>
-							<td  style="background-color: {{background2}}; width: 100px;">
+							<td style="background-color: {{background2}}; width: 100px;">
 								<button class="mdl-button mdl-js-button mdl-button--icon mdl-button--colored" type="button" alt="edit" {{#if system}}disabled{{/if}}>
 									<i class="material-icons">edit</i>
 								</button>
@@ -79,19 +121,20 @@
 					{{/each}}
 				</tbody>
 			</table>
-{{!-- <td style="background-color: {{background2}};" class="mdl-data-table__cell--non-numeric">
+			{{!--
+			<td style="background-color: {{background2}};" class="mdl-data-table__cell--non-numeric">
 
-	<div class="mdl-textfield mdl-js-textfield" style="margin: 0;">
-		<input class="mdl-textfield__input" type="text" id="input-{{name}}-{{id}}">
-		<label class="mdl-textfield__label" for="input-{{name}}-{{id}}" style="color: {{color}}; text-transform: capitalize;">{{name}}
-			Account Name...</label>
-	</div>
-</td> --}}
-{{!-- <td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center; width: 100px;">
-	<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enabled-{{name}}-{{id}}">
-		<input type="checkbox" id="enabled-{{name}}-{{id}}" class="mdl-switch__input" {{#if enabled}}checked{{/if}} />
-	</label>
-</td> --}}
+				<div class="mdl-textfield mdl-js-textfield" style="margin: 0;">
+					<input class="mdl-textfield__input" type="text" id="input-{{name}}-{{id}}">
+					<label class="mdl-textfield__label" for="input-{{name}}-{{id}}" style="color: {{color}}; text-transform: capitalize;">{{name}}
+						Account Name...</label>
+				</div>
+			</td> --}} {{!--
+			<td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center; width: 100px;">
+				<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enabled-{{name}}-{{id}}">
+					<input type="checkbox" id="enabled-{{name}}-{{id}}" class="mdl-switch__input" {{#if enabled}}checked{{/if}} />
+				</label>
+			</td> --}}
 		</div>
 		<div class="mdl-page-fab">
 			<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
