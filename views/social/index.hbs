@@ -7,7 +7,7 @@
 <div class="page-content">
 	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--6-col">
-			<table class="mdl-data-table mdl-js-data-table" style="width: 80%;">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
 				<thead>
 					<tr>
 						<th style="text-transform: uppercase;" colspan="2" class="mdl-data-table__cell--non-numeric">Networks</th>
@@ -44,7 +44,7 @@
 			</table>
 		</div>
 		<div class="mdl-cell mdl-cell--6-col">
-			<table class="mdl-data-table mdl-js-data-table" style="width: 80%;">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
 				<thead>
 					<tr>
 						<th style="text-transform: uppercase;" colspan="2" class="mdl-data-table__cell--non-numeric">Accounts</th>
@@ -63,15 +63,17 @@
 							<td style="background-color: {{network.background2}}; text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">{{name}}</td>
 							<td class="mdl-data-table__cell--non-numeric" style="background-color: {{network.background2}}; text-align: center;width: 100px;">
 								<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="account-{{name}}-{{id}}-enabled">
-									<input type="checkbox" id="account-{{name}}-{{id}}-enabled" class="mdl-switch__input" {{#if enabled}}checked{{/if}} />
+									<input name="enabled" type="checkbox" id="account-{{name}}-{{id}}-enabled" class="mdl-switch__input" {{#if enabled}}checked{{/if}} 
+									data-checkbox="/admin/social/account/{{id}}/enabled/:enabled"
+									/>
 								</label>
 							</td>
 							<td style="background-color: {{network.background2}}; width: 100px;">
-								<button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--white mdl-js-ripple-effect" type="button" alt="edit">
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--grey-500 mdl-js-ripple-effect" type="button" alt="edit" disabled>
 									<i class="material-icons">edit</i>
 								</button>
 
-								<button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--white mdl-js-ripple-effect" type="button" alt="delete">
+								<button class="mdl-button mdl-js-button mdl-button--icon mdl-color-text--white mdl-js-ripple-effect" type="button" alt="delete" data-dialog="account-delete-{{id}}-dialog">
 									<i class="material-icons">delete</i>
 								</button>
 
@@ -81,20 +83,6 @@
 					{{/each}}
 				</tbody>
 			</table>
-			{{!--
-			<td style="background-color: {{background2}};" class="mdl-data-table__cell--non-numeric">
-
-				<div class="mdl-textfield mdl-js-textfield" style="margin: 0;">
-					<input class="mdl-textfield__input" type="text" id="input-{{name}}-{{id}}">
-					<label class="mdl-textfield__label" for="input-{{name}}-{{id}}" style="color: {{color}}; text-transform: capitalize;">{{name}}
-						Account Name...</label>
-				</div>
-			</td> --}} {{!--
-			<td class="mdl-data-table__cell--non-numeric" style="background-color: {{background2}}; text-align: center; width: 100px;">
-				<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="enabled-{{name}}-{{id}}">
-					<input type="checkbox" id="enabled-{{name}}-{{id}}" class="mdl-switch__input" {{#if enabled}}checked{{/if}} />
-				</label>
-			</td> --}}
 		</div>
 		<div class="mdl-page-fab">
 			<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
@@ -151,7 +139,7 @@
 
 	{{#each data.networks}} {{#if system}}
 	<dialog id="network-delete-{{name}}-dialog" class="mdl-dialog" style="width: 50%">
-		<form href="./network/delete" method="post" enctype="application/x-www-form-urlencoded">
+		<form href="/admin/social/network/delete" method="post" enctype="application/x-www-form-urlencoded">
 			<input type="hidden" value="{{id}}" />
 			<h4 class="mdl-dialog__title">Delete '{{name}}' Network?</h4>
 			<div class="mdl-dialog__content" class="mdl-dialog">
@@ -194,7 +182,7 @@
 		
 			<div class="mdl-textfield">
 				<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="account-enabled">
-					<input type="checkbox" id="account-enabled" class="mdl-switch__input" checked value="1" />
+					<input type="checkbox" id="account-enabled" name="enabled" class="mdl-switch__input" checked value="1" />
 					<span for="account-enabled" style="padding-left: 20px;">Enabled</span>
 				</label>
 			</div>
@@ -205,4 +193,28 @@
 		</div>
 		</form>
 	</dialog>
+
+	{{#each data.accounts}} {{#if enabled}}
+	<dialog id="account-delete-{{id}}-dialog" class="mdl-dialog" style="width: 50%">
+		<form href="/admin/social/account/delete" method="post" enctype="application/x-www-form-urlencoded">
+			<input type="hidden" value="{{id}}" />
+			<h4 class="mdl-dialog__title">Delete '{{name}}' {{network.name}} Account?</h4>
+			<div class="mdl-dialog__content" class="mdl-dialog">
+				<p>
+					Are you sure you want to delete this account?
+				</p>
+				<p><b>THIS CANNOT BE UNDONE.</b></p>
+			</div>
+			<div class="mdl-dialog__actions">
+				<button type="button" class="mdl-button close">Cancel</button>
+				<button type="submit" class="mdl-button mdl-js-button mdl-color--red-500 mdl-color-text--white mdl-js-ripple-effect">Yes, Delete!</button>
+			</div>
+		</form>
+	</dialog>
+	{{/if}} {{/each}}
+	</div>
 </div>
+
+{{#section 'scripts'}}
+	<script src="/javascript/material-checkbox-change.js"></script>
+{{/section}}

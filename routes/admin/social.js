@@ -1,25 +1,29 @@
 "use strict";
 const express = require("express");
 const router = express.Router();
+const path = require("path");
+const normalizedPath = path.join(__dirname, "./");
 // const multer = require('multer');
 // const upload = multer({ dest: 'public/images/social/' });
 const config = require("./social.config");
 const utils = require("../../lib/utils");
 const merge = require("merge");
-
 const Database = require("../../lib/data/database");
+
 let database = new Database("social");
 
 router.get("/", (req, res, next) => {
 	try {
 		let resdata = {};
-		database
+		return database
 			.open()
 			.then(() => {
+				console.log("networks all");
 				return database.tables.networks.all();
 			})
 			.then(data => {
 				resdata.networks = data;
+				console.log("accounts all");
 				return database.tables.accounts.all();
 			})
 			.then(data => {
@@ -45,7 +49,6 @@ router.get("/", (req, res, next) => {
 
 router.post("/network", (req, res, next) => {
 	try {
-		console.log(req.body);
 		database
 			.open()
 			.then(() => {
