@@ -7,20 +7,75 @@
 <div class="page-content">
 	<div class="mdl-grid">
 		<div class="mdl-cell mdl-cell--12-col">
-			<div class="mdl-card" style="width:100%;">
+			<div class="mdl-card mdl-card-short" style="width:100%;" data-url-generator="{{data.url}}" data-field="overlay-url">
 				<div class="mdl-card__title">
-					...
+					<h4 class="mdl-card__title-text">Overlay URL</h4>
 				</div>
+
 				<div class="mdl-card__supporting-text">
-					{{#each data.config}}
-						<div>{{@key}}</div>
-					{{/each}}
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+						<input class="mdl-textfield__input" type="text" id="overlay-url" readonly value="{{data.url}}">
+						<label class="mdl-textfield__label" for="overlay-url">Overlay URL</label>
+						<span class="mdl-textfield__error"></span>
+					</div>
+					<fieldset>
+						<span style="">Layout Position</span>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radio-position-left">
+							<input type="radio" class="mdl-radio__button" id="radio-position-left" name="position" value="left" checked>
+							<span class="mdl-radio__label">Left</span>
+						</label>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radio-position-right">
+							<input type="radio" class="mdl-radio__button" id="radio-position-right" name="position" value="right">
+							<span class="mdl-radio__label">Right</span>
+						</label>
+					</fieldset>
+					<fieldset>
+						<span style="">Animation Style</span>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radio-animation-fade">
+							<input type="radio" class="mdl-radio__button" id="radio-animation-fade" name="animation" value="fade" checked>
+							<span class="mdl-radio__label">Fade</span>
+						</label>
+						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radio-animation-flip">
+							<input type="radio" class="mdl-radio__button" id="radio-animation-flip" name="animation" value="flip">
+							<span class="mdl-radio__label">Flip</span>
+						</label>
+					</fieldset>
 				</div>
-				<div class="mdl-card__actions">
-					...
+				<div class="mdl-card__actions" style="text-align: right;">
+					<button type="button" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect" data-clipboard="click" data-field="overlay-url">Copy</button>
 				</div>
 			</div>
 		</div>
+
+		<div class="mdl-cell mdl-cell--12-col">
+			<form action="/admin/social/settings" method="post" enctype="application/x-www-form-urlencoded">
+				<div class="mdl-card" style="width:100%;">
+					<div class="mdl-card__title">
+						<h4 class="mdl-card__title-text">Settings</h4>
+					</div>
+					<div class="mdl-card__supporting-text">
+						<div class="mdl-grid">
+							{{#each data.config}}
+								<div class="mdl-cell">
+									<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+										<input class="mdl-textfield__input" type="{{type}}" name="{{key}}" pattern="{{pattern}}" id="setting-{{key}}"
+										required value="{{value}}">
+										<label class="mdl-textfield__label" for="setting-{{key}}">{{label}}</label>
+										<span class="mdl-textfield__error"></span>
+									</div>
+									<div style="clear:both">{{description}}</div>
+								</div>
+							{{/each}}
+						</div>
+					</div>
+					<div class="mdl-card__actions">
+						<button type="button" class="mdl-button mdl-js-button">Cancel</button>
+						<button type="submit" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--primary mdl-button--raised">Save</button>
+					</div>
+				</div>
+			</form>
+		</div>
+		
 		<div class="mdl-cell mdl-cell--6-col">
 			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
 				<thead>
@@ -244,4 +299,5 @@
 {{!-- <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-sortable/0.9.13/jquery-sortable-min.js"></script> --}}
 <script src="//cdn.jsdelivr.net/npm/table-dragger@1.0.2/dist/table-dragger.min.js"></script>
 <script src="/javascript/social/sortable-table.js"></script>
+<script src="/javascript/social/url-generator.js"></script>
 {{/section}}

@@ -9,6 +9,7 @@ const utils = require("../../lib/utils");
 const merge = require("merge");
 const Database = require("../../lib/data/database");
 const async = require("async");
+var url = require('url');
 
 let database = new Database("social");
 
@@ -30,6 +31,7 @@ router.get("/", (req, res, next) => {
 			})
 			.then(data => {
 				resdata.accounts = data;
+				resdata.url = getFullUrl(req, "/social/${position}/${animation}");
 				return res.render("social/index", {
 					data: resdata,
 					layout: "material",
@@ -48,9 +50,30 @@ router.get("/", (req, res, next) => {
 	}
 });
 
+router.post("/settings", (req, res, next) => {
+	try {
+		return database.open()
+			.then(() => {
+				let data = req.body || {};
+				return database.tables.settings.updateAll(data);
+			})
+			.then(() => {
+				return res.redirect("/admin/social");
+			})
+			.then(() => {
+				return database.close();
+			})
+			.catch((err) => {
+				return next(new Error(err));
+			});
+	} catch (err) {
+		return next(err);
+	}
+});
+
 router.post("/network", (req, res, next) => {
 	try {
-		database
+		return database
 			.open()
 			.then(() => {
 				return database.tables.networks.add({
@@ -197,5 +220,13 @@ router.post("/accounts/sort", (req, res, next) => {
 		return next(e);
 	}
 });
+
+function getFullUrl(req, path) {
+	return url.format({
+		protocol: req.protocol,
+		host: req.get('host'),
+		pathname: path || req.originalUrl
+	});
+}
 
 module.exports = router;

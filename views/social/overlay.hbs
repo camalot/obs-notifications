@@ -22,13 +22,13 @@ var settings = {
 			"{{network.name}}": "{{this.name}}",
 		{{/if}}
 		{{/each}}
-		NONE: ""
 	},
 
 	// Gaming Popup Options
 	popup: {
-		delay: {{config.social.delay}},
-		pauseTime: {{config.social.pause}}
+		{{#each config}}
+		{{key}}: {{value}},
+		{{/each}}
 	}
 };
 
@@ -36,4 +36,4 @@ var settings = {
 <script src="/javascript/social.js"></script> {{/section}} {{#section 'head'}}
 <link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="/stylesheets/social.css" type="text/css">
-<link rel="stylesheet" href="/social/v2/stylesheet/" type="text/css"> {{/section}}
+<link rel="stylesheet" href="/social/stylesheet/" type="text/css"> {{/section}}
