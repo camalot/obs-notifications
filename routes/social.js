@@ -30,6 +30,30 @@ router.get("/stylesheet", (req, res, next) => {
 	res.render("social-stylesheet", { config: config, layout: null });
 });
 
+router.get("/v2/stylesheet", (req, res, next) => {
+	res.header("Content-Type", "text/css");
+	database
+		.open()
+		.then(() => {
+			return database.tables.networks.all();
+		})
+		.then(data => {
+			return res.render("social/stylesheet", {
+				networks: data,
+				config: config,
+				layout: null
+			});
+		})
+		.then(() => {
+			console.log("close database");
+			return database.close();
+		})
+		.catch(err => {
+			console.error(err);
+			return next(new Error(err));
+		});
+});
+
 router.get("/v2/:position(left|right)?/:animation(flip|fade)?/", (req, res, next) => {
 	try {
 		let position = (req.params.position || 'left').toLowerCase();

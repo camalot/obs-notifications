@@ -31,6 +31,11 @@ let config = {
 				color: "#fff",
 				image: "/images/social/facebook.png"
 			},
+			googleplus: {
+				background: "#DB4D3F",
+				color: "#fff", 
+				image: "/images/social/googleplus.png"
+			},
 			instagram: {
 				background: "#44749c",
 				color: "#fff",
@@ -122,7 +127,7 @@ let config = {
 				image: "/images/social/discord.png"
 			},
 			deviantart: {
-				background: "#05cc47",
+				background: "#009544",
 				color: "#fff",
 				image: "/images/social/deviantart.png"
 			},
@@ -145,6 +150,21 @@ let config = {
 				background: "#222",
 				color: "#fff",
 				image: "/images/social/destiny.png"
+			},
+			skype: {
+				background: "#00ADEF",
+				color: "#fff",
+				image: "/images/social/skype.png"
+			},
+			pinterest: {
+				background: "#CC2127",
+				color: "#fff",
+				image: "/images/social/pinterest.png"
+			},
+			linkedin: {
+				background: "#007bb6",
+				color: "#fff",
+				image: "/images/social/linkedin.png"
 			}
 		}
 	}

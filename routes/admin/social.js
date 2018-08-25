@@ -2,13 +2,13 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const normalizedPath = path.join(__dirname, "./");
 // const multer = require('multer');
 // const upload = multer({ dest: 'public/images/social/' });
 const config = require("./social.config");
 const utils = require("../../lib/utils");
 const merge = require("merge");
 const Database = require("../../lib/data/database");
+const async = require("async");
 
 let database = new Database("social");
 
@@ -18,6 +18,10 @@ router.get("/", (req, res, next) => {
 		return database
 			.open()
 			.then(() => {
+				return database.tables.settings.all();
+			})
+			.then((data) => {
+				resdata.config = data;
 				console.log("networks all");
 				return database.tables.networks.all();
 			})
@@ -93,6 +97,7 @@ router.get("/account/:id/enabled/:enabled", (req, res, next) => {
 				return database.close();
 			})
 			.catch(err => {
+				console.log(err);
 				return next(err);
 			});
 
@@ -102,12 +107,11 @@ router.get("/account/:id/enabled/:enabled", (req, res, next) => {
 });
 
 router.post("/account", (req, res, next) => {
-	console.log(req.body);
 	let netid = parseInt(req.body.network || "0");
 	let enabled = parseInt(req.body.enabled || "0") === 1;
 
 	try {
-		database
+		return database
 			.open()
 			.then(() => {
 				return database.tables.accounts.add({
@@ -126,6 +130,76 @@ router.post("/account", (req, res, next) => {
 				return next(err);
 			});
 	} catch (e) {
+		return next(e);
+	}
+});
+
+router.post("/account/delete/:id", (req, res, next) => {
+	try {
+		let id = req.params.id;
+		if(!id) {
+			throw '"id" not passed to method';
+		}
+		console.log("going to delete?");
+		return database
+			.open()
+			.then(() => {
+				return database.tables.accounts.remove(id);
+			})
+			.then((data) => {
+				if(data.id === id && data.deleted) {
+					return res.redirect("/admin/social");
+				}
+				throw JSON.stringify(data);
+			})
+			.catch((err) => {
+				return next(new Error(err));
+			});
+	} catch (err) {
+		return next(err);
+	}
+});
+
+router.post("/accounts/sort", (req, res, next) => {
+	try {
+		let data = req.body.data;
+		console.log(req.body);
+		if (!data) {
+			throw 'Missing sort data in body.';
+		}
+		database.open()
+			.then(() => {
+				return new Promise((resolve, reject) => {
+					async.each(data, function (info, done) {
+						return database.tables.accounts.update(info)
+							.then((d) => {
+								return done();
+							})
+							.catch((err) => {
+								console.error(err);
+								return done(err);
+							});
+					}, (err) => {
+						if (err) {
+							console.error(err);
+							return reject(err);
+						}
+						return resolve(data);
+					});
+				});
+			})
+			.then((rdata) => {
+				return res.json(rdata);
+			})
+			.then(() => {
+				return database.close();
+			})
+			.catch((err) => {
+				console.error(err);
+				return next(new Error(err));
+			});
+	} catch (e) {
+		console.error(e);
 		return next(e);
 	}
 });
