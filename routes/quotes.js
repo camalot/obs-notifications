@@ -63,13 +63,10 @@ router.get("/random/:category?", (req, res, next) => {
 	try {
 		return database.open()
 			.then(() => {
-				console.log(`random: ${cat}`);
 				return database.tables.quotes.random(cat);
 			}).then(data => {
-				console.log(`data: ${data}`);
 				return res.json(data);
 			}).then(() => {
-				console.log(`close`);
 				return database.close();
 			}).catch(err => {
 				console.error(err);

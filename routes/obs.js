@@ -18,14 +18,12 @@ router.get("/commands/list", (req, res, next) => {
 						});
 					}
 				}
-				console.log(commands);
 				return resolve(commands);
 			});
 		}).then(data => {
 			return new Promise((resolve, reject) => {
 				obs.getSourceAliases(true)
 				.then(newData => {
-					console.log(data);
 						let commands = [].concat(data);
 						for (let x in newData) {
 							if (newData.hasOwnProperty(x)) {

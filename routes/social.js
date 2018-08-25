@@ -45,7 +45,6 @@ router.get("/v2/stylesheet", (req, res, next) => {
 			});
 		})
 		.then(() => {
-			console.log("close database");
 			return database.close();
 		})
 		.catch(err => {
@@ -75,7 +74,6 @@ router.get("/v2/:position(left|right)?/:animation(flip|fade)?/", (req, res, next
 				});
 			})
 			.then(() => {
-				console.log("close database");
 				return database.close();
 			})
 			.catch(err => {

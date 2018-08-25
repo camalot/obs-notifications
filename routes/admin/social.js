@@ -22,12 +22,10 @@ router.get("/", (req, res, next) => {
 			})
 			.then((data) => {
 				resdata.config = data;
-				console.log("networks all");
 				return database.tables.networks.all();
 			})
 			.then(data => {
 				resdata.networks = data;
-				console.log("accounts all");
 				return database.tables.accounts.all();
 			})
 			.then(data => {
@@ -39,7 +37,6 @@ router.get("/", (req, res, next) => {
 				});
 			})
 			.then(() => {
-				console.log("close database");
 				return database.close();
 			})
 			.catch(err => {
@@ -81,7 +78,6 @@ router.post("/network", (req, res, next) => {
 router.get("/account/:id/enabled/:enabled", (req, res, next) => {
 	try {
 		let enabled = req.params.enabled === "true" || req.params.enabled === "1" ? true : false;
-		console.log("enabled: " + enabled);
 		return database
 			.open()
 			.then(() => {
@@ -97,7 +93,7 @@ router.get("/account/:id/enabled/:enabled", (req, res, next) => {
 				return database.close();
 			})
 			.catch(err => {
-				console.log(err);
+				console.error(err);
 				return next(err);
 			});
 
@@ -140,7 +136,6 @@ router.post("/account/delete/:id", (req, res, next) => {
 		if(!id) {
 			throw '"id" not passed to method';
 		}
-		console.log("going to delete?");
 		return database
 			.open()
 			.then(() => {
@@ -163,7 +158,6 @@ router.post("/account/delete/:id", (req, res, next) => {
 router.post("/accounts/sort", (req, res, next) => {
 	try {
 		let data = req.body.data;
-		console.log(req.body);
 		if (!data) {
 			throw 'Missing sort data in body.';
 		}

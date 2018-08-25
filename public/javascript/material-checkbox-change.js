@@ -11,7 +11,6 @@ $(function() {
 
 			}, 
 			success: function(data, status, xhr) {
-				console.log(data);
 				cbp.MaterialSwitch[value ? "on" : "off"]();
 			}, 
 			error: function(xhr, status, err) {

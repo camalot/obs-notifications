@@ -12,7 +12,9 @@
 					...
 				</div>
 				<div class="mdl-card__supporting-text">
-					...
+					{{#each data.config}}
+						<div>{{@key}}</div>
+					{{/each}}
 				</div>
 				<div class="mdl-card__actions">
 					...

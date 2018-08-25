@@ -174,13 +174,10 @@ let getValueOrDefault = (key, prop, defaultValue) => {
 	key = key.toUpperCase();
 	prop = prop.toLowerCase();
 	let defaultKey = config.social.defaults[key.toLowerCase()] && config.social.defaults[key.toLowerCase()][prop] ? key.toLowerCase() : "DEFAULT";
-	// console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}`);
 	let customValue = process.env[`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}`];
 	if (customValue) {
-		// console.log(`APP_SOCIAL_CUSTOM_${prop.toUpperCase()}_${key}:${customValue}`);
 		return customValue;
 	} else if (config.social.defaults[defaultKey] && config.social.defaults[defaultKey][prop]) {
-		// console.log(`${defaultKey}.${prop}:${config.social.defaults[defaultKey][prop]}`);
 		return config.social.defaults[defaultKey][prop];
 	} else {
 		return defaultValue;
@@ -236,7 +233,6 @@ function _colorAdjust(col, amt) {
 
 	if(col.length === 3) {
 		col = `${col[0]}${col[0]}${col[1]}${col[1]}${col[2]}${col[2]}`;
-		console.log(col);
 	}
 
 	var R = parseInt(col.substring(0, 2), 16);

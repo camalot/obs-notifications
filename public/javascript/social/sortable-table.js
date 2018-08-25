@@ -3,7 +3,6 @@
 $(function () {
 	$('[data-sortable]').each(function (i) {
 		let group = $(this).data('sortable');
-		console.log('sortable: ' + group);
 		var table = this;
 		var dragger = tableDragger(table, {
 			mode: 'row',
@@ -14,13 +13,11 @@ $(function () {
 		let dragTimeOut = null;
 		dragger.on('drag', function(source, mode) {
 			if (!dragTimeOut) {
-				console.log("clear drag timeout");
 				clearTimeout(dragTimeOut);
 			}
 		});
 		dragger.on('drop', function (from, to, source, mode) {
 			if (!dragTimeOut) {
-				console.log("clear drag timeout");
 				clearTimeout(dragTimeOut);
 			}
 			dragTimeOut = setTimeout(function() {
@@ -30,7 +27,6 @@ $(function () {
 					let id = $(this).data('sort-id');
 					sortData.push({ id: id, sort: r });
 				});
-				console.log(sortData);
 				let url = '/admin/social/accounts/sort';
 
 				$.ajax(url, {
