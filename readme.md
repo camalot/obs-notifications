@@ -32,11 +32,6 @@
 
 - `/social/[position:left|right]/[animation:flip|fade]/`
 
-- `APP_SOCIAL_*`: These create popouts with the value for the specified social network. 
-
-- `APP_SOCIAL_DELAY`: Delay between each social network rotation
-- `APP_SOCIAL_PAUSE`: The pause at the end before it starts over
-- `APP_SOCIAL_BGADJUSTMENT`: The background adjustment for the secondary background. This will lighten the background color by this amount when applying to the secondary.
 
 ### BUILT-IN SOCIAL NETWORKS
 - twitch
@@ -60,13 +55,11 @@
 - playstv
 - gamewisp
 - paypal
+- google+
+- skype
+- linkedin
+- pinterest
 
 ### CUSTOMIZE
 
-You can create custom entries by using the following ENVIRONMENT VARIABLES:
-
-- `APP_SOCIAL_ACCOUNT_<SOCIAL_NAME>`: SOCIAL_NAME must be unique.
-- `APP_SOCIAL_CUSTOM_BACKGROUND_<SOCIAL_NAME>`: The background color. If not set, it will use the default of `#000`.
-- `APP_SOCIAL_CUSTOM_BACKGROUND2_<SOCIAL_NAME>`: The secondary background color. If not set, the `APP_SOCIAL_BGADJUSTMENT` will adjust the set background color.
-- `APP_SOCIAL_CUSTOM_COLOR_<SOCIAL_NAME>`: The foreground color. If not set, it will use the default of `#fff`.
-- `APP_SOCIAL_CUSTOM_IMAGE_<SOCIAL_NAME>`: The social icon. If not set, it will use the default of `/images/social/blank.png`.
+- `/admin/social` : configuration for the social overlay

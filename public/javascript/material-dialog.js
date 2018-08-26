@@ -1,0 +1,23 @@
+"use strict";
+
+$(function() {
+	$("button[data-dialog]").each(function(i) {
+		let dialogId = $(this).data("dialog");
+		$(this).click(function() {
+			let dialog = $(`#${dialogId}`).get(0);
+			if(dialog) {
+				dialog.showModal();
+			}
+		});
+	});
+
+
+	$("dialog button.close").click(function() {
+		let dialog = $(this).closest("dialog").get(0);
+		if(dialog) {
+			dialog.close();
+		} else {
+			console.error("this shit doesn't work");
+		}
+	});
+});
