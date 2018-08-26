@@ -98,6 +98,31 @@ router.post("/network", (req, res, next) => {
 	}
 });
 
+router.post("/network/delete/:id", (req, res, next) => {
+	try {
+		let id = req.params.id;
+		if (!id) {
+			throw '"id" not passed to method';
+		}
+		return database
+			.open()
+			.then(() => {
+				return database.tables.networks.remove(id);
+			})
+			.then((data) => {
+				if (data.id === id && data.deleted) {
+					return res.redirect("/admin/social");
+				}
+				throw JSON.stringify(data);
+			})
+			.catch((err) => {
+				return next(new Error(err));
+			});
+	} catch (err) {
+		return next(err);
+	}
+});
+
 router.get("/account/:id/enabled/:enabled", (req, res, next) => {
 	try {
 		let enabled = req.params.enabled === "true" || req.params.enabled === "1" ? true : false;
