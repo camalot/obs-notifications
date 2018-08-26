@@ -1,7 +1,7 @@
 "use strict";
 
 $(function() {
-	$("button[data-dialog]").each(function(i) {
+	$("[data-dialog]").each(function(i) {
 		let dialogId = $(this).data("dialog");
 		$(this).click(function() {
 			let dialog = $(`#${dialogId}`).get(0);
