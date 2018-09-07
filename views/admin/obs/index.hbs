@@ -1,0 +1,33 @@
+{{#section 'title'}}OBS{{/section}} {{#section 'header'}} {{!--
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+	<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Networks</a>
+	<a href="#fixed-tab-2" class="mdl-layout__tab">Accounts</a>
+</div> --}} {{/section}}
+
+
+<div class="page-content">
+	<div class="mdl-grid">
+
+		<div class="mdl-cell mdl-cell--12-col">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
+				<thead>
+					<tr>
+						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">Alias</th>
+						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric"></th>
+						<th><button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" data-dialog="new-network-dialog">
+								Add Alias
+							</button></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each commands}}
+					<tr>
+						<td colspan="2">{{name}}</td>
+						<td>{{level}}</td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

@@ -18,7 +18,7 @@ let _processPath = (p) => {
 				if (file !== 'index.js' && file !== 'config.js' && !configMatch.test(file)) {
 					var name = file.substring(0, file.lastIndexOf('.'));
 					let p1 = deepPath.length > 0 ? `${deepPath}/` : "";
-					// console.log(`${p1}${name}`);
+					//console.log(`${p1}${name}`);
 					libs[`${p1}${name}`] = require(`./${p1}${name}`);
 				}
 			}
@@ -44,11 +44,13 @@ module.exports = (app, passport) => {
 		}
 		if(typeof troute === typeof []) {
 			for (var i = 0; i < troute.length; i++) {
+				//console.log(troute[i]);
 				app.use(troute[i], libs[item]);
 			}
 		} else if ( typeof troute === 'function' ) {
 			troute(app, libs[item]);
 		} else {
+			//console.log(troute);
 			app.use(troute, libs[item]);
 		}
 	}

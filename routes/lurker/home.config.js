@@ -4,8 +4,8 @@ const xconfig = require('../../config');
 const merge = require('merge');
 
 let config = {
-	'admin/home': {
-		route: ['/admin', '/admin/home']
+	"lurker/home": {
+		route: ['/lurker/']
 	}
 };
 
