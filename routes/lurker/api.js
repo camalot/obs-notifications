@@ -11,7 +11,7 @@ router.get("/streamers", (req, res, next) => {
 });
 
 router.post("/admin/streamer", (req, res, next) => {
-	if(req.)
+	//if(req.)
 });
 
 //router.get("/ids/")

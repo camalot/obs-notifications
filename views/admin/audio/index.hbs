@@ -1,0 +1,53 @@
+{{#section 'title'}}OBS{{/section}} {{#section 'header'}} {{!--
+<div class="mdl-layout__tab-bar mdl-js-ripple-effect">
+	<a href="#fixed-tab-1" class="mdl-layout__tab is-active">Networks</a>
+	<a href="#fixed-tab-2" class="mdl-layout__tab">Accounts</a>
+</div> --}} {{/section}}
+
+
+<div class="page-content">
+	<div class="mdl-grid">
+		<div class="mdl-cell mdl-cell--12-col">
+			<div class="mdl-card mdl-card-short" style="width:100%;">
+				<div class="mdl-card__title">
+					<h4 class="mdl-card__title-text">PhantomBot Audio Hook Upload</h4>
+				</div>
+
+				<form action="audio/upload" method="post" enctype="multipart/form-data">
+					<div class="mdl-card__supporting-text">
+						<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label" style="width:100%;">
+							<input class="mdl-textfield__input" type="file" name="clip" pattern="\.mp3$" id="clip-file">
+							<label class="mdl-textfield__label" for="clip-file" style="padding-left: 240px;">Audio Hook File</label>
+							<span class="mdl-textfield__error"></span>
+						</div>
+					</div>
+					<div class="mdl-card__actions" style="text-align: left;">
+						<button type="button" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect">Cancel</button>
+						<button type="submit" class="mdl-button mdl-js-button mdl-button--primary mdl-js-ripple-effect mdl-button--primary mdl-button--raised">Upload</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+		<div class="mdl-cell mdl-cell--12-col">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
+				<thead>
+					<tr>
+						<th style="text-transform: uppercase;" class="mdl-data-table__cell--non-numeric">Name</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{{#each hooks}}
+					<tr>
+						<td class="mdl-data-table__cell--non-numeric">{{name}}</td>
+						<td></td>
+					</tr>
+					{{/each}}
+				</tbody>
+			</table>
+		</div>
+		
+
+	</div>
+</div>

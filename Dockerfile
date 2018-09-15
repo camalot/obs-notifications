@@ -7,7 +7,11 @@ WORKDIR /app
 COPY package.json /app/
 
 RUN mkdir -p /databases && \
-	ln -s /databases /app/databases
+	mkdir -p /app/data && \
+	mkdir -p /data && \
+	ln -s /data/labels /app/data/labels && \
+	ln -s /databases /app/databases && \
+	ln -s /data/pb /app/data/pb
 
 RUN npm install
 

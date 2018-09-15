@@ -20,13 +20,22 @@
 					</tr>
 				</thead>
 				<tbody>
-					{{#each commands}}
+					{{#each aliases}}
 					<tr>
 						<td colspan="2">{{name}}</td>
 						<td>{{level}}</td>
 					</tr>
 					{{/each}}
 				</tbody>
+			</table>
+		</div>
+		<div class="mdl-cell mdl-cell--12-col">
+			<table class="mdl-data-table mdl-js-data-table" style="width: 100%;">
+			 {{#each scenes}}
+			<tr>
+				<td colspan="2">{{name}}</td>
+			</tr>
+			{{/each}}
 			</table>
 		</div>
 	</div>

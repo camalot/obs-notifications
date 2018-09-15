@@ -4,6 +4,7 @@ logs
 *.stackdump
 
 databases/*.sqlite
+data/
 
 .env
 custom.config.json

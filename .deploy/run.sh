@@ -80,8 +80,10 @@ docker run -d \
 	-p 9856:9856 \
 	-e PUID=1000 -e PGID=1000 \
 	-e TZ=America_Chicago \
-	-e APP_STREAMLABELS_PATH=/data \
+	-e APP_STREAMLABELS_PATH=/data/labels \
 	-e APP_DATABASE_PATH=/databases \
-	-v /mnt/data/obs/labels/darthminos:/data \
+	-e APP_PB_AUDIOHOOKS_PATH=/data/pb/audio-hooks \
+	-v /mnt/data/obs/labels/darthminos:/data/labels \
 	-v /mnt/data/${BUILD_PROJECT}/databases:/databases \
+	-v /mnt/data/phantombot/config:/data/pb \
 	-t ${DOCKER_IMAGE};

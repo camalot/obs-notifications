@@ -1,5 +1,8 @@
 'use strict';
 const merge = require('merge');
+const path = require('path');
+const fs = require('fs-extra');
+const customFile = path.join(__dirname, 'custom.config.json');
 
 let config = {};
 
@@ -30,9 +33,6 @@ config.groups = {
 };
 
 
-let path = require('path');
-let fs = require('fs');
-let customFile = path.join(__dirname, 'custom.config.json');
 config.groups.custom = {};
 try {
 	fs.accessSync(customFile, fs.F_OK);
@@ -62,6 +62,17 @@ try {
 } catch (e) {
 	// no env file
 }
+
+config.pb = {
+	upload: process.env.APP_PB_AUDIOHOOKS_PATH || "data/pb/audio-hooks"
+};
+
+if (config.pb.upload === '' || config.pb.upload === null || config.pb.upload === undefined) {
+	throw new Error('"APP_PB_AUDIOHOOKS_PATH" is not set.');
+}
+
+config.pb.upload = path.isAbsolute(config.pb.upload) ? config.pb.upload : path.join(__dirname, config.pb.upload);
+fs.ensureDirSync(config.pb.upload);
 
 if (config.slPath === '' || config.slPath === null || config.slPath === undefined) {
 	throw new Error('"APP_STREAMLABELS_PATH" is not set.');

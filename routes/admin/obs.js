@@ -8,6 +8,7 @@ const obs = utils.obsstudio;
 router.get("/", (req, res, next) => {
 	return new Promise((resolve, reject) => {
 		try {
+			let aliases = null;
 			return obs.getSourceAliases(true)
 				.then(data => {
 					return new Promise((resolve, reject) => {
@@ -26,11 +27,17 @@ router.get("/", (req, res, next) => {
 					});
 				})
 				.then((data) => {
+					aliases = data;
+					return obs.getSources();
+				})
+				.then((data) => {
 					console.log("render");
 					console.log(data);
+
 					return res.render("admin/obs/index", {
 						layout: "material",
-						commands: data
+						aliases: aliases,
+						scenes: data
 					});
 				}).catch(err => {
 					console.error(err);
