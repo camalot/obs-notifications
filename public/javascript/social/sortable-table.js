@@ -27,7 +27,7 @@ $(function () {
 					let id = $(this).data('sort-id');
 					sortData.push({ id: id, sort: r });
 				});
-				let url = '/user/social/accounts/sort';
+				let url = '/admin/social/accounts/sort';
 
 				$.ajax(url, {
 					method: "post",
