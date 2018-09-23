@@ -8,13 +8,14 @@ const config = require("./social.config");
 const utils = require("../../lib/utils");
 const merge = require("merge");
 const Database = require("../../lib/data/database");
+const auth = require("../../lib/utils").auth;
 const async = require("async");
 var url = require('url');
 
-let database = new Database("social");
 
 router.get("/", (req, res, next) => {
 	try {
+		let database = new Database("social");
 		let resdata = {};
 		return database
 			.open()
@@ -31,10 +32,11 @@ router.get("/", (req, res, next) => {
 			})
 			.then(data => {
 				resdata.accounts = data;
-				resdata.url = getFullUrl(req, "/social/${position}/${animation}");
+				resdata.url = getFullUrl(req, `/social/\${position}/\${animation}`);
 				return res.render("social/index", {
 					data: resdata,
 					layout: "material",
+					config: config['admin/social'],
 					page: { title: "SOCIAL" }
 				});
 			})
@@ -52,7 +54,9 @@ router.get("/", (req, res, next) => {
 
 router.post("/settings", (req, res, next) => {
 	try {
-		return database.open()
+		let database = new Database("social");
+		return database
+			.open()
 			.then(() => {
 				let data = req.body || {};
 				return database.tables.settings.updateAll(data);
@@ -63,7 +67,7 @@ router.post("/settings", (req, res, next) => {
 			.then(() => {
 				return database.close();
 			})
-			.catch((err) => {
+			.catch(err => {
 				return next(new Error(err));
 			});
 	} catch (err) {
@@ -73,6 +77,7 @@ router.post("/settings", (req, res, next) => {
 
 router.post("/network", (req, res, next) => {
 	try {
+		let database = new Database("social");
 		return database
 			.open()
 			.then(() => {
@@ -98,9 +103,10 @@ router.post("/network", (req, res, next) => {
 	}
 });
 
-router.post("/network/delete/:id", (req, res, next) => {
+router.post("/network/delete/", (req, res, next) => {
 	try {
-		let id = req.params.id;
+		let database = new Database("social");
+		let id = req.body.id;
 		if (!id) {
 			throw '"id" not passed to method';
 		}
@@ -109,13 +115,13 @@ router.post("/network/delete/:id", (req, res, next) => {
 			.then(() => {
 				return database.tables.networks.remove(id);
 			})
-			.then((data) => {
+			.then(data => {
 				if (data.id === id && data.deleted) {
 					return res.redirect("/admin/social");
 				}
 				throw JSON.stringify(data);
 			})
-			.catch((err) => {
+			.catch(err => {
 				return next(new Error(err));
 			});
 	} catch (err) {
@@ -123,38 +129,45 @@ router.post("/network/delete/:id", (req, res, next) => {
 	}
 });
 
-router.get("/account/:id/enabled/:enabled", (req, res, next) => {
-	try {
-		let enabled = req.params.enabled === "true" || req.params.enabled === "1" ? true : false;
-		return database
-			.open()
-			.then(() => {
-				return database.tables.accounts.update({
-					id: req.params.id,
-					enabled: enabled
+router.get(
+	"/account/:id/enabled/:enabled",
+	(req, res, next) => {
+		try {
+			let database = new Database("social");
+			let enabled =
+				req.params.enabled === "true" || req.params.enabled === "1"
+					? true
+					: false;
+			return database
+				.open()
+				.then(() => {
+					return database.tables.accounts.update({
+						id: req.params.id,
+						enabled: enabled
+					});
+				})
+				.then(data => {
+					return res.json(data);
+				})
+				.then(() => {
+					return database.close();
+				})
+				.catch(err => {
+					console.error(err);
+					return next(err);
 				});
-			})
-			.then((data) => {
-				return res.json(data);
-			})
-			.then(() => {
-				return database.close();
-			})
-			.catch(err => {
-				console.error(err);
-				return next(err);
-			});
-
-	} catch (e) {
-		return next(e);
+		} catch (e) {
+			return next(e);
+		}
 	}
-});
+);
 
 router.post("/account", (req, res, next) => {
 	let netid = parseInt(req.body.network || "0");
 	let enabled = parseInt(req.body.enabled || "0") === 1;
 
 	try {
+		let database = new Database("social");
 		return database
 			.open()
 			.then(() => {
@@ -180,8 +193,9 @@ router.post("/account", (req, res, next) => {
 
 router.post("/account/delete/:id", (req, res, next) => {
 	try {
+		let database = new Database("social");
 		let id = req.params.id;
-		if(!id) {
+		if (!id) {
 			throw '"id" not passed to method';
 		}
 		return database
@@ -189,13 +203,13 @@ router.post("/account/delete/:id", (req, res, next) => {
 			.then(() => {
 				return database.tables.accounts.remove(id);
 			})
-			.then((data) => {
-				if(data.id === id && data.deleted) {
+			.then(data => {
+				if (data.id === id && data.deleted) {
 					return res.redirect("/admin/social");
 				}
 				throw JSON.stringify(data);
 			})
-			.catch((err) => {
+			.catch(err => {
 				return next(new Error(err));
 			});
 	} catch (err) {
@@ -205,38 +219,45 @@ router.post("/account/delete/:id", (req, res, next) => {
 
 router.post("/accounts/sort", (req, res, next) => {
 	try {
+		let database = new Database("social");
 		let data = req.body.data;
 		if (!data) {
-			throw 'Missing sort data in body.';
+			throw "Missing sort data in body.";
 		}
-		database.open()
+		database
+			.open()
 			.then(() => {
 				return new Promise((resolve, reject) => {
-					async.each(data, function (info, done) {
-						return database.tables.accounts.update(info)
-							.then((d) => {
-								return done();
-							})
-							.catch((err) => {
+					async.each(
+						data,
+						function(info, done) {
+							return database.tables.accounts
+								.update(info)
+								.then(d => {
+									return done();
+								})
+								.catch(err => {
+									console.error(err);
+									return done(err);
+								});
+						},
+						err => {
+							if (err) {
 								console.error(err);
-								return done(err);
-							});
-					}, (err) => {
-						if (err) {
-							console.error(err);
-							return reject(err);
+								return reject(err);
+							}
+							return resolve(data);
 						}
-						return resolve(data);
-					});
+					);
 				});
 			})
-			.then((rdata) => {
+			.then(rdata => {
 				return res.json(rdata);
 			})
 			.then(() => {
 				return database.close();
 			})
-			.catch((err) => {
+			.catch(err => {
 				console.error(err);
 				return next(new Error(err));
 			});

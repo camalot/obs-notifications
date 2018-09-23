@@ -2,7 +2,7 @@
 	{{#each accounts}}
 	{{#if enabled}}
 	<div class="popup {{network.name}}-pop animate-popup">
-		<div class="left">
+		<div class="left icon">
 			<span class="{{network.name}}"></span>
 		</div>
 		<div class="right username">
@@ -15,25 +15,30 @@
 
 {{#section 'scripts'}}
 <script>
-var settings = {
-	social: {
-		{{#each accounts}}
-		{{#if enabled}}
-			"{{network.name}}": "{{this.name}}",
-		{{/if}}
-		{{/each}}
-	},
-
-	// Gaming Popup Options
-	popup: {
-		{{#each config}}
-		{{key}}: {{value}},
-		{{/each}}
-	}
-};
-
+	$(function() {
+		let overlay = new DarthMinosSocialOverlay({
+			social: {
+				{{#each accounts}}
+				{{#if enabled}}
+					"{{network.name}}": "{{this.name}}",
+				{{/if}}
+				{{/each}}
+			},
+			popup: {
+				{{#each config}}
+				{{#xif type '!=' 'code'}}
+				{{key}}: {{value}},
+				{{/xif}}
+				{{/each}}
+			}
+		});
+	});
 </script>
-<script src="/javascript/social.js"></script> {{/section}} {{#section 'head'}}
-<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" href="/stylesheets/social.css" type="text/css">
-<link rel="stylesheet" href="/social/stylesheet/" type="text/css"> {{/section}}
+<script src="/javascript/social.js"></script>
+{{/section}}
+{{#section 'head'}}
+<link href='https://fonts.googleapis.com/css?family=Montserrat:700' rel='stylesheet' type='text/css' />
+<link rel="stylesheet" href="/stylesheets/social.css" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/social/stylesheet" type="text/css" rel="stylesheet"/>
+<link rel="stylesheet" href="/stylesheets/social/{{animation}}.css" type="text/css" rel="stylesheet"/>
+{{/section}}

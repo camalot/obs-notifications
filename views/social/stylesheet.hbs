@@ -1,11 +1,15 @@
 {{#each networks}}
 .{{name}}-pop {
-	background: {{background2}};
+background: {{background2}};
 }
 .{{name}}-pop .username span {
-	color: {{color}};
+color: {{color}};
 }
 .popup .left .{{name}}:before {
-  background: {{background}} url('{{image}}') no-repeat 10px 10px;
+background: {{background}} url('{{image}}') no-repeat 10px 10px;
 }
 {{/each}}
+
+/* custom css */
+{{custom_css.value}}
+/* custom css end */

@@ -5,7 +5,30 @@ const merge = require('merge');
 
 let config = {
 	"admin/social": {
-		route: ['/admin/social']
+		route: ["/admin/social"],
+		animations: {
+			"fade": {
+				display: "Fade",
+				value: "fade"
+			}, 
+			"flip": {
+				display: "Flip",
+				value: "flip",
+			}, 
+			"hslide": {
+				display: "Horizontal Slide",
+				value: "hslide"
+			},
+			"vslide": {
+				display: "Vertical Slide",
+				value: "vslide"
+			}, 
+			"hbounce": {	
+				display: "Horizontal Bounce",
+				value: "hbounce"
+			}
+		}
+
 	}
 };
 

@@ -48,4 +48,21 @@ router.post("/upload", upload.single('clip'), (req, res, next) => {
 	});
 });
 
+router.post("/delete", (req, res, next) => {
+	return new Promise((resolve, reject) => {
+		try {
+			let file = path.join(config.pb.upload, req.body.file);
+			fs.unlink(file, (err) => {
+				if(err) {
+					return next(err);
+				}
+				return res.redirect("/admin/audio");
+			});
+		} catch (err) {
+			console.error(err);
+			return next(err);
+		}
+	});
+});
+
 module.exports = router;

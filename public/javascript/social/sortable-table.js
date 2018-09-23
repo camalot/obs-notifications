@@ -11,7 +11,7 @@ $(function () {
 			animation: 300
 		});
 		let dragTimeOut = null;
-		dragger.on('drag', function(source, mode) {
+		dragger.on('drag', function (source, mode) {
 			if (!dragTimeOut) {
 				clearTimeout(dragTimeOut);
 			}
@@ -20,14 +20,14 @@ $(function () {
 			if (!dragTimeOut) {
 				clearTimeout(dragTimeOut);
 			}
-			dragTimeOut = setTimeout(function() {
+			dragTimeOut = setTimeout(function () {
 				// save the order of all
 				let sortData = [];
 				$('[data-sort]', table).each(function (r) {
 					let id = $(this).data('sort-id');
 					sortData.push({ id: id, sort: r });
 				});
-				let url = '/admin/social/accounts/sort';
+				let url = '/user/social/accounts/sort';
 
 				$.ajax(url, {
 					method: "post",
@@ -48,7 +48,7 @@ $(function () {
 					}
 				});
 			}, 500);
-			
+
 		});
 	});
 });
