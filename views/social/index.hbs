@@ -40,8 +40,7 @@
 						{{#each config.animations}}
 						<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="radio-animation-{{@key}}">
 							<input type="radio" class="mdl-radio__button" id="radio-animation-{{@key}}" name="animation" value="{{@key}}"
-							 {{#xif @key
-							 '==' 'fade'}} checked{{/xif}}> <span class="mdl-radio__label">{{display}}</span>
+							 {{#xif @key '==' 'fade'}} checked{{/xif}}> <span class="mdl-radio__label">{{display}}</span>
 						</label>
 						{{/each}}
 					</fieldset>
@@ -57,7 +56,7 @@
 		</div>
 
 		<div class="mdl-cell mdl-cell--12-col">
-			<form action="/user/social/settings" method="post" enctype="application/x-www-form-urlencoded">
+			<form action="/admin/social/settings" method="post" enctype="application/x-www-form-urlencoded">
 				<div class="mdl-card" style="width:100%;">
 					<div class="mdl-card__title">
 						<h4 class="mdl-card__title-text">Settings</h4>
@@ -156,7 +155,7 @@
 						<td class="mdl-data-table__cell--non-numeric" style="background-color: {{network.background2}}; text-align: center;width: 100px;">
 							<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="account-{{name}}-{{id}}-enabled">
 								<input name="enabled" type="checkbox" id="account-{{name}}-{{id}}-enabled" class="mdl-switch__input"
-								 {{#if enabled}} checked{{/if}} data-checkbox="/user/social/account/{{id}}/enabled/:enabled" />
+								 {{#if enabled}} checked{{/if}} data-checkbox="/admin/social/account/{{id}}/enabled/:enabled" />
 							</label>
 						</td>
 						<td style="background-color: {{network.background2}}; width: 100px;">
@@ -193,7 +192,7 @@
 
 <div id="network-dialogs">
 	<dialog class="mdl-dialog" id="new-network-dialog" style="width: 50%;">
-		<form action="/user/social/network" method="post" enctype="application/x-www-form-urlencoded">
+		<form action="/admin/social/network" method="post" enctype="application/x-www-form-urlencoded">
 			<h4 class="mdl-dialog__title">Add New Network</h4>
 			<div class="mdl-dialog__content">
 				<div class="mdl-textfield mdl-js-textfield">
@@ -238,7 +237,7 @@
 
 	{{#each data.networks}} {{#unless system}}
 	<dialog id="network-delete-{{name}}-dialog" class="mdl-dialog" style="width: 50%">
-		<form action="/user/social/network/delete" method="post" enctype="application/x-www-form-urlencoded">
+		<form action="/admin/social/network/delete" method="post" enctype="application/x-www-form-urlencoded">
 			<input type="hidden" name="id" value="{{id}}" />
 			<h4 class="mdl-dialog__title">Delete '{{name}}' Network?</h4>
 			<div class="mdl-dialog__content" class="mdl-dialog">
@@ -268,7 +267,7 @@
 
 <div id="account-dialogs">
 	<dialog class="mdl-dialog" id="new-account-dialog" style="width: 50%;">
-		<form action="/user/social/account" method="post" enctype="application/x-www-form-urlencoded">
+		<form action="/admin/social/account" method="post" enctype="application/x-www-form-urlencoded">
 			<h4 class="mdl-dialog__title">Add New Account</h4>
 			<div class="mdl-dialog__content">
 				<div class="mdl-textfield mdl-js-textfield">
@@ -304,7 +303,7 @@
 
 	{{#each data.accounts}}
 	<dialog id="account-delete-{{id}}-dialog" class="mdl-dialog" style="width: 50%">
-		<form action="/user/social/account/delete/{{id}}" method="post" enctype="application/x-www-form-urlencoded">
+		<form action="/admin/social/account/delete/{{id}}" method="post" enctype="application/x-www-form-urlencoded">
 			<h4 class="mdl-dialog__title">Delete '{{name}}' {{network.name}} Account?</h4>
 			<div class="mdl-dialog__content" class="mdl-dialog">
 				<p>
