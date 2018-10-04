@@ -18,17 +18,19 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
-			"prime": {
-				"name": [ "ANIMATION-TwitchPrime" ],
-				"level": 7,
+			"prime2": {
+				"name": [
+					"ANIMATION-TwitchPrime"
+				],
+				"advertise": true,
 				"length": 8000,
-				"advertise": false
+				"level": 7
 			},
 			"gg": {
 				"name": [
-					"Animations/ANIMATION-VICTORYROYALE",
-					"Animations/ANIMATION-ACHIEVEMENT",
-					"Animations/ANIMATION-TOASTY"
+					"ANIMATION-VICTORYROYALE",
+					"ANIMATION-ACHIEVEMENT",
+					"ANIMATION-TOASTY"
 				],
 				"level": 7,
 				"length": 10000,
