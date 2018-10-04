@@ -18,6 +18,12 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"prime": {
+				"name": [ "ANIMATION-TwitchPrime" ],
+				"level": 7,
+				"length": 8000,
+				"advertise": false
+			},
 			"gg": {
 				"name": [
 					"ANIMATION-VICTORYROYALE",
