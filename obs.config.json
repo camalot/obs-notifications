@@ -26,9 +26,9 @@
 			},
 			"gg": {
 				"name": [
-					"ANIMATION-VICTORYROYALE",
-					"ANIMATION-ACHIEVEMENT",
-					"ANIMATION-TOASTY"
+					"Animations/ANIMATION-VICTORYROYALE",
+					"Animations/ANIMATION-ACHIEVEMENT",
+					"Animations/ANIMATION-TOASTY"
 				],
 				"level": 7,
 				"length": 10000,
