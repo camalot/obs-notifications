@@ -18,6 +18,12 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"eh": {
+				"name": [ "ANIMATION-EhWhatever" ],
+				"advertise": true,
+				"length": 8000,
+				"level": 7
+			},
 			"prime": {
 				"name": [
 					"ANIMATION-TwitchPrime"
