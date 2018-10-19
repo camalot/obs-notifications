@@ -18,6 +18,14 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"1up": {
+				"name": [
+					"ANIMATION-1up"
+				],
+				"advertise": true,
+				"length": 2150,
+				"level": 7
+			},
 			"eh": {
 				"name": [ "ANIMATION-EhWhatever" ],
 				"advertise": true,
