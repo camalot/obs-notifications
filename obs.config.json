@@ -119,10 +119,28 @@
 					"ANIMATION-FRESH-BriteBomber",
 					"ANIMATION-ELECTROSHUFFLE-BriteBomber",
 					"ANIMATION-RISEUP-Snoop",
-					"ANIMATION-HYPE"
+					"ANIMATION-HYPE",
+					"ANIMATION-HYPE2"
 				],
 				"advertise": true,
-				"length": 10000,
+				"length": 11000,
+				"level": 7
+			},
+			"hyper": {
+				"name": [
+					"ANIMATION-HYPE2"
+				],
+				"advertise": false,
+				"length": 11000,
+				"level": 7
+			},
+			"sh" : {
+				"name": [
+					"ANIMATION-HYPE2",
+					"ANIMATION-HYPE"
+				],
+				"advertise": false,
+				"length": 11000,
 				"level": 7
 			},
 			"oj": {

@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Halloween Too';
+    src: url('/stylesheets/HalloweenToo.woff2') format('woff2'),
+        url('/stylesheets/HalloweenToo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+html,
+body,
+.widget-EventList li {
+	font-family: 'Halloween Too', "Roboto", "Helvetica", sans-serif !important;
+}
