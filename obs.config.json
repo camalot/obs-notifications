@@ -18,12 +18,18 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
+			"patrock" : {
+				"name": [ "ANIMATION-PATROCK" ],
+				"advertise": true,
+				"length": 2150,
+				"level": 7
+			},
 			"1up": {
 				"name": [
 					"ANIMATION-1up"
 				],
 				"advertise": true,
-				"length": 2150,
+				"length": 7000,
 				"level": 7
 			},
 			"eh": {
