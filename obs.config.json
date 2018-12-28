@@ -12,7 +12,13 @@
 				"name": "GAME SCENE",
 				"level": 2,
 				"advertise": false
+			}, 
+			"desk": {
+				"name": "TalkShow",
+				"level": 2,
+				"advertise": false
 			}
+
 		}
 	},
 	"sources": {
