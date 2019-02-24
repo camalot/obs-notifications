@@ -30,6 +30,14 @@
 				"length": 6500,
 				"level": 7
 			},
+			"matrix": {
+				"name": [
+					"ANIMATION-MATRIX"
+				],
+				"advertise": true,
+				"length": 6500,
+				"level": 7
+			},
 			"1up": {
 				"name": [
 					"ANIMATION-1up"

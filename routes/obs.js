@@ -103,6 +103,30 @@ router.get("/sources", (req, res, next) => {
 		});
 });
 
+router.get("/sources/all", (req, res, next) => {
+	obs
+		.getSources("name", ".*")
+		.then(data => {
+			return res.json(data);
+		})
+		.catch(err => {
+			console.error(err);
+			return next(err);
+		});
+});
+
+router.get("/sources/filters/:name", (req, res, next) => {
+	let name = req.params.name;
+	return obs.getSourceFilters(name)
+		.then((data) => {
+			return res.json(data);
+		})
+		.catch(err => {
+			console.error(err);
+			return next(err);
+		});
+});
+
 router.get("/sources/aliases/:all?", (req, res, next) => {
 	let all = (req.params.all || "false").toLowerCase() === "true" || false;
 	obs
