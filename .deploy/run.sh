@@ -96,7 +96,7 @@ docker run -d \
 	-e APP_STREAMLABELS_PATH=${APP_STREAMLABELS_PATH} \
 	-e APP_DATABASE_PATH=${APP_DATABASE_PATH} \
 	-e APP_PB_AUDIOHOOKS_PATH=${APP_PB_AUDIOHOOKS_PATH} \
-	-v /mnt/data/obs/labels/darthminos:${APP_DATABASE_PATH} \
+	-v /mnt/data/obs/labels/darthminos:${APP_STREAMLABELS_PATH} \
 	-v /mnt/data/${BUILD_PROJECT}/databases:${APP_DATABASE_PATH} \
 	-v /mnt/data/phantombot/config:/data/pb \
 	-t ${DOCKER_IMAGE};
