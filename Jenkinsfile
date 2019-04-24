@@ -37,6 +37,15 @@ node ("node") {
 				withCredentials([[$class: 'UsernamePasswordMultiBinding', credentialsId: env.CI_ARTIFACTORY_CREDENTIAL_ID,
 									usernameVariable: 'ARTIFACTORY_USERNAME', passwordVariable: 'ARTIFACTORY_PASSWORD']]) {
 					stage ("install" ) {
+
+						env.APP_DATABASE_PATH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_DATABASE_PATH")
+						env.APP_PB_AUDIOHOOKS_PATH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_PB_AUDIOHOOKS_PATH")
+						env.APP_SLCB_API_KEY = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_SLCB_API_KEY")
+						env.APP_SLCB_SOCKET = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_SLCB_SOCKET")
+						env.APP_STREAMLABELS_PATH = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_STREAMLABELS_PATH")
+						env.APP_TWITCH_CLIENT_ID = SecretsVault.get(this, "secret/${env.CI_PROJECT_NAME}", "APP_TWITCH_CLIENT_ID")
+
+
 						deleteDir()
 						Branch.checkout(this, env.CI_PROJECT_NAME)
 						Pipeline.install(this)

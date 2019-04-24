@@ -16,6 +16,25 @@ config.sitePort = process.env.APP_PORT || 3000;
 config.slPath = process.env.APP_STREAMLABELS_PATH;
 config.databasePath = process.env.APP_DATABASE_PATH || 'databases/';
 
+config.chatbot = {
+	settings: {
+		API_Key: process.env.APP_SLCB_API_KEY,
+		API_Socket: process.env.APP_SLCB_SOCKET,
+	},
+	caster: {
+		CasterCommand: "!so",
+		Permission: "Moderator",
+		APIKey: process.env.APP_TWITCH_CLIENT_ID,
+		CasterColor: "rgba(255,0,0,255)",
+		TwitchColor: "rgba(230,126,34,1)",
+		InTransition: "SlideRight",
+		OutTransition: "SlideRight",
+		Duration: 5,
+		InSound: "",
+		OutSound: ""
+	}
+};
+
 config.transitionSpeed = 10000;
 config.animationSpeed = 1000;
 config.groups = {
@@ -31,6 +50,7 @@ config.groups = {
 		'donation_goal'
 	]
 };
+
 
 
 config.groups.custom = {};

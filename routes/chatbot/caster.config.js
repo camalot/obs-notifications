@@ -4,8 +4,8 @@ const xconfig = require('../../config');
 const merge = require('merge');
 
 let config = {
-	"lurker/api": {
-		route: ['/lurker/api']
+	'chatbot/caster': {
+		route: ['/chatbot/caster']
 	}
 };
 

@@ -43,6 +43,14 @@ PULL_REPOSITORY="${DOCKER_REGISTRY:-"docker.artifactory.bit13.local"}";
 [[ -z "${BUILD_VERSION// }" ]] && __error "Environment variable 'CI_BUILD_VERSION' missing or is empty";
 [[ -z "${BUILD_ORG// }" ]] && __error "Environment variable 'CI_DOCKER_ORGANIZATION' missing or is empty";
 
+[[ -z "${APP_DATABASE_PATH// }" ]] && __error "Environment variable 'APP_DATABASE_PATH' missing or is empty";
+[[ -z "${APP_PB_AUDIOHOOKS_PATH// }" ]] && __error "Environment variable 'APP_PB_AUDIOHOOKS_PATH' missing or is empty";
+[[ -z "${APP_SLCB_API_KEY// }" ]] && __error "Environment variable 'APP_SLCB_API_KEY' missing or is empty";
+[[ -z "${APP_SLCB_SOCKET// }" ]] && __error "Environment variable 'APP_SLCB_SOCKET' missing or is empty";
+[[ -z "${APP_STREAMLABELS_PATH// }" ]] && __error "Environment variable 'APP_STREAMLABELS_PATH' missing or is empty";
+[[ -z "${APP_TWITCH_CLIENT_ID// }" ]] && __error "Environment variable 'APP_TWITCH_CLIENT_ID' missing or is empty";
+
+
 HTTP_PORT_MAP="49140:3000";
 
 DOCKER_IMAGE="${BUILD_ORG}/${BUILD_PROJECT}:${BUILD_VERSION}";
@@ -72,6 +80,8 @@ if [[ ! -z "${DC_INFO}" ]]; then
 fi
 
 
+
+
 docker run -d \
 	--user 0 \
 	--restart unless-stopped \
@@ -80,10 +90,13 @@ docker run -d \
 	-p 9856:9856 \
 	-e PUID=1000 -e PGID=1000 \
 	-e TZ=America_Chicago \
-	-e APP_STREAMLABELS_PATH=/data/labels \
-	-e APP_DATABASE_PATH=/databases \
-	-e APP_PB_AUDIOHOOKS_PATH=/data/pb/audio-hooks \
-	-v /mnt/data/obs/labels/darthminos:/data/labels \
-	-v /mnt/data/${BUILD_PROJECT}/databases:/databases \
+	-e APP_TWITCH_CLIENT_ID=${APP_TWITCH_CLIENT_ID} \
+	-e APP_SLCB_API_KEY=${APP_SLCB_API_KEY} \
+	-e APP_SLCB_SOCKET=${APP_SLCB_SOCKET} \
+	-e APP_STREAMLABELS_PATH=${APP_STREAMLABELS_PATH} \
+	-e APP_DATABASE_PATH=${APP_DATABASE_PATH} \
+	-e APP_PB_AUDIOHOOKS_PATH=${APP_PB_AUDIOHOOKS_PATH} \
+	-v /mnt/data/obs/labels/darthminos:${APP_DATABASE_PATH} \
+	-v /mnt/data/${BUILD_PROJECT}/databases:${APP_DATABASE_PATH} \
 	-v /mnt/data/phantombot/config:/data/pb \
 	-t ${DOCKER_IMAGE};
