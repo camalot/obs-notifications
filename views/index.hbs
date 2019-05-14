@@ -7,7 +7,10 @@
 			<li class="eventItem {{../type}}">
 				<div>
 					<span class="tag">{{../type}}</span>
-					<span class="message">{{{this}}}</span>
+					<span class="icon" style="display: none; margin-right: 0;"><img 
+						src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" 
+						style="height: 48px; width: 48px; border:0; display: inline; 	vertical-align: middle;" /></span>
+					<span class="message" style="display: inline">{{{this}}}</span>
 				</div>
 			</li>
 		{{/each}}
@@ -21,7 +24,36 @@
 					$('.widget-EventList li:first').fadeOut({{config.animationSpeed}}, function () {
 						$('.widget-EventList li').fadeOut(0);
 						$(this).appendTo($('.widget-EventList'));
-						$(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { });
+						$(".icon", this).fadeOut(0);
+
+						$(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { 
+							let _this = $(this);
+							// show icon?
+							let type = $(".tag", this).text().toLowerCase().trim();
+							console.log(type)
+							switch (type) {
+								case "follow":
+								case "recents":
+									let icon = $(".icon", _this);
+									if(icon) {
+										let user = $(".message", _this).text().split(' ')[0];
+										$.ajax({
+											url: `/api/twitch/channel/${user}`,
+											method: 'get',
+											success: (data, status, xhr) => {
+												let img = $("img", icon);
+												img.attr("src", data.logo || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" );
+												icon.fadeIn({{ config.animationSpeed }});
+											}	
+										})
+										
+									}
+
+									break;
+								default:
+									break;
+							}
+						});
 					});
 				}
 				setInterval(function () {
@@ -29,7 +61,8 @@
 				}, {{config.transitionSpeed}});
 			}
 			setTimeout(function () {
-				$(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { });
+				{{!-- $(".widget-EventList li:first").fadeIn({{config.animationSpeed}}, function () { }); --}}
+				tick();
 			}, 500);
 		});
 	</script>
