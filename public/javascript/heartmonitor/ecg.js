@@ -1,24 +1,28 @@
 	(function ($) {
 		$(function () {
-			var low = 30;
+			var diff = Date.now() - new Date("04/01/1977").getTime();
+			var ageDate = new Date(diff);
+			var age = Math.abs(ageDate.getUTCFullYear() - 1970);
+
+
+			var low = 20;
 			var smoothie = new SmoothieChart({
 				responsive: true,
-				minValue: low - 5,
-				maxValue: 100,
+				minValue: 0,
+				//maxValue: 220 - (age + 5),
+				maxValue: 120,
 				scaleSmoothing: 0.125,
 				maxValueScale: 1,
 				minValueScale: 1,
 				grid: {
-					strokeStyle: 'rgb(0, 0, 0,0)', fillStyle: 'rgb(0, 0, 0,0)',
-					lineWidth: 1, millisPerLine: 250, verticalSections: 6,
+					strokeStyle: 'rgb(0, 0, 0, 0)', fillStyle: 'rgb(0, 0, 0, 0)',
+					lineWidth: 1, millisPerLine: 1000, verticalSections: 0,
 				},
 				labels: { fillStyle: 'rgb(0, 0, 0, 0)' }
 			});
 			smoothie.streamTo(document.getElementById("ecg-smoothie"));
 			var ecgData = new TimeSeries();
-			smoothie.addTimeSeries(ecgData, { strokeStyle: 'rgb(255, 0, 0, 0.5)', fillStyle: 'rgba(255, 0, 0, 0)', lineWidth: 16 });
-
-
+			smoothie.addTimeSeries(ecgData, { strokeStyle: 'rgb(255, 0, 0, 0.5)', fillStyle: 'rgba(255, 0, 0, 0)', lineWidth: 5});
 
 			var socket = new WebSocket("ws://192.168.2.3:3880");
 			socket.onopen = function (e) {
@@ -34,8 +38,9 @@
 				if (data.bpm) {
 					console.log(data.bpm);
 					if (ecgData) {
+						ecgData.append(new Date().getTime() - 200, low);
 						ecgData.append(new Date().getTime(), data.bpm);
-						ecgData.append(new Date().getTime() + 50, low);
+						ecgData.append(new Date().getTime() + 200, low);
 
 					}
 				}
