@@ -1,0 +1,13 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+.hms-value {
+	font-size: 4em;
+	color: rgba(0, 255, 0, 0.5);
+	font-weight: bold;
+	text-align: center;
+	margin: 20% 0 auto 0;
+	padding: 0;
+}
