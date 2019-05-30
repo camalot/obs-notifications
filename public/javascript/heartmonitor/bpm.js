@@ -1,6 +1,6 @@
 (function ($) {
 	$(function () {
-		var socket = new WebSocket("ws://127.0.0.1:3880");
+		var socket = new WebSocket("ws://192.168.2.3:3880");
 		socket.onopen = function (e) {
 			console.log('Connected to server!');
 			$(".hms-value").empty();
