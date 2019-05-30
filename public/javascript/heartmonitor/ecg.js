@@ -22,7 +22,7 @@
 			});
 			smoothie.streamTo(document.getElementById("ecg-smoothie"));
 			var ecgData = new TimeSeries();
-			smoothie.addTimeSeries(ecgData, { strokeStyle: 'rgb(255, 0, 0, 0.5)', fillStyle: 'rgba(255, 0, 0, 0)', lineWidth: 5});
+			smoothie.addTimeSeries(ecgData, { strokeStyle: 'rgb(255, 0, 0, 0.5)', fillStyle: 'rgba(255, 0, 0, 0)', lineWidth: 15});
 
 			var socket = new WebSocket("ws://192.168.2.3:3880");
 			socket.onopen = function (e) {
