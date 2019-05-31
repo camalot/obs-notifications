@@ -20,7 +20,7 @@
   "dependencies": {
     "async": "^2.6.2",
     "bcrypt-nodejs": "0.0.3",
-    "body-parser": "~1.15.2",
+    "body-parser": "^1.19.0",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.4",
     "dateformat": "^2.0.0",
@@ -45,7 +45,7 @@
     "reload": "^2.4.0",
     "request": "^2.88.0",
     "rss": "^1.2.2",
-    "serve-favicon": "~2.3.0",
+    "serve-favicon": "^2.5.0",
     "sha256": "^0.2.0",
     "shortid": "^2.2.14",
     "sqlite3": "^4.0.8",
