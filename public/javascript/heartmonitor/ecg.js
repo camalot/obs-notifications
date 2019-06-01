@@ -5,7 +5,7 @@
 		let socket;
 		function _startWS(socketAddress) {
 
-			socket = new WebSocket();
+			socket = new WebSocket(socketAddress);
 			socket.onopen = function (e) {
 				console.log('Connected to server!');
 				ecgData.append(new Date().getTime(), low);

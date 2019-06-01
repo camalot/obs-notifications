@@ -6,7 +6,7 @@
 
 		function _startWS(socketAddress) {
 
-			socket = new WebSocket();
+			socket = new WebSocket(socketAddress);
 			socket.onopen = function (e) {
 				console.log('Connected to server!');
 				$(".hms-value").empty();
