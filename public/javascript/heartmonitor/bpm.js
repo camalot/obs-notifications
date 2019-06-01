@@ -19,7 +19,7 @@
 				socket = null;
 				reconnectPointer = setTimeout(() => {
 					console.log("Attempting to reconnect...");
-					start(socketAddress);
+					_startWS(socketAddress);
 				}, 5000);
 			};
 			socket.onmessage = function (e) {
