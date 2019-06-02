@@ -3,6 +3,13 @@
 		const SOCKET_ENDPOINT = "ws://192.168.2.3:3880";
 		let reconnectPointer = null;
 		let socket;
+		let ecgData = new TimeSeries();
+		
+		let diff = Date.now() - new Date("04/01/1977").getTime();
+		let ageDate = new Date(diff);
+		let age = Math.abs(ageDate.getUTCFullYear() - 1970);
+		let low = 20;
+
 		function _startWS(socketAddress) {
 
 			socket = new WebSocket(socketAddress);
@@ -40,10 +47,6 @@
 
 		function _initSmoothie() {
 
-			let diff = Date.now() - new Date("04/01/1977").getTime();
-			let ageDate = new Date(diff);
-			let age = Math.abs(ageDate.getUTCFullYear() - 1970);
-			let low = 20;
 			let smoothie = new SmoothieChart({
 				responsive: true,
 				minValue: 0,
@@ -64,7 +67,6 @@
 				}
 			});
 			smoothie.streamTo(document.getElementById("ecg-smoothie"));
-			let ecgData = new TimeSeries();
 			smoothie.addTimeSeries(ecgData, {
 				strokeStyle: 'rgb(255, 0, 0, 0.5)',
 				fillStyle: 'rgba(255, 0, 0, 0)',
