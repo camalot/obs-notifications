@@ -23,11 +23,22 @@
 				}, 5000);
 			};
 			socket.onmessage = function (e) {
-				let data = JSON.parse(e.data);
-				if (data.bpm) {
-					$(".hms-value").html(data.bpm);
-				} else {
-					$(".hms-value").empty();
+				console.log(e);
+				let payload = JSON.parse(e.data);
+				switch (payload.event) {
+					case "bpm":
+						if (payload.data.bpm) {
+							$(".hms-value").html(payload.data.bpm);
+						} else {
+							$(".hms-value").empty();
+						}
+						break;
+					case "error":
+						if(payload.message) {
+							console.error(payload.data.message);
+							console.error(payload.data.stack);
+						}
+						break;
 				}
 			};
 			socket.onerror = function (e) {
