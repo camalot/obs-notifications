@@ -68,7 +68,7 @@
 						break;
 				}
 			};
-			
+
 			socket.onerror = function (e) {
 				console.error('An error has occurred!\n' + e.message);
 			};
@@ -77,14 +77,14 @@
 		_startWS(SOCKET_ENDPOINT);
 		function _getColorClasses() {
 			let classes = [];
-			for(let x in RANGES) {
+			for (let x in RANGES) {
 				classes.push(`${CLASS_BASE}-${x.toLocaleLowerCase()}`);
 			}
 		}
 		function _getColorClass(bpm) {
 
 			for (let x in RANGES) {
-				if(bpm >= RANGES[x].min && bpm <= RANGES[x].max) {
+				if (bpm >= RANGES[x].min && bpm <= RANGES[x].max) {
 					return `${CLASS_BASE}-${x.toLowerCase()}`;
 				}
 			}
