@@ -4,7 +4,7 @@
 		let reconnectPointer = null;
 		let socket;
 		let ecgData = new TimeSeries();
-		
+
 		let diff = Date.now() - new Date("04/01/1977").getTime();
 		let ageDate = new Date(diff);
 		let age = Math.abs(ageDate.getUTCFullYear() - 1970);
@@ -30,15 +30,26 @@
 				}, 5000);
 			};
 			socket.onmessage = function (e) {
-				let data = JSON.parse(e.data);
-				if (data.bpm) {
-					console.log(data.bpm);
-					if (ecgData) {
-						ecgData.append(new Date().getTime() - 200, low);
-						ecgData.append(new Date().getTime(), data.bpm);
-						ecgData.append(new Date().getTime() + 200, low);
-					}
+				let payload = JSON.parse(e.data);
+				switch (payload.event) {
+					case "bpm":
+						if (payload.data.bpm) {
+							console.log(payload.data.bpm);
+							if (ecgData) {
+								ecgData.append(new Date().getTime() - 200, low);
+								ecgData.append(new Date().getTime(), payload.data.bpm);
+								ecgData.append(new Date().getTime() + 200, low);
+							}
+						}
+						break;
+					case "error":
+						if (payload.message) {
+							console.error(payload.data.message);
+							console.error(payload.data.stack);
+						}
+						break;
 				}
+
 			};
 			socket.onerror = function (e) {
 				console.error('An error has occurred!\n' + e.message);

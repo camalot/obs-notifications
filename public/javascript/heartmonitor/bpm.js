@@ -44,20 +44,31 @@
 				}, 5000);
 			};
 			socket.onmessage = function (e) {
-				let data = JSON.parse(e.data);
-				if (data.bpm) {
-					$(".hms-value")
-						.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
-						.data("bpm", data.bpm)
-						.addClass(_getColorClass(data.bpm))
-						.html(data.bpm);
-				} else {
-					$(".hms-value")
-						.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
-						.data("bpm", "")
-						.empty();
+				let payload = JSON.parse(e.data);
+				switch (payload.event) {
+					case "bpm":
+						if (data.bpm) {
+							$(".hms-value")
+								.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
+								.data("bpm", payload.data.bpm)
+								.addClass(_getColorClass(payload.data.bpm))
+								.html(payload.data.bpm);
+						} else {
+							$(".hms-value")
+								.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
+								.data("bpm", "")
+								.empty();
+						}
+						break;
+					case "error":
+						if (payload.message) {
+							console.error(payload.data.message);
+							console.error(payload.data.stack);
+						}
+						break;
 				}
 			};
+			
 			socket.onerror = function (e) {
 				console.error('An error has occurred!\n' + e.message);
 			};
