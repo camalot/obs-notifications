@@ -6,9 +6,24 @@ body {
 
 .hms-value {
 	font-size: 4em;
-	color: rgba(0, 255, 0, 0.5);
 	font-weight: bold;
 	text-align: center;
 	margin: 20% 0 auto 0;
 	padding: 0;
+}
+
+.hms-value.hms-range-default {
+	color: rgba(50, 50, 50, 0.5);
+}
+
+.hms-value.hms-range-red {
+	color: rgba(200, 0, 0, 0.5);
+}
+
+.hms-value.hms-range-green {
+	color: rgba(50, 255, 50, 0.5);
+}
+
+.hms-value.hms-range-blue {
+	color: rgba(0, 50, 200, 0.5);
 }
