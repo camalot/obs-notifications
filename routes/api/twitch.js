@@ -16,7 +16,7 @@ router.get("/channel/:user", (req, res, next) => {
 			data += chunk;
 		});
 		resp.on("end", () => {
-			return res.json({ logo: data });
+			return res.json(JSON.parse(`{ "logo": "${data}" }`));
 		});
 	});
 
