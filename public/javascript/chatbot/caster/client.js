@@ -21,14 +21,14 @@ function connectWebsocket() {
 	//-------------------------------------------
 	//  Create WebSocket
 	//-------------------------------------------
-	var socket = new WebSocket("ws://127.0.0.1:3337/streamlabs");
+	let socket = new WebSocket("ws://127.0.0.1:3337/streamlabs");
 
 	//-------------------------------------------
 	//  Websocket Event: OnOpen
 	//-------------------------------------------
 	socket.onopen = function () {
 		// AnkhBot Authentication Information
-		var auth = {
+		let auth = {
 			author: "The_Alcoholic_Ninja",
 			website: "alcoholicninja.com",
 			api_key: API_Key,
@@ -38,7 +38,6 @@ function connectWebsocket() {
 		};
 
 		// Send authentication data to ChatBot ws server
-
 		socket.send(JSON.stringify(auth));
 	};
 
@@ -47,40 +46,39 @@ function connectWebsocket() {
 	//-------------------------------------------
 	socket.onmessage = function (message) {
 		// Parse message
-		var socketMessage = JSON.parse(message.data);
+		let socketMessage = JSON.parse(message.data);
 
 		// EVENT_USERNAME
 		if (socketMessage.event == "EVENT_USERNAME") {
-			var eventData = JSON.parse(socketMessage.data);
+			let eventData = JSON.parse(socketMessage.data);
 
-			var testdata = $.getJSON({
+			let testdata = $.get({
 				type: 'GET',
-				url: 'https://api.twitch.tv/kraken/channels/' + eventData.user,
-				headers: {
-					'Client-ID': settings.APIKey
-				},
+				url: 'https://decapi.me/twitch/avatar/' + eventData.user,
 				success: function (data) {
-					$("#alert")
-						.queue(function () {
-							document.getElementById("displayName").style.color = settings.CasterColor;
-							$("#displayName").html(eventData.user.toUpperCase());
-							$("#logo").html("<img class=round src=\"" + data.logo + "\">");
-							document.getElementById("twitch").style.color = settings.TwitchColor;
-							$("#twitch").html(data.url);
-							$("#sound").html("<embed src=\"" + settings.InSound + "\" hidden=\"true\" />");
+					if (data) {
+						$("#alert")
+							.queue(function () {
+								document.getElementById("displayName").style.color = settings.CasterColor;
+								$("#displayName").html(eventData.user.toUpperCase());
+								$("#logo").html("<img class=round src=\"" + data + "\">");
+								document.getElementById("twitch").style.color = settings.TwitchColor;
+								$("#twitch").html("https://www.twitch.tv/" + eventData.user);
+								$("#sound").html("<embed src=\"" + settings.InSound + "\" hidden=\"true\" />");
 
 
-							$(this).removeClass(settings.OutTransition + "Out initialHide");
-							$(this).addClass(settings.InTransition + "In");
-							$(this).dequeue();
-						})
-						.delay(settings.Duration * 1000)
-						.queue(function () {
-							$("#sound").html("<embed src=\"" + settings.OutSound + "\" hidden=\"true\" />");
-							$(this).removeClass(settings.InTransition + "In");
-							$(this).addClass(settings.OutTransition + "Out");
-							$(this).dequeue();
-						});
+								$(this).removeClass(settings.OutTransition + "Out initialHide");
+								$(this).addClass(settings.InTransition + "In");
+								$(this).dequeue();
+							})
+							.delay(settings.Duration * 1000)
+							.queue(function () {
+								$("#sound").html("<embed src=\"" + settings.OutSound + "\" hidden=\"true\" />");
+								$(this).removeClass(settings.InTransition + "In");
+								$(this).addClass(settings.OutTransition + "Out");
+								$(this).dequeue();
+							});
+					}
 				}
 			});
 
@@ -89,14 +87,14 @@ function connectWebsocket() {
 			// Queue animation
 
 		}
-	}
+	};
 
 	//-------------------------------------------
 	//  Websocket Event: OnError
 	//-------------------------------------------
 	socket.onerror = function (error) {
 		console.log("Error: " + error);
-	}
+	};
 
 	//-------------------------------------------
 	//  Websocket Event: OnClose
@@ -104,8 +102,8 @@ function connectWebsocket() {
 	socket.onclose = function () {
 		// Clear socket to avoid multiple ws objects and EventHandlings
 		socket = null;
-		// Try to reconnect every 5s 
-		setTimeout(function () { connectWebsocket() }, 5000);
-	}
+		// Try to reconnect every 5s
+		setTimeout(function () { connectWebsocket(); }, 5000);
+	};
 
-};
+}
