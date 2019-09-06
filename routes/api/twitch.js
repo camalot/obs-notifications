@@ -6,22 +6,19 @@ const https = require('https');
 
 router.get("/channel/:user", (req, res, next) => {
 	let http_req = https.get({
-			hostname: "api.twitch.tv",
-			path: `/kraken/channels/${req.params.user}`,
-			method: 'get',
-			protocol: "https:",
-			headers: {
-				'Client-ID': config['api/twitch'].clientID
-			}
-		}, (resp) => {
-			let data = "";
-			resp.on("data", (chunk) => {
-				data += chunk;
-			});
-			resp.on("end", () => {
-				return res.json(JSON.parse(data));
-			});
+		hostname: "decapi.me",
+		path: `/twitch/avatar/${req.params.user}`,
+		method: 'get',
+		protocol: "https:"
+	}, (resp) => {
+		let data = "";
+		resp.on("data", (chunk) => {
+			data += chunk;
 		});
+		resp.on("end", () => {
+			return res.json(JSON.parse(data));
+		});
+	});
 
 	http_req.on("error", (err) => {
 		return next(err);
