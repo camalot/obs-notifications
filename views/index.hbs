@@ -52,7 +52,7 @@
 												method: 'get',
 												success: (data, status, xhr) => {
 													let img = $("img", icon);
-													img.attr("src", data || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" );
+													img.attr("src", data.logo || "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII=" );
 													icon.data("loaded");
 													icon.fadeIn({{ config.animationSpeed }});
 												}	
