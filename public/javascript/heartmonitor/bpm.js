@@ -25,6 +25,7 @@
 		for (let x in RANGES) {
 			classes.push(`${CLASS_BASE}-${x.toLocaleLowerCase()}`);
 		}
+		return classes;
 	}
 	function _getColorClass(bpm) {
 
