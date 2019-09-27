@@ -16,80 +16,83 @@
 				max: 220
 			}
 
-		}
-		let reconnectPointer = null;
-		let socket;
-
-		function _startWS(socketAddress) {
-
-			socket = new WebSocket(socketAddress);
-			socket.onopen = function (e) {
-				console.log('Connected to server!');
-				$(".hms-value")
-					.data("bpm", "")
-					.empty();
-			};
-			socket.onclose = function (e) {
-				$(".hms-value")
-					.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
-					.data("bpm", "")
-					.empty();
-				console.log('Disconnected from server');
-				clearTimeout(reconnectPointer);
-				console.log("Reconnect attempt in 5 seconds.");
-				socket = null;
-				reconnectPointer = setTimeout(() => {
-					console.log("Attempting to reconnect...");
-					_startWS(socketAddress);
-				}, 5000);
-			};
-			socket.onmessage = function (e) {
-				let payload = JSON.parse(e.data);
-				switch (payload.event) {
-					case "bpm":
-						if (payload.data.bpm) {
-							$(".hms-value")
-								.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
-								.data("bpm", payload.data.bpm)
-								.addClass(_getColorClass(payload.data.bpm))
-								.html(payload.data.bpm);
-						} else {
-							$(".hms-value")
-								.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
-								.data("bpm", "")
-								.empty();
-						}
-						break;
-					case "error":
-						if (payload.message) {
-							console.error(payload.data.message);
-							console.error(payload.data.stack);
-						}
-						break;
-				}
-			};
-
-			socket.onerror = function (e) {
-				console.error('An error has occurred!\n' + e.message);
-			};
-		}
-
+		};
 		_startWS(SOCKET_ENDPOINT);
-		function _getColorClasses() {
-			let classes = [];
-			for (let x in RANGES) {
-				classes.push(`${CLASS_BASE}-${x.toLocaleLowerCase()}`);
-			}
-		}
-		function _getColorClass(bpm) {
-
-			for (let x in RANGES) {
-				if (bpm >= RANGES[x].min && bpm <= RANGES[x].max) {
-					return `${CLASS_BASE}-${x.toLowerCase()}`;
-				}
-			}
-
-			return `${CLASS_BASE}-default`;
-		}
 	});
-})(jQuery);
+
+	function _getColorClasses() {
+		let classes = [];
+		for (let x in RANGES) {
+			classes.push(`${CLASS_BASE}-${x.toLocaleLowerCase()}`);
+		}
+	}
+	function _getColorClass(bpm) {
+
+		for (let x in RANGES) {
+			if (bpm >= RANGES[x].min && bpm <= RANGES[x].max) {
+				return `${CLASS_BASE}-${x.toLowerCase()}`;
+			}
+		}
+
+		return `${CLASS_BASE}-default`;
+	}
+
+
+	let reconnectPointer = null;
+	let socket;
+
+	function _startWS(socketAddress) {
+		let colorClasses = _getColorClasses();
+		socket = new WebSocket(socketAddress);
+		socket.onopen = function (e) {
+			console.log('Connected to server!');
+			$(".hms-value")
+				.data("bpm", "")
+				.empty();
+		};
+		socket.onclose = function (e) {
+			$(".hms-value")
+				.removeClass(`hms-range-default ${colorClasses.join(' ')}`)
+				.data("bpm", "")
+				.empty();
+			console.log('Disconnected from server');
+			clearTimeout(reconnectPointer);
+			console.log("Reconnect attempt in 5 seconds.");
+			socket = null;
+			reconnectPointer = setTimeout(() => {
+				console.log("Attempting to reconnect...");
+				_startWS(socketAddress);
+			}, 5000);
+		};
+		socket.onmessage = function (e) {
+			let payload = JSON.parse(e.data);
+			switch (payload.event) {
+				case "bpm":
+					if (payload.data.bpm) {
+						$(".hms-value")
+							.removeClass(`hms-range-default ${colorClasses.join(' ')}`)
+							.data("bpm", payload.data.bpm)
+							.addClass(_getColorClass(payload.data.bpm))
+							.html(payload.data.bpm);
+					} else {
+						$(".hms-value")
+							.removeClass(`hms-range-default ${colorClasses.join(' ')}`)
+							.data("bpm", "")
+							.empty();
+					}
+					break;
+				case "error":
+					if (payload.message) {
+						console.error(payload.data.message);
+						console.error(payload.data.stack);
+					}
+					break;
+			}
+		};
+
+		socket.onerror = function (e) {
+			console.error('An error has occurred!\n' + e.message);
+		};
+	}
+
+}) (jQuery);
