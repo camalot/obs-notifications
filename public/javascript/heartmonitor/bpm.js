@@ -1,24 +1,24 @@
 (function ($) {
-	$(function () {
-		const SOCKET_ENDPOINT = "ws://192.168.2.3:3880";
-		const CLASS_BASE = "hms-range";
-		const RANGES = {
-			BLUE: {
-				min: 0,
-				max: 75
-			},
-			GREEN: {
-				min: 76,
-				max: 86
-			},
-			RED: {
-				min: 87,
-				max: 220
-			}
 
-		};
-		_startWS(SOCKET_ENDPOINT);
-	});
+	
+	const SOCKET_ENDPOINT = "ws://192.168.2.3:3880";
+	const CLASS_BASE = "hms-range";
+	const RANGES = {
+		BLUE: {
+			min: 0,
+			max: 75
+		},
+		GREEN: {
+			min: 76,
+			max: 86
+		},
+		RED: {
+			min: 87,
+			max: 220
+		}
+
+	};
+
 
 	function _getColorClasses() {
 		let classes = [];
@@ -95,4 +95,8 @@
 		};
 	}
 
+
+	$(function () {
+		_startWS(SOCKET_ENDPOINT);
+	});
 }) (jQuery);
