@@ -47,7 +47,7 @@
 				let payload = JSON.parse(e.data);
 				switch (payload.event) {
 					case "bpm":
-						if (data.bpm) {
+						if (payload.data.bpm) {
 							$(".hms-value")
 								.removeClass(`hms-range-default ${_getColorClasses().join(' ')}`)
 								.data("bpm", payload.data.bpm)
