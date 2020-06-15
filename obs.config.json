@@ -24,52 +24,6 @@
 	"sources": {
 		"filter": "^ANIMATION-.*$",
 		"aliases": {
-			"patrock" : {
-				"name": [ "ANIMATION-PATROCK" ],
-				"advertise": true,
-				"length": 6500,
-				"level": 7
-			},
-			"matrix": {
-				"name": [
-					"ANIMATION-MATRIX"
-				],
-				"advertise": true,
-				"length": 10500,
-				"level": 7
-			},
-			"1up": {
-				"name": [
-					"ANIMATION-1up"
-				],
-				"advertise": true,
-				"length": 7000,
-				"level": 7
-			},
-			"eh": {
-				"name": [ "ANIMATION-EhWhatever" ],
-				"advertise": true,
-				"length": 10500,
-				"level": 7
-			},
-			"prime": {
-				"name": [
-					"ANIMATION-TwitchPrime"
-				],
-				"advertise": true,
-				"length": 8000,
-				"level": 7
-			},
-			"gg": {
-				"name": [
-					"ANIMATION-VICTORYROYALE",
-					"ANIMATION-ACHIEVEMENT",
-					"ANIMATION-TOASTY"
-				],
-				"level": 7,
-				"length": 10000,
-				"advertise": true
-			},
 			"snoop": {
 				"name": [
 					"ANIMATION-TIDY-Snoop",
@@ -104,16 +58,6 @@
 				"length": 15000,
 				"level": 7
 			},
-			"rip": {
-				"name": [
-					"ANIMATION-WASTED",
-					"ANIMATION-FATALITY",
-					"ANIMATION-KO"
-				],
-				"advertise": true,
-				"length": 6000,
-				"level": 7
-			},
 			"popcorn": {
 				"name": [
 					"ANIMATION-POPCORN-RedKnight",
@@ -130,37 +74,6 @@
 				],
 				"advertise": true,
 				"length": 15000,
-				"level": 7
-			},
-			"hype": {
-				"name": [
-					"ANIMATION-HYPE-BriteBomber",
-					"ANIMATION-FREESTYLIN-BriteBomber",
-					"ANIMATION-FRESH-BriteBomber",
-					"ANIMATION-ELECTROSHUFFLE-BriteBomber",
-					"ANIMATION-RISEUP-Snoop",
-					"ANIMATION-HYPE",
-					"ANIMATION-HYPE2"
-				],
-				"advertise": true,
-				"length": 11000,
-				"level": 7
-			},
-			"hyper": {
-				"name": [
-					"ANIMATION-HYPE2"
-				],
-				"advertise": false,
-				"length": 11000,
-				"level": 7
-			},
-			"sh" : {
-				"name": [
-					"ANIMATION-HYPE2",
-					"ANIMATION-HYPE"
-				],
-				"advertise": false,
-				"length": 11000,
 				"level": 7
 			},
 			"oj": {
@@ -262,25 +175,6 @@
 				],
 				"advertise": true,
 				"length": 15000,
-				"level": 7
-			},
-			"surprise": {
-				"name": [
-					"ANIMATION-SURPRISE"
-				],
-				"advertise": true,
-				"length": 3000,
-				"level": 7
-			},
-			"bh": {
-				"name": [
-					"ANIMATION-MAKEITRAIN-RedKnight",
-					"ANIMATION-MAKEITRAIN-BriteBomber",
-					"ANIMATION-MONEY",
-					"ANIMATION-RISEUP-Snoop"
-				],
-				"advertise": false,
-				"length": 10000,
 				"level": 7
 			}
 		}

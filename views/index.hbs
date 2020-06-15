@@ -30,6 +30,9 @@
 	<script>
 		$(function () {
 			if($(".widget-EventList li").length > 1) {
+				$(".widget-EventList li .icon img")
+					.error(function() { $(this).src = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; });
+
 				function tick() {
 					$('.widget-EventList li:first').fadeOut({{config.animationSpeed}}, function () {
 						$('.widget-EventList li').fadeOut(0);
