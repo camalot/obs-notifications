@@ -31,7 +31,7 @@
 		$(function () {
 			if($(".widget-EventList li").length > 1) {
 				$(".widget-EventList li .icon img")
-					.on("error", function(err) { console.log(err); $(this).attr("src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="; }));
+					.on("error", function(err) { console.log(err); $(this).attr("src","data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="); });
 
 				function tick() {
 					$('.widget-EventList li:first').fadeOut({{config.animationSpeed}}, function () {
