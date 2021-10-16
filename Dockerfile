@@ -8,6 +8,7 @@ COPY package.json /app/
 
 RUN mkdir -p /databases && \
 	mkdir -p /app/data && \
+	mkdir -p /app/databases && \
 	mkdir -p /data && \
 	ln -s /data/labels /app/data/labels && \
 	ln -s /databases /app/databases && \
