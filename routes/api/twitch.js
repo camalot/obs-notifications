@@ -2,14 +2,14 @@
 const express = require('express');
 const router = express.Router();
 const config = require('./twitch.config');
-const https = require('https');
+const http = require('http');
 
 router.get("/channel/:user", (req, res, next) => {
-	let http_req = https.get({
+	let http_req = http.get({
 		hostname: "decapi.me",
 		path: `/twitch/avatar/${req.params.user}`,
 		method: 'get',
-		protocol: "https:"
+		protocol: "http:"
 	}, (resp) => {
 		let data = "";
 		resp.on("data", (chunk) => {
