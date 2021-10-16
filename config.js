@@ -15,7 +15,7 @@ config.sitePort = process.env.APP_PORT || 3000;
 
 config.slPath = process.env.APP_STREAMLABELS_PATH;
 config.databasePath = process.env.APP_DATABASE_PATH || 'databases/';
-
+console.log(`DBPATH: ${config.databasePath}`);
 config.chatbot = {
 	settings: {
 		API_Key: process.env.APP_SLCB_API_KEY,
